@@ -259,7 +259,7 @@ ca
 ```
 
 Plot the California gardens on the Whittaker diagram.
-Precipitation is in centimetres throughout the public API
+Precipitation is in centimeters throughout the public API
 (matches the underlying Whittaker biome polygon data and the
 diagram's native unit); pass `map_cm` from `get_climate()`'s
 output, not `map_mm`. Labels are omitted intentionally — with

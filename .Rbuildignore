@@ -18,17 +18,13 @@
 ^background$
 ^images$
 
-# User-side caches (not part of package distribution)
-^data/worldclim_cache$
-^data/gadm_cache$
+# User-side caches (not part of package distribution).
+# WorldClim and GADM downloads land in cache/ at the project
+# root; running get_climate() or map_biomes() recreates it.
+^cache$
 
-# Document-specific data (used by example notebooks; not package data)
-^data/Bot_Garden_Geocode_CSV\.csv$
-^data/whittaker_biomes\.csv$
-^data/ricklefs_colors\.csv$
-^data/SOURCES\.md$
-^data/build_biome_data\.R$
-^data/oregon_biomes\.kml$
+# Regenerable demo output (Whittakerr_3d.Rmd writes this)
+^oregon_biomes\.kml$
 
 # data-raw is by convention excluded from the built package
 ^data-raw$

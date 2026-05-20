@@ -28,11 +28,11 @@ development, see the accompanying Quarto document
 \section{Unit convention}{
 
 
-Precipitation is in centimetres throughout the public API.
+Precipitation is in centimeters throughout the public API.
 This matches the underlying biome polygon data
 (\code{\link{Whittaker_biomes}} carries a \code{precp_cm}
 column) and the diagram's native unit. WorldClim returns
-precipitation in millimetres; \code{\link{get_climate}}
+precipitation in millimeters; \code{\link{get_climate}}
 provides both \code{map_mm} and \code{map_cm} in its output
 tibble so callers can use whichever they need.
 

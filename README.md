@@ -25,7 +25,7 @@ install_github("kimbridges/whittakerr")
 
 ## Quick start
 
-Classify a single climate point. Precipitation is in centimetres
+Classify a single climate point. Precipitation is in centimeters
 throughout the package (matching the Whittaker diagram's native
 unit).
 

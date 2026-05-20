@@ -10,7 +10,7 @@ A data frame with 775 rows and 4 columns:
     \item{temp_c}{Annual mean temperature at the vertex
       (degrees Celsius).}
     \item{precp_cm}{Annual precipitation at the vertex
-      (centimetres). Note: the column is in cm; this is
+      (centimeters). Note: the column is in cm; this is
       the diagram's native unit.}
     \item{biome_id}{Integer 1-9 identifying which biome
       polygon this vertex belongs to.}

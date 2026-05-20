@@ -2,7 +2,7 @@
 ## whittakerr_functions.R
 ##
 ## Core biome classification (name_biome) and diagram-space
-## plotting (plot_biomes). Precipitation is in centimetres
+## plotting (plot_biomes). Precipitation is in centimeters
 ## throughout the public API; see ?whittakerr for the unit
 ## convention and the cover-art exception.
 ##
@@ -17,7 +17,7 @@
 #'
 #' @param mean_temp_c Annual mean temperature in degrees Celsius.
 #'   Scalar.
-#' @param total_ppt_cm Annual total precipitation in centimetres.
+#' @param total_ppt_cm Annual total precipitation in centimeters.
 #'   Scalar. Matches the underlying \code{Whittaker_biomes$precp_cm}
 #'   polygon data and the diagram's native unit.
 #'
@@ -88,7 +88,7 @@ name_biome <- function(mean_temp_c, total_ppt_cm){
 #' @param mean_temp_c Numeric vector of annual mean temperature
 #'   values (degrees Celsius), one per point. Optional.
 #' @param total_ppt_cm Numeric vector of annual total precipitation
-#'   values (centimetres), one per point. Same length as
+#'   values (centimeters), one per point. Same length as
 #'   \code{mean_temp_c}. Optional.
 #' @param source Character scalar. Caption to display below the
 #'   plot. Optional.

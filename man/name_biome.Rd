@@ -10,7 +10,7 @@ name_biome(mean_temp_c, total_ppt_cm)
 \item{mean_temp_c}{Annual mean temperature in degrees Celsius.
 Scalar.}
 
-\item{total_ppt_cm}{Annual total precipitation in centimetres.
+\item{total_ppt_cm}{Annual total precipitation in centimeters.
 Scalar. Matches the underlying \code{Whittaker_biomes$precp_cm}
 polygon data and the diagram's native unit.}
 }

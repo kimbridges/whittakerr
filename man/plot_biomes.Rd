@@ -16,7 +16,7 @@ plot_biomes(
 values (degrees Celsius), one per point. Optional.}
 
 \item{total_ppt_cm}{Numeric vector of annual total precipitation
-values (centimetres), one per point. Same length as
+values (centimeters), one per point. Same length as
 \code{mean_temp_c}. Optional.}
 
 \item{source}{Character scalar. Caption to display below the

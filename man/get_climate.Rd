@@ -41,16 +41,18 @@ Default \code{"2041-2060"} (mid-century).}
 \item{resolution}{Numeric. Spatial resolution in
 arc-minutes. Valid values: 10, 5, 2.5, or 0.5
 (30 arc-seconds). Default \code{2.5}, the document's
-standard.}
+standard. The 0.5 (30-arcsecond) option is available
+for historical climate only; CMIP6 future projections
+are distributed at 2.5 arc-minutes and coarser.}
 
 \item{cache_path}{Character. Directory for cached WorldClim
 downloads. Default \code{"cache/worldclim_cache"} (relative
 to the current working directory). The first call for a
-given resolution and scenario downloads the global dataset
-(hundreds of MB at 2.5'); subsequent calls reuse the
-cache. Override this path if you want the cache somewhere
-else, e.g., \code{tools::R_user_dir("whittakerr", "cache")}
-for the R-standard user-cache location.}
+given resolution and scenario downloads the data;
+subsequent calls reuse the cache. Override this path if
+you want the cache somewhere else, e.g.,
+\code{tools::R_user_dir("whittakerr", "cache")} for the
+R-standard user-cache location.}
 }
 \value{
 A tibble with columns: \code{lon}, \code{lat},
@@ -73,6 +75,13 @@ Layer order in WorldClim's bioclimatic variables:
   precipitation. Both are pulled from the bio (historical)
   or bioc (CMIP6) variable set.
 
+  At the three coarser resolutions (10, 5, and 2.5
+  arc-minutes) WorldClim is one global grid, downloaded
+  once. At 30 arc-seconds (resolution 0.5) WorldClim is
+  tile-distributed; \code{get_climate()} fetches the tile
+  covering each query point. Points clustered in one
+  region resolve in a single tile.
+
   The function is vectorized: pass vectors of any length
   for \code{lon} and \code{lat} and get one tibble row per
   point.
@@ -85,8 +94,14 @@ cities <- get_climate(
   lat = c(21.31, 34.05, 47.61)
 )
 
-# Future projection at the same points (SSP2-4.5,
-# 2041-2060, MPI-ESM1-2-HR)
+# Fine-resolution (30 arc-second) historical climate
+fine <- get_climate(
+  lon        = -157.86,
+  lat        = 21.31,
+  resolution = 0.5
+)
+
+# Future projection (SSP2-4.5, 2041-2060, MPI-ESM1-2-HR)
 cities_future <- get_climate(
   lon      = c(-157.86, -118.24, -122.33),
   lat      = c(21.31, 34.05, 47.61),

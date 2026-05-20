@@ -62,7 +62,7 @@ library(ggplot2)
 name_biome <- function(mean_temp_c, total_ppt_cm){
 
   ## Retrieves the biome name from the temperature and
-  ## precipitation. Precipitation is in centimetres (matches
+  ## precipitation. Precipitation is in centimeters (matches
   ## the underlying Whittaker_biomes$precp_cm polygon data).
 
   ## requires dplyr, sp
@@ -112,7 +112,7 @@ plot_biomes <- function(mean_temp_c  = NULL,
   ## If no data points are given (e.g., mean_temp_c, total_ppt_cm),
   ##  you get just a basic plot of the Whittaker biomes.
   ##
-  ## Precipitation is in centimetres (matches the underlying
+  ## Precipitation is in centimeters (matches the underlying
   ## Whittaker_biomes$precp_cm polygon data and the diagram's
   ## native unit).
 

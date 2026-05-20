@@ -1,0 +1,103 @@
+# Retrieving Climate Data
+
+Every biome classification in this document begins with two climate numbers: an annual mean temperature and an annual precipitation for a place. This chapter covers how to get those numbers. The `get_climate()` function takes one or more coordinate pairs and returns the climate values at each.
+
+Before the function itself, a few words on where the climate data comes from. WorldClim, the source `get_climate()` draws on, is a real departure from how ecologists have traditionally obtained climate data, and the departure is worth understanding.
+
+## Where climate data comes from
+
+For most of the history of ecology, climate data came from weather stations. Using it meant finding the right station, downloading its high-frequency records (often daily), and aggregating those records to the timescale the analysis needed, usually monthly or annual averages. This worked, but it had real limitations. Weather stations are unevenly distributed: dense in populated and agricultural regions, sparse in deserts, mountains, and the high latitudes. The periods of record vary from station to station, so two nearby stations might cover different decades. And for a remote location, or for an analysis spanning a large area, there might be no well-placed station at all. The data existed, but getting consistent climate values for an arbitrary point on Earth was genuinely hard.
+
+WorldClim takes a different approach. Rather than serving station records directly, it interpolates them into continuous global surfaces. The current version, WorldClim 2.1, is built from the records of somewhere between 9,000 and 60,000 weather stations (the count varies by climate variable). Those station records, all covering the 1970–2000 period, are interpolated across space using a thin-plate spline method, with covariates that improve the interpolation where stations are sparse: elevation, distance to the coast, and satellite measurements of land surface temperature and cloud cover from the MODIS platform. The satellite covariates matter most in exactly the data-poor regions where station interpolation alone would struggle.
+
+The result is a climate value for every cell of a global grid covering all terrestrial land surfaces. There is no finding the station. A coordinate anywhere on land returns a climate value, because the interpolation has already filled every cell. The periods are consistent: every cell represents the same 1970–2000 baseline. And the data is already aggregated to the annual and monthly summaries an ecological analysis usually wants, including the nineteen derived bioclimatic variables. This document uses two of them: BIO1, annual mean temperature, and BIO12, annual precipitation.
+
+WorldClim distributes the data as GeoTIFF files. A GeoTIFF is a raster format: a rectangular grid of cells, each cell holding one value, with embedded coordinate metadata so the grid maps onto real geographic space. The `get_climate()` function handles the download and the cell lookup, so the GeoTIFF format is something the function manages rather than something you interact with directly.
+
+The storage strategy changes with resolution. At 10, 5, and 2.5 arc-minutes, the whole world fits in a single GeoTIFF per variable, a few hundred megabytes at most. At 30 arc-seconds (roughly one kilometer at the equator) the global dataset is far larger. Rather than one enormous file, WorldClim splits the 30-arcsecond data into tiles, each covering a block of the globe, and you download only the tiles that cover your area of interest. The `get_climate()` function manages the distinction: at the coarser resolutions it fetches the single global grid; at 30 arc-seconds it fetches the tile or tiles your points fall within. Either way the download happens once and is cached. This document works mostly at 2.5 arc-minutes, the choice discussed in the Scale chapter, with one finer-resolution example to show what 30 arc-seconds reveals.
+
+## Setup
+
+Every code-bearing chapter begins with a setup chunk. Run it first.
+
+```{r}
+#| label: setup-climate
+#| message: false
+## the whittakerr toolkit: get_climate(), name_biome(), plot_biomes()
+library(whittakerr)
+## read_csv() for reading inline data tables
+library(readr)
+## data manipulation: bind_cols() and select()
+library(dplyr)
+## formatted tables for display
+library(gt)
+## suppress read_csv() column-type messages for the whole chapter
+options(readr.show_col_types = FALSE)
+```
+
+## Retrieving climate for one location
+
+The `get_climate()` function takes a longitude and a latitude and returns the climate at that point. Here it is for Honolulu:
+
+```{r}
+#| label: climate-honolulu
+## retrieve historical climate for Honolulu
+honolulu <- get_climate(lon = -157.86, lat = 21.31)
+## show the result
+honolulu
+```
+
+The first call to `get_climate()` triggers the WorldClim download described above. At 2.5 arc-minute resolution this is a few hundred megabytes, and it takes a few minutes. The download happens once. Afterward the data is cached, and subsequent calls are fast.
+
+The returned object is a table with one row per location. The columns are the longitude and latitude you supplied, then `mat_c` (mean annual temperature, in degrees Celsius), `map_mm` (mean annual precipitation, in millimeters), `map_cm` (the same precipitation in centimeters), and `scenario` (here, the historical 1970–2000 baseline). For Honolulu, expect a warm temperature near 24 degrees and a moderate precipitation: the coordinate falls on the drier, leeward side of Oahu.
+
+Both precipitation columns are provided for convenience. WorldClim reports precipitation in millimeters; the Whittaker biome functions in this document expect centimeters. Having both means you can pass `map_cm` straight into `name_biome()` or `plot_biomes()` without converting anything yourself.
+
+## Several locations at once
+
+`get_climate()` is vectorized. Pass it a vector of longitudes and a matching vector of latitudes, and it returns one row per location. The natural way to organize several locations is a table.
+
+Here are three Pacific-coast cities with very different climates, written as an inline data table:
+
+```{r}
+#| label: cities-table
+## three Pacific-coast cities as an inline data table
+cities <- read_csv(
+  "name,         lon,      lat
+   Honolulu,     -157.86,  21.31
+   Los Angeles,  -118.24,  34.05
+   Seattle,      -122.33,  47.61")
+
+## display the table with its data source noted
+cities |>
+  gt() |>
+  tab_source_note("Approximate city-center coordinates.")
+```
+
+Building the data as a table, rather than as separate vectors of names, longitudes, and latitudes, has a practical benefit. Each row is one location, and its name, longitude, and latitude stay together. Adding or removing a city is a one-line edit, and there's no way for the values to drift out of alignment. Data input is where analysis errors most often begin; a table keeps each observation intact.
+
+Now retrieve the climate for all three cities in a single call:
+
+```{r}
+#| label: cities-climate
+## retrieve climate for all three cities in a single call
+cities_climate <- get_climate(lon = cities$lon, lat = cities$lat)
+```
+
+`get_climate()` returns its climate columns in the same row order as the coordinates it received, so the results line up with the cities table row for row. Combining the two takes two steps. The `get_climate()` result carries its own `lon` and `lat` columns, so binding the two tables whole would produce duplicates. Instead, first take just the climate columns wanted, then attach them to the cities table:
+
+```{r}
+#| label: cities-result
+## step 1: take just the climate columns from the get_climate() result
+climate_values <- select(cities_climate, mat_c, map_mm, map_cm)
+
+## step 2: attach those columns to the cities table
+cities_result <- bind_cols(cities, climate_values)
+
+## display the combined table with the climate-data source noted
+cities_result |>
+  gt() |>
+  tab_source_note("Climate values: WorldClim 2.1, 1970–2000 baseline.")
+```
+
+The three cities span a wide climate range. Honolulu is warm and moderately wet. Los Angeles is mild and dry. Seattle is cool and wet. These differences are exactly what the Whittaker diagram organizes, and later chapters place these same cities on it.
