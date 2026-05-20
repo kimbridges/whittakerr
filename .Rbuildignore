@@ -1,0 +1,43 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^_output$
+^\.quarto$
+
+# Quarto Document files (chapters, notebooks)
+^.*\.qmd$
+^.*\.Rmd$
+^.*\.nb\.html$
+^_quarto\.yml$
+
+# Cover and logo art (Document assets, not package assets)
+^whittakerr_cover_art_text\.png$
+^whittakerr_logo_art\.png$
+^biome_example.*\.png$
+
+# Project ideation and working notes
+^background$
+^images$
+
+# User-side caches (not part of package distribution)
+^data/worldclim_cache$
+^data/gadm_cache$
+
+# Document-specific data (used by example notebooks; not package data)
+^data/Bot_Garden_Geocode_CSV\.csv$
+^data/whittaker_biomes\.csv$
+^data/ricklefs_colors\.csv$
+^data/SOURCES\.md$
+^data/build_biome_data\.R$
+^data/oregon_biomes\.kml$
+
+# data-raw is by convention excluded from the built package
+^data-raw$
+
+# Stray dotfiles
+^\.gitignore$
+^\.DS_Store$
+^\.Rhistory$
+
+# README-style files we may add later
+^README\.Rmd$
+^cran-comments\.md$

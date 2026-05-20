@@ -1,0 +1,354 @@
+---
+title: "Whittakerr — Climate Retrieval"
+output: html_notebook
+---
+
+## Overview
+
+This notebook provides `get_climate()` — a function that returns
+annual mean temperature and annual precipitation at one or more
+coordinate pairs, drawn from WorldClim v2.1. Both the 1970–2000
+historical baseline and CMIP6 future projections are supported
+under a single function signature, with defaults that make the
+historical case the path of least resistance.
+
+The output flows directly into `plot_biomes()` for placement on
+the Whittaker diagram, completing the coordinate → biome pipeline.
+
+Bioclim variables used: BIO1 (annual mean temperature, °C) and
+BIO12 (annual precipitation, mm).
+
+WorldClim is large. The first call for a given resolution and
+scenario downloads the global dataset (several hundred MB at
+2.5'); subsequent calls reuse the cache. The default cache
+location is `data/worldclim_cache/` inside the project. Points
+that fall on ocean cells return NA — handle accordingly downstream.
+
+## Setup
+
+```{r}
+
+## Load the whittakerr package, which provides:
+##   - Whittaker_biomes (data.frame) and Ricklefs_colors
+##     (named character vector) as bundled package data
+##   - name_biome(), plot_biomes(), get_climate(),
+##     map_biomes(), smooth_biome_map(), plot_biome_map(),
+##     and export_biome_kml() as exported functions
+##
+## If whittakerr isn't installed yet:
+##   library(devtools)
+##   install_github("kimbridges/whittakerr")
+
+library(whittakerr) ## the canonical source
+library(geodata)    ## WorldClim download (whittakerr depends on this)
+library(terra)      ## raster extraction
+library(tibble)     ## return type
+library(dplyr)      ## piping, mutate
+library(ggplot2)    ## plots package
+library(sp)         ## point.in.polygon (used by name_biome internals)
+
+```
+
+## The Function
+
+```{r}
+
+############################################################
+
+get_climate <- function(lon, lat,
+                        scenario   = c("historical", "future"),
+                        gcm        = "MPI-ESM1-2-HR",
+                        ssp        = "245",
+                        period     = "2041-2060",
+                        resolution = 2.5,
+                        cache_path = "data/worldclim_cache"){
+
+  ## Returns annual mean temperature and annual precipitation
+  ## at one or more (lon, lat) points, from WorldClim v2.1.
+  ## Supports the 1970–2000 historical baseline (scenario =
+  ## "historical", the default) and CMIP6 future projections
+  ## (scenario = "future"). Future scenarios are parameterized
+  ## by GCM, SSP, and time period.
+
+  ## Returns a tibble with columns: lon, lat, mat_c (annual
+  ## mean temperature, °C), map_mm (annual precipitation, mm),
+  ## map_cm (annual precipitation, cm), scenario, and — when
+  ## scenario = "future" — gcm, ssp, period. Ocean points and
+  ## points outside the data extent return NA for mat_c, map_mm,
+  ## and map_cm.
+
+  ## requires geodata, terra, tibble, dplyr
+
+  scenario <- match.arg(scenario)
+
+  ## Validate inputs.
+  if(length(lon) != length(lat)){
+    stop("lon and lat must be the same length.")
+  }
+
+  ## Ensure cache directory exists.
+  dir.create(cache_path, showWarnings = FALSE, recursive = TRUE)
+
+  ## Fetch the appropriate bioclim SpatRaster.
+  ## Historical uses var = "bio"; CMIP6 future uses var = "bioc".
+  ## Layer order in both cases is BIO1 through BIO19.
+  if(scenario == "historical"){
+    bio_raster <- geodata::worldclim_global(
+      var  = "bio",
+      res  = resolution,
+      path = cache_path
+    )
+  } else {
+    bio_raster <- geodata::cmip6_world(
+      model = gcm,
+      ssp   = ssp,
+      time  = period,
+      var   = "bioc",
+      res   = resolution,
+      path  = cache_path
+    )
+  }
+
+  ## Subset to BIO1 and BIO12.
+  bio_subset <- bio_raster[[c(1, 12)]]
+
+  ## Build a SpatVector of the query points (WGS84).
+  pts <- terra::vect(cbind(lon, lat), crs = "EPSG:4326")
+
+  ## Extract values at each point. terra::extract returns a
+  ## data.frame with ID + one column per layer; values are in
+  ## columns 2 and 3.
+  extracted <- terra::extract(bio_subset, pts)
+  mat <- extracted[, 2]
+  map <- extracted[, 3]
+
+  ## Assemble the result.
+  result <- tibble(
+    lon      = lon,
+    lat      = lat,
+    mat_c    = mat,
+    map_mm   = map,
+    map_cm   = map / 10,
+    scenario = scenario
+  )
+
+  ## Tack on future-scenario metadata when relevant.
+  if(scenario == "future"){
+    result <- result |>
+      mutate(gcm    = gcm,
+             ssp    = ssp,
+             period = period)
+  }
+
+  return(result)
+
+} ## End function get_climate
+
+```
+
+## Testing — single point
+
+A first call to confirm the function returns sensible values for
+a place we know.
+
+```{r}
+
+## Honolulu, Hawaii.
+honolulu <- get_climate(lon = -157.86, lat = 21.31)
+honolulu
+
+```
+
+Expected: warm (mat_c around 23–25°C) and moderately wet
+(map_mm around 400–800 mm depending on exactly which cell the
+coordinate falls in — leeward Honolulu is drier than windward
+areas a few miles away).
+
+## Testing — vector of points
+
+Three Pacific-coast cities of different climates, in one call.
+
+```{r}
+
+cities <- tibble(
+  name = c("Honolulu", "Los Angeles", "Seattle"),
+  lon  = c(-157.86,    -118.24,        -122.33),
+  lat  = c(  21.31,      34.05,          47.61)
+)
+
+cities_historical <- get_climate(lon = cities$lon, lat = cities$lat)
+
+## Bind the climate values back to the city names for readability.
+cities_historical <- bind_cols(cities, cities_historical |>
+                                 select(mat_c, map_mm, map_cm, scenario))
+cities_historical
+
+```
+
+## Testing — future scenario
+
+Same three cities under SSP2-4.5 (middle-of-the-road emissions),
+2041–2060, MPI-ESM1-2-HR. This is the default future spec.
+
+```{r}
+
+cities_future <- get_climate(lon      = cities$lon,
+                             lat      = cities$lat,
+                             scenario = "future")
+
+cities_future <- bind_cols(cities, cities_future |>
+                             select(mat_c, map_mm, map_cm,
+                                    scenario, gcm, ssp, period))
+cities_future
+
+## Side-by-side delta on temperature and precipitation.
+cities_delta <- tibble(
+  name           = cities$name,
+  mat_historical = cities_historical$mat_c,
+  mat_future     = cities_future$mat_c,
+  mat_delta_c    = cities_future$mat_c   - cities_historical$mat_c,
+  map_historical = cities_historical$map_mm,
+  map_future     = cities_future$map_mm,
+  map_delta_mm   = cities_future$map_mm  - cities_historical$map_mm
+)
+cities_delta
+
+```
+
+## Smoke test — Botanical Gardens (California)
+
+The end-to-end pipeline: read the staged geocoded CSV, filter to
+California gardens, retrieve climate, place each garden on the
+Whittaker diagram. This is the first chapter-3-plus-chapter-4
+integration: coordinates in, biome diagram out.
+
+```{r}
+
+## Load the staged dataset.
+##
+## fileEncoding note: the file is CP1252 / Windows-1252 encoded
+## (single-byte 0xF1 for ñ in "La Cañada Flintridge" and similar).
+## Reading it as UTF-8 causes scan() to throw
+## "invalid input found on input connection" and return zero
+## rows — silently breaking every downstream chunk. Use
+## "latin1" (or equivalently "Windows-1252") to decode the
+## file correctly. If the file is ever re-saved as proper
+## UTF-8, this parameter should be changed back to "UTF-8".
+gardens <- read.csv(
+  system.file("extdata", "Bot_Garden_Geocode_CSV.csv",
+              package = "whittakerr"),
+  stringsAsFactors = FALSE,
+  fileEncoding     = "latin1"
+)
+
+## Filter to California.
+ca_gardens <- gardens |>
+  filter(State == "CA")
+
+nrow(ca_gardens)
+
+## Retrieve climate (historical).
+ca_climate <- get_climate(lon = ca_gardens$lon,
+                          lat = ca_gardens$lat)
+
+## Combine.
+ca <- bind_cols(ca_gardens |> select(Name, City, State, lon, lat),
+                ca_climate  |> select(mat_c, map_mm, map_cm))
+ca
+
+```
+
+Plot the California gardens on the Whittaker diagram.
+Precipitation is in centimetres throughout the public API
+(matches the underlying Whittaker biome polygon data and the
+diagram's native unit); pass `map_cm` from `get_climate()`'s
+output, not `map_mm`. Labels are omitted intentionally — with
+this many gardens, the spatial distribution of points on the
+diagram carries the story.
+
+```{r}
+
+ca_plot <- plot_biomes(mean_temp_c  = ca$mat_c,
+                       total_ppt_cm = ca$map_cm,
+                       source       = "California botanical gardens · WorldClim v2.1, 1970–2000")
+
+ca_plot
+
+## Save the figure.
+ggsave(plot     = ca_plot,
+       filename = "images/california_gardens_historical.png",
+       width    = 9,
+       height   = 6,
+       dpi      = 150)
+
+```
+
+## Future-scenario version of the Botanical Gardens example
+
+Same California gardens, but with climate retrieved from the
+SSP2-4.5 mid-century projection. Comparing this against the
+historical plot shows which gardens are most exposed to biome
+shift.
+
+```{r}
+
+ca_climate_future <- get_climate(lon      = ca_gardens$lon,
+                                 lat      = ca_gardens$lat,
+                                 scenario = "future")
+
+ca_future <- bind_cols(ca_gardens |> select(Name, City, State, lon, lat),
+                       ca_climate_future |>
+                         select(mat_c, map_mm, map_cm,
+                                gcm, ssp, period))
+ca_future
+
+ca_future_plot <- plot_biomes(
+  mean_temp_c  = ca_future$mat_c,
+  total_ppt_cm = ca_future$map_cm,
+  source       = "California botanical gardens · WorldClim v2.1 CMIP6, MPI-ESM1-2-HR, SSP2-4.5, 2041–2060"
+)
+
+ca_future_plot
+
+ggsave(plot     = ca_future_plot,
+       filename = "images/california_gardens_future_ssp245_midcentury.png",
+       width    = 9,
+       height   = 6,
+       dpi      = 150)
+
+```
+
+Comparison: the per-garden biome shift between historical and
+future. This is the analytical promise of the document — each
+garden's vulnerability is visible as movement on the diagram.
+
+```{r}
+
+ca_shift <- tibble(
+  Name           = ca$Name,
+  City           = ca$City,
+  mat_historical = ca$mat_c,
+  mat_future     = ca_future$mat_c,
+  mat_delta_c    = ca_future$mat_c  - ca$mat_c,
+  map_historical = ca$map_cm,
+  map_future     = ca_future$map_cm,
+  map_delta_cm   = ca_future$map_cm - ca$map_cm
+)
+ca_shift
+
+```
+
+## Notes
+
+- The default future scenario (MPI-ESM1-2-HR, SSP2-4.5,
+  2041–2060) is one defensible point estimate. A serious
+  analysis would average across multiple GCMs or report
+  ensemble spread; the function's parameterization supports
+  that by accepting different `gcm` values in successive calls.
+- WorldClim 2.5' is coarse for Hawaii's elevational gradients
+  (Honolulu, Hilo, and Hawaii Volcanoes are essentially three
+  different biomes within tens of kilometers). A 30" option
+  would help; CHELSA at 30" might help more. Both are queued.
+- The `data/worldclim_cache/` directory will grow large after
+  the first runs. Add it to `.gitignore` if/when this becomes
+  a packaged project.

@@ -1,0 +1,268 @@
+---
+title: "Whittakerr — Biome Maps in 3D via Google Earth"
+output: html_notebook
+---
+
+## Overview
+
+This notebook demonstrates `export_biome_kml()` — a function
+that exports a biome map as KML for viewing in Google Earth.
+The KML uses vector polygons (not a raster GroundOverlay), so
+the biome boundaries remain vector-quality at any zoom and
+drape onto Google Earth's terrain via `altitudeMode =
+clampToGround` plus `<tessellate>1</tessellate>`.
+
+The chapter's central claim — see
+`background/chapter_3d_overlay_ideas.md` Thread 1 — is that
+the biome map produced from T and P alone should track
+topographic features it never saw, because at scales where
+orography dominates climate, both T and P track topography
+(T via lapse rate, P via orographic lift and rain shadow).
+Draping the 2D biome map over 3D terrain tests this prediction
+by an independent physical mechanism. The classifier is
+"right" in the sense that physics it doesn't know about is
+visible in its output.
+
+Oregon is the first worked example. The Cascades create a
+sharp north-south barrier producing a dramatic east-west
+moisture gradient — Pacific maritime west of the crest,
+continental high desert east of it. The biome boundaries
+derived from T and P alone should align with the Cascades
+crest when draped on terrain.
+
+## Setup
+
+```{r}
+
+## Load the whittakerr package. Provides export_biome_kml()
+## plus the other mapping toolkit functions and bundled data.
+##
+## If whittakerr isn't installed yet:
+##   library(devtools)
+##   install_github("kimbridges/whittakerr")
+
+library(whittakerr) ## the canonical source
+library(geodata)    ## WorldClim and GADM download
+library(terra)      ## raster ops, polygon ops, plot
+library(sp)         ## point.in.polygon (used by name_biome)
+library(sf)         ## simple features (smoothr, KML interop)
+library(smoothr)    ## polygon boundary smoothing
+
+```
+
+## Fetching the Oregon polygon
+
+We use GADM at level 1 (states/provinces) and filter to
+Oregon. GADM caches the country-level download; first call
+fetches ~3 MB.
+
+```{r}
+
+us_states <- geodata::gadm(country = "USA",
+                           level   = 1,
+                           path    = "cache/gadm_cache")
+
+oregon <- us_states[us_states$NAME_1 == "Oregon", ]
+
+## Verify by plotting the bare polygon before climate work.
+terra::plot(oregon,
+            main = "Oregon — GADM level 1 polygon",
+            col  = "lightblue",
+            lwd  = 0.5)
+
+```
+
+## Classifying biomes at 2.5 arc-minutes
+
+We use the 2.5' global resolution. At this resolution the
+WorldClim cache is already populated from earlier sessions
+(Hawaii, Oregon 2D mapping). For Oregon the Cascades gradient
+is well-represented at 2.5'; finer resolution (30") would
+capture more local detail but isn't needed for the
+orographic-verification demonstration.
+
+```{r}
+
+oregon_map <- map_biomes(region_polygon = oregon,
+                         resolution     = 2.5)
+
+## Quick 2D sanity check before smoothing and KML export.
+plot_biome_map(oregon_map,
+               render = "grid",
+               legend = TRUE)
+
+```
+
+What to expect in the 2D map: Pacific maritime biomes
+(temperate seasonal forest and temperate rain forest) west of
+the Cascades crest; transitioning to woodland/shrubland on
+the lee side; high desert / temperate grassland southeast.
+The biome boundary follows the Cascades because the climate
+inputs do.
+
+## Smoothing for the KML export
+
+The KML export can work directly from the raster-derived
+polygons, but smoothed boundaries look more natural when
+draped over terrain in Google Earth — the gridded raster
+boundaries appear as stepped lines on the 3D surface.
+Smoothing produces curves that read as natural biome
+transitions.
+
+For Oregon's continental-gradient regions, vector smoothing
+works well (no single-cell-circle artifacts as on Oahu — see
+`background/chapter_mapping_ideas.md` Thread 4 for the
+discussion of when smoothing helps vs. hurts).
+
+```{r}
+
+oregon_map <- smooth_biome_map(oregon_map,
+                               method     = "ksmooth",
+                               smoothness = 1)
+
+## Quick visual confirmation of the smoothed polygons before
+## export.
+plot_biome_map(oregon_map,
+               render = "vector",
+               legend = TRUE)
+
+```
+
+## Exporting to KML
+
+Vector polygons with per-biome Style elements. The KML
+includes `altitudeMode = clampToGround` and `tessellate = 1`
+so Google Earth drapes each polygon over its terrain rather
+than rendering it as a flat sheet at sea level.
+
+```{r}
+
+kml_path <- "oregon_biomes.kml"
+
+export_biome_kml(
+  biome_map   = oregon_map,
+  file        = kml_path,
+  smoothed    = TRUE,
+  alpha       = "B0",       ## ~69% opacity
+  outline     = TRUE,
+  name        = "Oregon Biome Map (Whittakerr, 2.5')",
+  description = "Whittaker biome classification of Oregon at 2.5 arc-minute WorldClim resolution. Polygons derived from T (BIO1) and P (BIO12) only; elevation is not an input. The orographic-verification claim predicts these boundaries should track the Cascades crest when draped on Google Earth's terrain."
+)
+
+```
+
+The KML file is written to `oregon_biomes.kml` at the project root. To view:
+
+1. Open Google Earth Pro (desktop) or Google Earth Web.
+2. File → Open → select `oregon_biomes.kml`, or drag the file
+   onto the Google Earth window.
+3. Once loaded, navigate to Oregon (the polygons should auto-
+   center the view). Tilt the view to see the terrain in 3D
+   (mouse wheel or Shift+drag in the desktop client).
+
+## What to look for in Google Earth
+
+The orographic verification claim predicts specific alignments
+between biome boundaries and terrain. Worth observing:
+
+**Cascades crest.** The transition from temperate seasonal /
+temperate rain forest (greens) to woodland/shrubland (drier
+biomes east of the crest) should follow the Cascades ridge
+line. The biome polygon edge should sit on or near the
+high-elevation backbone — that's the orographic argument:
+the rain shadow effect drops precipitation east of the
+crest, dropping the biome assignment with it.
+
+**Coast Range.** A secondary, weaker version of the same
+effect — the Oregon Coast Range produces a small rain
+shadow in the Willamette Valley. Whether the biome map
+captures this depends on resolution.
+
+**Klamath Mountains (southwest).** Topographically complex;
+the biome assignment in this region tests whether the climate
+raster picks up the elevational diversity.
+
+**High desert southeast.** The Steens Mountain block and the
+basin-and-range topography of southeastern Oregon. Biome
+boundaries here may NOT track topography as cleanly because
+the climate gradient is gentler and other factors (soil,
+fire history) become relatively more important — this is
+exactly the kind of region where Thread 2 of
+`chapter_3d_overlay_ideas.md` (mismatches as discovery
+surfaces) might surface productive ecology.
+
+## Mismatches worth investigating
+
+When you find biome assignments that don't match what's
+actually on the ground at that location, the mismatch is
+informative. The Whittaker classifier consumes T and P
+only; mismatches point to factors at the next level down
+the ecological hierarchy:
+
+- **Fire-maintained ecosystems.** Eastern Oregon historically
+  had extensive ponderosa pine savanna maintained by frequent
+  low-intensity fire. Fire suppression has shifted many of
+  these areas toward denser forest. The biome map (which
+  reflects T-P climate) may predict "woodland/shrubland"
+  where the actual current ecosystem is altered ponderosa
+  pine.
+- **Hydrological features.** Riparian gallery forests along
+  the John Day, Owyhee, and other Oregon rivers exist as
+  green ribbons through nominally drier biome assignments.
+  The climate raster averages these out; the local ecology
+  is decoupled from regional precipitation.
+- **Soil chemistry.** Serpentine outcrops in the Klamath
+  Mountains host distinctive endemic communities.
+
+Each mismatch points to where ecosystem-level investigation
+is warranted — fire history, hydrology, soils. The biome
+map is the first cut; mismatches are the road map for the
+deeper work.
+
+## Limitations
+
+- **Smoothing artifact at small isolated cells.** Same
+  caveat as the Oahu mapping work — if Oregon has any
+  single-cell biome assignments (likely a few in the
+  topographically complex SW), they'll smooth to circles.
+  Inspect the smoothed output before export.
+- **GADM polygon simplification.** Oregon's GADM level-1
+  polygon is simplified; the coastline and state boundary
+  are not pixel-precise. Doesn't affect classification
+  (computed from raster cells, not the polygon edge) but
+  the rendered shape is slightly inside the true outline
+  in places.
+- **Vertical exaggeration.** Google Earth's default
+  vertical exaggeration is 1.0 — true terrain. The
+  Cascades are dramatic enough at 1.0 that no exaggeration
+  is needed; cranking it to 2x or 3x adds visual impact
+  but distorts the spatial relationships and can make the
+  orographic alignment look stronger or weaker than it
+  really is. Default to 1.0 for the chapter's figures.
+
+## Toolkit extension queue
+
+Items deferred from this initial KML implementation:
+
+- **Per-biome description.** Each `<Placemark>` could carry a
+  rich-text description visible when the user clicks the
+  polygon (biome name, T-P envelope, characteristic
+  vegetation, references). Currently the description is
+  just the biome name.
+- **Time-stamped KML.** Climate-shift scenarios via
+  `get_climate(scenario = "future_ssp245")` produce future
+  biome maps; KML supports `<TimeSpan>` elements that would
+  let Google Earth animate the present → future shift.
+- **Network links.** A master KML that references regional
+  KML files would let the reader navigate to any of the
+  document's worked examples from a single Google Earth
+  session.
+- **Raster GroundOverlay alternative.** For coarse-resolution
+  global views, vector KML may be too lightweight; rasterized
+  GroundOverlay would carry pixel-level color. Implement if a
+  global biome map demonstration enters the document.
+- **Custom altitude per biome.** KML supports per-feature
+  altitude — raising forest biomes a few meters above
+  clamped ground could make the 3D structure more legible,
+  though it would also be slightly deceptive. Defer until
+  needed.

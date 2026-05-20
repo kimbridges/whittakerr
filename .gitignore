@@ -1,0 +1,42 @@
+# R session and history
+.Rhistory
+.RData
+.Ruserdata
+.Rapp.history
+
+# RStudio project state
+.Rproj.user/
+*.Rproj
+
+# R package check / build artifacts
+*.Rcheck/
+*.tar.gz
+
+# Quarto build artifacts
+_output/
+.quarto/
+*.nb.html
+*_files/
+
+# User-side caches (large; never committed)
+cache/
+data/worldclim_cache/
+data/gadm_cache/
+
+# Regenerable demo outputs
+oregon_biomes.kml
+biome_example.png
+biome_example_trimmed.png
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.Rproj.user
+.httr-oauth
+.quarto

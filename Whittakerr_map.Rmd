@@ -1,0 +1,367 @@
+---
+title: "Whittakerr — Biome Maps in Geographic Space"
+output: html_notebook
+---
+
+## Overview
+
+This notebook demonstrates `map_biomes()` — a function that
+produces a geographic biome map for a region by combining
+climate retrieval (per `get_climate()`) with biome
+classification (per `name_biome()`) and rendering the result
+over a region polygon.
+
+Where `plot_biomes()` plots data points in T-P diagram space,
+`map_biomes()` plots biome assignments back in real
+geographic space, completing the classification-to-mapping
+arc that the document's design notes describe as the
+project's destination.
+
+The first worked example is Oahu — small enough to iterate
+quickly, dramatic enough (windward-leeward rain shadow,
+elevational gradient on the Koolau range) to actually exercise
+the resolution choices.
+
+## Setup
+
+```{r}
+
+## Load the whittakerr package. Provides map_biomes(),
+## smooth_biome_map(), plot_biome_map(), name_biome(),
+## plot_biomes(), and the bundled data (Whittaker_biomes,
+## Ricklefs_colors).
+##
+## If whittakerr isn't installed yet:
+##   library(devtools)
+##   install_github("kimbridges/whittakerr")
+
+library(whittakerr) ## the canonical source
+library(geodata)    ## WorldClim and GADM download
+library(terra)      ## raster ops, polygon ops, plot
+library(tibble)     ## return types
+library(dplyr)      ## piping, mutate
+library(ggplot2)    ## plots package
+library(sp)         ## point.in.polygon (used by name_biome)
+library(sf)         ## simple features (smoothr interop)
+library(smoothr)    ## polygon boundary smoothing
+
+```
+
+## Fetching the Oahu polygon
+
+The region polygon for Oahu comes from GADM (Global
+Administrative Areas) via the `geodata` package. Oahu is part
+of Honolulu County, Hawaii. The county legally includes the
+Northwestern Hawaiian Islands, so a bounding-box crop to the
+main island is needed.
+
+```{r}
+
+## Download (or load from cache) US county boundaries.
+## First call downloads; subsequent calls reuse.
+usa_counties <- geodata::gadm(country = "USA",
+                              level   = 2,
+                              path    = "cache/gadm_cache")
+
+## Filter to Honolulu County (Hawaii).
+honolulu_co <- usa_counties[usa_counties$NAME_1 == "Hawaii" &
+                            usa_counties$NAME_2 == "Honolulu", ]
+
+## Crop to Oahu's main-island bounding box.
+## NW Hawaiian Islands (Necker, French Frigate Shoals, etc.)
+## are part of the county but should be excluded.
+oahu_bbox <- terra::ext(-158.3, -157.6, 21.2, 21.8)
+oahu      <- terra::crop(honolulu_co, oahu_bbox)
+
+## Quick sanity check: plot the polygon.
+plot(oahu, main = "Oahu boundary from GADM")
+
+```
+
+## Smoke test: Oahu at 2.5 arc-minute resolution
+
+A first run at 2.5' to validate the pipeline. The cache from
+the climate retrieval work is already populated at this
+resolution, so this should run quickly. At 2.5', cells are
+about 4.3 × 4.6 km — coarse for an island the size of Oahu;
+expect a handful of cells with limited biome variation.
+
+```{r}
+
+oahu_map_25 <- map_biomes(region_polygon = oahu,
+                          resolution     = 2.5)
+
+## Inspect the result.
+oahu_map_25$resolution
+oahu_map_25$biome_names
+terra::ncell(oahu_map_25$biome_raster)
+table(terra::values(oahu_map_25$biome_raster),
+      useNA = "ifany")
+
+```
+
+Plot the 2.5' map.
+
+```{r}
+
+plot_biome_map(oahu_map_25)
+
+```
+
+The 2.5' version is essentially a proof-of-pipeline. A few
+cells, low spatial resolution, but the function works
+end-to-end: climate retrieved, biome classified, rendered
+over the Oahu coastline.
+
+## The real version: Oahu at 30 arc-second resolution
+
+At 30 arc-seconds (~1 km cells), Oahu becomes a respectable
+map with several hundred cells. The 30" data is distributed
+by WorldClim as 30°×30° tiles; the first call downloads the
+tile covering Hawaii (a one-time cost, several hundred MB),
+subsequent calls reuse the cache.
+
+The windward-leeward rain-shadow signal that 2.5' averaged
+away should be visible at 30".
+
+```{r}
+
+oahu_map_30s <- map_biomes(region_polygon = oahu,
+                           resolution     = 0.5)
+
+## Inspect.
+oahu_map_30s$resolution
+terra::ncell(oahu_map_30s$biome_raster)
+table(terra::values(oahu_map_30s$biome_raster),
+      useNA = "ifany")
+
+```
+
+```{r}
+
+plot_biome_map(oahu_map_30s)
+
+```
+
+## What we expect to see
+
+At 30" resolution on Oahu:
+
+- **Windward (north and east coasts, Koolau range):**
+  cooler, much wetter. Likely classified as tropical rain
+  forest or temperate rain forest depending on elevation.
+- **Leeward (south and west coasts):** warmer, much drier.
+  Likely classified as subtropical desert or
+  woodland/shrubland in the driest stretches.
+- **Central plain (Waianae-to-Koolau saddle):** intermediate.
+  Likely tropical seasonal forest/savanna.
+- **Mt. Kaala and the Koolau peaks:** locally cooler;
+  resolution-dependent on whether the highest pixels register.
+
+If the assignments differ substantially from this, the
+likeliest causes are: (a) the windward-leeward signal still
+gets averaged within 1 km cells in places where the
+transition is sharper than the cell size; (b) the
+Whittaker biome polygons in T-P space don't quite cover the
+edge cases Hawaii presents (Hawaii's volcanic-soil tropical
+climates don't always map cleanly to the global
+classification scheme); (c) WorldClim's data has its own
+representativeness gaps in the Hawaiian archipelago.
+
+## Smoothing the biome boundaries
+
+The gridded version is faithful to the data — each cell is
+visible at its own resolution, the pixelated appearance
+reinforces that the map is a tessellation rather than a
+continuous classification. But the Whittaker diagram itself
+has smooth biome polygons, and published biome maps are
+generally smooth. The visual dissonance between a
+pixelated geographic map and a smooth diagram is worth
+addressing if the smoothing doesn't cost us data fidelity.
+
+Vector smoothing operates on the polygon representation
+of the classified raster, not on the underlying climate
+data. The subtropical desert finding at Kaena Point
+survives because the per-cell biome assignments are
+unchanged; only how their boundaries are drawn changes.
+
+```{r}
+
+oahu_map_30s_smooth <- smooth_biome_map(
+  biome_map  = oahu_map_30s,
+  method     = "ksmooth",
+  smoothness = 1
+)
+
+```
+
+Compare gridded and smoothed at the same 30 arc-second
+resolution. Each plot gets its own chunk so the legend has
+room to display the full biome names without truncation.
+
+```{r fig.width=10, fig.height=6}
+
+plot_biome_map(oahu_map_30s_smooth, render = "grid")
+
+```
+
+```{r fig.width=10, fig.height=6}
+
+plot_biome_map(oahu_map_30s_smooth, render = "vector")
+
+```
+
+What to look for:
+
+- **Aesthetic continuity** with the Whittaker diagram —
+  smooth boundaries everywhere rather than pixelated
+  cell edges.
+- **Survival of the subtropical desert finding** — the
+  Kaena Point and Waianae-lee dry pockets should still
+  be visible as desert polygons, just with smooth
+  boundaries rather than pixelated edges.
+- **Possible artifacts** — small isolated cells may
+  produce small smoothed polygons that look unnatural;
+  if a biome appears as several scattered tiny blobs in
+  the gridded view, the smoothed view may amplify
+  the visual impact of those blobs in a misleading way.
+- **The verdict** — does the smoothed version look like
+  a published biome map, or does it look like
+  over-processed output? That's the decision criterion
+  for whether smoothing earns a place in the toolkit
+  and the chapter.
+
+If smoothing doesn't earn its place after this comparison,
+the function stays in the code but defaults to off, and
+the chapter discusses smoothing briefly as an option
+considered and not adopted. If it does earn its place,
+the chapter compares gridded and smoothed as parallel
+rendering choices.
+
+## Complementary example: Oregon
+
+Oahu surfaced a specific characteristic of vector smoothing
+on the first test: single-cell biome assignments become
+circles. The math is correct — `ksmooth` applies Gaussian
+smoothing to polygon vertices, and a four-vertex square has
+its corners aggressively rounded — but the visual reads as
+artifact rather than as a natural biome shape.
+
+The artifact is most visible when isolated single cells
+exist with no contiguous same-biome neighbors. Continental
+regions with slow climate gradients should produce
+multi-cell biome regions whose smoothing looks natural.
+Oregon is the test case for this: Pacific maritime west of
+the Cascades, the rain-shadowed central plateau, and the
+high desert of the southeast all span enough cells at 2.5'
+resolution that smoothing should produce smooth boundaries
+rather than rounded blobs.
+
+Oregon also has a strong verification surface via the
+published literature — Franklin & Dyrness, *Natural
+Vegetation of Oregon and Washington*, is the canonical
+reference for the state's vegetation patterns.
+
+```{r}
+
+## Get the Oregon state polygon.
+usa_states <- geodata::gadm(country = "USA",
+                            level   = 1,
+                            path    = "cache/gadm_cache")
+
+oregon <- usa_states[usa_states$NAME_1 == "Oregon", ]
+
+plot(oregon, main = "Oregon boundary from GADM")
+
+```
+
+Map Oregon at 2.5' resolution. The global cache is already
+populated from the climate retrieval work, so no new
+download is needed. Oregon is large enough (~250,000 km²)
+that 2.5' (~25 km² cells) gives a respectable map without
+the substantial download cost of 30 arcsec.
+
+```{r}
+
+oregon_map <- map_biomes(region_polygon = oregon,
+                         resolution     = 2.5)
+
+oregon_map_smooth <- smooth_biome_map(
+  biome_map  = oregon_map,
+  method     = "ksmooth",
+  smoothness = 1
+)
+
+```
+
+Gridded vs smoothed Oregon, each in its own chunk for full
+legend visibility:
+
+```{r fig.width=10, fig.height=6}
+
+plot_biome_map(oregon_map_smooth, render = "grid")
+
+```
+
+```{r fig.width=10, fig.height=6}
+
+plot_biome_map(oregon_map_smooth, render = "vector")
+
+```
+
+What to compare with the Oahu result:
+
+- **Smoothing behavior** — Oregon's large contiguous biome
+  regions (the Cascades-west forest, the eastern dry
+  region) should produce smooth boundaries that read as
+  natural. The single-cell artifacts visible on Oahu
+  shouldn't appear on Oregon at the same smoothing
+  settings, because Oregon's biome transitions span
+  multiple cells.
+
+- **Data fidelity** — the per-cell biome assignments in
+  Oregon are unchanged by smoothing, same as Oahu. The
+  smoothing operates only on the polygon representation.
+
+- **Verification** — the major biome regions should match
+  published vegetation maps of Oregon: temperate seasonal
+  forest west of the Cascades, woodland/shrubland or
+  temperate grassland east of the Cascades, with possible
+  subtropical desert in the driest southeast.
+
+The pedagogical point this comparison makes for the
+chapter: smoothing is the right rendering choice for
+regions whose biome transitions are continental-gradient-
+sized (Oregon), and the wrong rendering choice for
+regions whose interesting signal lives in small isolated
+cells (Oahu's leeward deserts). The toolkit supports both;
+the figure-maker chooses based on what the map needs to
+show.
+
+## Notes and limitations
+
+- The function classifies each cell by point-in-polygon in
+  T-P space using `name_biome()`. Cells whose climate falls
+  outside any Whittaker biome polygon come back as NA in the
+  raster.
+- The function returns a list (`biome_map` class). The
+  caller can plot via `plot_biome_map()` (the helper in
+  `R/map_biomes.R` using terra's native plot) or build a
+  ggplot from `biome_map$biome_raster` and
+  `biome_map$region` directly.
+- The 30 arc-second WorldClim tile download is one-time;
+  subsequent calls reuse the cache at
+  `cache/worldclim_cache/` (the package default). The cache
+  is excluded from version control via `.gitignore`.
+- Future toolkit extensions (per
+  `background/chapter_mapping_ideas.md`): smoothing
+  options (`smoothing = c("none", "pre", "post", "vector")`),
+  boundary representation parameters parallel to
+  `plot_biomes()`, KML export for Google Earth overlay.
+- The next obvious worked example is Hawaii Island (the Big
+  Island), where the larger canvas, stronger climate
+  gradient (Hilo–Kawaihae ~14× precipitation difference),
+  and elevational range to 4,200 m should produce a
+  substantially richer map. Hawaii County is a single
+  island administratively — no bounding-box gymnastics
+  needed.

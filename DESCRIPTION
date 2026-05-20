@@ -1,0 +1,38 @@
+Package: whittakerr
+Type: Package
+Title: Whittaker Biome Classification and Mapping
+Version: 0.1.0
+Authors@R:
+    person(given = "Kim",
+           family = "Bridges",
+           email = "kim.bridges@gmail.com",
+           role = c("aut", "cre"))
+Description: Tools for classifying locations into Whittaker biomes
+    using annual mean temperature and annual precipitation. Supports
+    point-based classification, Whittaker-diagram plotting, geographic
+    biome mapping at multiple resolutions, vector smoothing of biome
+    boundaries, and KML export for Google Earth visualization.
+    Climate data are retrieved from WorldClim via the 'geodata'
+    package; future-scenario projections via CMIP6 are supported
+    under the same function signature.
+License: MIT + file LICENSE
+URL: https://github.com/kimbridges/whittakerr
+BugReports: https://github.com/kimbridges/whittakerr/issues
+Encoding: UTF-8
+LazyData: true
+Depends:
+    R (>= 4.0)
+Imports:
+    sp,
+    dplyr,
+    ggplot2,
+    tibble,
+    geodata,
+    terra,
+    sf,
+    smoothr
+Suggests:
+    devtools,
+    usethis,
+    testthat (>= 3.0.0)
+RoxygenNote: 7.3.2

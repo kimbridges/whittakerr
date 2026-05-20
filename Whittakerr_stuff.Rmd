@@ -1,0 +1,258 @@
+---
+title: "Whitaker Biome Identification"
+output: html_notebook
+---
+
+> **Note (2026-05-14):** The canonical source for `name_biome()`
+> and `plot_biomes()` is now `R/whittakerr_functions.R`. The
+> function-definition chunks below in this notebook are
+> retained for documentation/teaching purposes and currently
+> define the same functions inline. If you edit a function,
+> edit it in `R/whittakerr_functions.R` first; the inline
+> chunks here should be kept in sync (or refactored to display-
+> only in a future cleanup pass — see proj_whittakerr.md
+> queued tasks). `Whittakerr_climate.Rmd` sources the R/ file
+> directly and does not depend on this notebook being run
+> first.
+
+## Biomes
+
+Here is the order in the data
+
+1, Tropical seasonal forest
+2, Subtropical desert
+3, Temperate rain forest
+4, Tropical rain forest
+5, Woodland/shrubland
+6, Tundra
+7, Boreal Forest
+8, Temperature Grassland
+9, Temperate seasonal forest
+
+## Examples
+## https://rawgit.com/valentinitnelav/plotbiomes/master/html/Whittaker_biomes_examples.html
+
+```{r}
+
+## Load the whittakerr package. This makes Whittaker_biomes
+## (data.frame, 775 rows) and Ricklefs_colors (named character
+## vector, 9 entries) available as package data, plus the
+## name_biome() and plot_biomes() functions. See ?whittakerr
+## for the unit convention (precipitation in cm) and the
+## attribution block.
+##
+## If whittakerr isn't installed yet:
+##   library(devtools)
+##   install_github("kimbridges/whittakerr")
+
+library(whittakerr)  ## the canonical source
+library(sp)          ## point.in.polygon function
+library(tidyverse)
+library(ggplot2)
+
+
+```
+
+## Whittaker Plot Functions
+
+```{r}
+
+############################################################
+
+name_biome <- function(mean_temp_c, total_ppt_cm){
+
+  ## Retrieves the biome name from the temperature and
+  ## precipitation. Precipitation is in centimetres (matches
+  ## the underlying Whittaker_biomes$precp_cm polygon data).
+
+  ## requires dplyr, sp
+
+  biome_id <- NULL
+
+  ## Extract biome names.
+  id <- unique(Whittaker_biomes$biome_id)
+  biome_id[id] <- unique(Whittaker_biomes$biome)
+
+  ## Initialize the name (case: outside the diagram).
+  biome_name <- "unknown"
+
+  ## Look inside each boundary for the point.
+  for(i in 1:9){
+    ## Isolate one of the boundary polygons (i.e., biome).
+    boundary <- Whittaker_biomes |>
+      filter(Whittaker_biomes$biome_id == i)
+    ## Test if the data point is inside the polygon.
+    inside <- point.in.polygon(mean_temp_c,
+                               total_ppt_cm,
+                               boundary$temp_c,
+                               boundary$precp_cm,
+                               mode.checked = FALSE)
+
+  ## If the point is inside, get the biome name.
+  if(inside == 1){biome_name <- biome_id[i]}
+  } ## End of boundary loop
+
+  return(biome_name)
+
+  } ## End function name_biome
+
+```
+
+
+
+```{r}
+
+############################################################
+
+plot_biomes <- function(mean_temp_c  = NULL,
+                        total_ppt_cm = NULL,
+                        source       = NULL,
+                        label        = NULL){
+
+  ## If no data points are given (e.g., mean_temp_c, total_ppt_cm),
+  ##  you get just a basic plot of the Whittaker biomes.
+  ##
+  ## Precipitation is in centimetres (matches the underlying
+  ## Whittaker_biomes$precp_cm polygon data and the diagram's
+  ## native unit).
+
+  ## Required libraries: ggplot2
+
+  ## Create the base plot.
+  W_plot <- ggplot() +
+    ## Create the biome polygons.
+    geom_polygon(data = Whittaker_biomes,
+                 aes(x    = temp_c,
+                     y    = precp_cm,
+                     fill = biome),
+                 # adjust polygon borders
+                 colour    = "gray98",
+                 linewidth = 1) +    ## was `size` pre-ggplot2 3.4.0
+    ## Add axis labels.
+    labs(x="Annual Mean Temperature (C)",
+         y="Total Annual Precipitation (cm)") +
+    ## Use a better color scheme.
+    scale_fill_manual(name   = "Whittaker biomes",
+                      breaks = names(Ricklefs_colors),
+                      labels = names(Ricklefs_colors),
+                      values = Ricklefs_colors) +
+    theme_bw()
+
+  ## Add data points if climate data are supplied.
+  ##
+  ## IMPORTANT: build an explicit data frame and pass it via
+  ## data = ... with inherit.aes = FALSE. Without this, the
+  ## geom inherits data = Whittaker_biomes (775 polygon-vertex
+  ## rows) from the base ggplot call; the resulting length
+  ## mismatch between the inherited data and the (usually
+  ## much shorter) argument vectors silently suppresses the
+  ## points.
+  if(!is.null(mean_temp_c)) {
+    points_df <- data.frame(mean_temp_c  = mean_temp_c,
+                            total_ppt_cm = total_ppt_cm)
+    W_plot <- W_plot +
+      geom_point(data        = points_df,
+                 aes(x = mean_temp_c, y = total_ppt_cm),
+                 inherit.aes = FALSE,
+                 size        = 3,
+                 shape       = 21,
+                 color       = "white",
+                 fill        = "black",
+                 stroke      = 0.7,
+                 alpha       = 1.0)
+    } ## End of data point addition
+
+  ## Add label if label data are supplied.
+  ## Same data-inheritance fix as the points geom above.
+  if(!is.null(label)) {
+    label_df <- data.frame(mean_temp_c  = mean_temp_c,
+                           total_ppt_cm = total_ppt_cm,
+                           label        = label)
+    W_plot <- W_plot +
+      geom_label(data        = label_df,
+                 aes(x     = mean_temp_c,
+                     y     = total_ppt_cm,
+                     label = label),
+                 inherit.aes = FALSE,
+                 color       = "white",
+                 fill        = "black",
+                 alpha       = 1.0,
+                 hjust       = 0,
+                 nudge_x     = 1.0)
+    } ## End of label addition
+  
+  ## Add caption at bottom if source is specified.
+  if(!is.null(source)){
+     W_plot <- W_plot +
+       labs(caption = source)
+  } ## End caption addition
+  
+  return(W_plot)
+  
+  } ## End function plot_biomes
+ 
+```
+
+
+### Testing the functions
+
+This tests all the sorts of uses.
+
+```{r}
+
+## Establish the search criteria. Precipitation in cm.
+mean_temp_c   <- 28.3
+total_ppt_cm  <- 161
+
+name <- name_biome(mean_temp_c = mean_temp_c, total_ppt_cm = total_ppt_cm)
+
+paste0("The biome is: ",name,"\n")
+
+## Plot just the biomes.
+plot_biomes()
+
+## Add a data point on the biomes.
+plot_biomes(mean_temp_c = mean_temp_c, total_ppt_cm = total_ppt_cm)
+
+## Add a data point on the biomes and a source note.
+plot_biomes(mean_temp_c  = mean_temp_c,
+            total_ppt_cm = total_ppt_cm,
+            source       = "Source: Synthetic data")
+
+## Plot multiple points (precipitation in cm).
+t_multi <- c(5,12,14)
+p_multi <- c(100,210,167)
+source  <- "Testing multiple points"
+
+plot_biomes(mean_temp_c  = t_multi,
+            total_ppt_cm = p_multi,
+            source       = source)
+
+## Similar, with labels.
+l_multi <- c("1","2","2a")
+
+plot_biomes(mean_temp_c  = t_multi,
+            total_ppt_cm = p_multi,
+            source       = source,
+            label        = l_multi)
+
+## Use tabular data. Column ppt is in cm.
+b_table <- read_csv(file =
+   "site, temp, ppt
+    A,     5,   100
+    B,    12,   210
+    C,    14,   167")
+
+biome_plot <- plot_biomes(mean_temp_c  = b_table$temp,
+                          total_ppt_cm = b_table$ppt,
+                          source       = "Synthetic data table",
+                          label        = b_table$site)
+
+## Output an example diagram
+ggsave(plot=biome_plot,"biome_example.png")
+
+## Show the example diagram
+
+biome_plot
+```
+

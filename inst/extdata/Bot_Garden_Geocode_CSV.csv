@@ -1,0 +1,770 @@
+,Name,Sponsor,City,State,Area,ZIP,Hardiness,address,lon,lat
+1,Georgeson Botanical Garden,University of Alaska Fairbanks,Fairbanks,AK,5,99701,2a,"Fairbanks ,  AK",-147.7163888,64.8377778
+2,Alaska Botanical Garden,NA,Anchorage,AK,110,99501,4b,"Anchorage ,  AK",-149.9002778,61.2180556
+3,Jensen-Olson Arboretum,City and Borough of Juneau,Juneau,AK,14,99801,6b,"Juneau ,  AK",-134.4197221,58.3019444
+4,Blue Springs Heritage Center,NA,Eureka Springs,AR,33,72631,6b,"Eureka Springs ,  AR",-93.7379711,36.4011825
+5,Botanical Garden of the Ozarks,NA,Fayetteville,AR,40,72701,6b,"Fayetteville ,  AR",-94.1718542,36.082156
+6,Garvan Woodland Gardens,University of Arkansas Division of Agriculture,Hot Springs,AR,210,71901,7b,"Hot Springs ,  AR",-93.0551795,34.5037004
+7,South Arkansas Arboretum,South Arkansas Community College,El Dorado,AR,13,71730,8a,"El Dorado ,  AR",-92.6662674,33.20763
+8,Arkansas Arboretum,Pinnacle Mountain State Park,Little Rock,AR,71,72201,8a,"Little Rock ,  AR",-92.2895948,34.7464809
+9,The Arboretum at Flagstaff,NA,Flagstaff,AZ,200,86001,6a,"Flagstaff ,  AZ",-111.651302,35.1982836
+10,Navajo Nation Zoological and Botanical Park,Navajo Nation,Window Rock,AZ,14.7,86515,6a,"Window Rock ,  AZ",-109.0525929,35.680573
+11,Forever Ranch and Gardens,NA,Near Yucca,AZ,40,86438,9a,"Near Yucca ,  AZ",-114.1494117,34.8722245
+12,Desert Botanical Garden,NA,Phoenix,AZ,140,85003,9b,"Phoenix ,  AZ",-112.0740373,33.4483771
+13,Boyce Thompson Arboretum State Park,NA,Superior,AZ,392,85173,9b,"Superior ,  AZ",-111.0962305,33.293945
+14,Arboretum at Arizona State University,Arizona State University,Tempe,AZ,NA,85280,9b,"Tempe ,  AZ",-111.9400054,33.4255104
+15,Arizona-Sonora Desert Museum,NA,Tucson,AZ,98,85701,9b,"Tucson ,  AZ",-110.9747108,32.2226066
+16,Tohono Chul Park,NA,Tucson,AZ,49,85701,9b,"Tucson ,  AZ",-110.9747108,32.2226066
+17,Tucson Botanical Gardens,NA,Tucson,AZ,5.5,85701,9b,"Tucson ,  AZ",-110.9747108,32.2226066
+18,University of Arizona Campus Arboretum,University of Arizona,Tucson,AZ,NA,85701,9b,"Tucson ,  AZ",-110.9747108,32.2226066
+19,Los Angeles County Arboretum and Botanic Garden,Los Angeles Arboretum Foundation,Arcadia,CA,127,91006,10a,"Arcadia ,  CA",-118.0353449,34.1397292
+20,Regional Parks Botanic Garden,Tilden Regional Park,Berkeley,CA,10,94701,10a,"Berkeley ,  CA",-122.272747,37.8715926
+21,Marin-Bolinas Botanical Gardens,NA,Bolinas,CA,14,94924,10a,"Bolinas ,  CA",-122.6863733,37.9093702
+22,Harland Hand Memorial Garden,NA,El Cerrito,CA,0.5,94530,10a,"El Cerrito ,  CA",-122.310765,37.9161326
+23,San Diego Botanic Garden (formerly Quail Botanical Gardens),NA,Encinitas,CA,37,92023,10a,"Encinitas ,  CA",-117.2919818,33.0369867
+24,Fullerton Arboretum,California State University,Fullerton,CA,26,92831,10a,"Fullerton ,  CA",-117.9242123,33.8703645
+25,University of California Irvine Arboretum,University of California,Irvine,CA,12.5,92602,10a,"Irvine ,  CA",-117.8265049,33.6845673
+26,Blake Garden,University of California Berkeley,Kensington,CA,10.6,94708,10a,"Kensington ,  CA",-122.2802471,37.9104805
+27,Descanso Gardens,NA,La Cañada Flintridge,CA,150,91011,10a,"La Cañada Flintridge ,  CA",-118.2000277,34.2068182
+28,Edgewood Botanic Garden,NA,Mill Valley,CA,1,94941,10a,"Mill Valley ,  CA",-122.5449763,37.9060368
+29,Lotusland,NA,Montecito,CA,37,93108,10a,"Montecito ,  CA",-119.6320753,34.4366626
+30,Labadie Arboretum,Merritt College,Oakland,CA,7.5,94601,10a,"Oakland ,  CA",-122.2711137,37.8043637
+31,University of California Botanical Garden,University of California Berkeley,Oakland,CA,34,94601,10a,"Oakland ,  CA",-122.2711137,37.8043637
+32,William Joseph McInnes Botanic Garden and Campus Arboretum,Mills College,Oakland,CA,NA,94601,10a,"Oakland ,  CA",-122.2711137,37.8043637
+33,Living Desert Zoo and Gardens,NA,Palm Desert,CA,1800,92210,10a,"Palm Desert ,  CA",-116.3744556,33.7222445
+34,Arlington Garden,NA,Pasadena,CA,3,91101,10a,"Pasadena ,  CA",-118.1445155,34.1477849
+35,Palomar College Arboretum,Palomar College,San Marcos,CA,5,92069,10a,"San Marcos ,  CA",-117.1661449,33.1433723
+36,Huntington Botanical Gardens,NA,San Marino,CA,120,91108,10a,"San Marino ,  CA",-118.1064585,34.121397
+37,San Mateo Arboretum,NA,San Mateo,CA,16,94401,10a,"San Mateo ,  CA",-122.3255254,37.5629917
+38,Santa Barbara Botanic Garden,NA,Santa Barbara,CA,78,93101,10a,"Santa Barbara ,  CA",-119.6981901,34.4208305
+39,Conejo Valley Botanical Garden,NA,Thousand Oaks,CA,33.6,91319,10a,"Thousand Oaks ,  CA",-118.8375937,34.1705609
+40,The Japanese Garden,NA,Van Nuys,CA,6.5,91316,10a,"Van Nuys ,  CA",-118.451357,34.1898566
+41,Alta Vista Gardens,NA,Vista,CA,13,92081,10a,"Vista ,  CA",-117.2425355,33.2000368
+42,Virginia Robinson Gardens,NA,Beverly Hills,CA,6,90209,10b,"Beverly Hills ,  CA",-118.4003563,34.0736204
+43,Sherman Library and Gardens,NA,Corona Del Mar,CA,2.2,92625,10b,"Corona Del Mar ,  CA",-117.8730142,33.5978595
+44,Earl Burns Miller Japanese Garden,California State University,Long Beach,CA,1.3,90745,10b,"Long Beach ,  CA",-118.1937395,33.7700504
+45,Chavez Ravine Arboretum,NA,Los Angeles,CA,NA,90001,10b,"Los Angeles ,  CA",-118.2436849,34.0522342
+46,Mildred E. Mathias Botanical Garden,University of California,Los Angeles,CA,7,90001,10b,"Los Angeles ,  CA",-118.2436849,34.0522342
+47,Ramirez Canyon Park,NA,Malibu,CA,22.5,90263,10b,"Malibu ,  CA",-118.7797571,34.0259216
+48,Balboa Park Gardens,NA,San Diego,CA,1200,92101,10b,"San Diego ,  CA",-117.1610838,32.715738
+49,Conservatory of Flowers,NA,San Francisco,CA,NA,94102,10b,"San Francisco ,  CA",-122.4194155,37.7749295
+50,San Francisco Botanical Garden (Strybing Arboretum),NA,San Francisco,CA,55,94102,10b,"San Francisco ,  CA",-122.4194155,37.7749295
+51,Wrigley Botanical Gardens,NA,Santa Catalina Island,CA,38,90704,10b,"Santa Catalina Island ,  CA",-118.4163103,33.3878856
+52,South Coast Botanic Garden,NA,Palos Verdes,CA,87,90274,11a,"Palos Verdes ,  CA",-118.3870173,33.7444613
+53,Dunsmuir Botanical Gardens,NA,Dunsmuir,CA,10,96025,8a,"Dunsmuir ,  CA",-122.2719529,41.2082089
+54,Chico University Arboretum,California State University,Chico,CA,NA,95926,9a,"Chico ,  CA",-121.8374777,39.7284944
+55,M. Young Botanic Garden,NA,Kerman,CA,2.5,93630,9a,"Kerman ,  CA",-120.059879,36.7235572
+56,Eddy Arboretum,United States Forest Service,Placerville,CA,111,95667,9a,"Placerville ,  CA",-120.798546,38.7296252
+57,Jensen Botanical Gardens,NA,Carmichael,CA,3.5,95608,9b,"Carmichael ,  CA",-121.3282843,38.617127
+58,Rusch Botanical Gardens,NA,Citrus Heights,CA,2,95610,9b,"Citrus Heights ,  CA",-121.2810611,38.7071247
+59,John R. Rodman Arboretum,Pitzer College,Claremont,CA,10,91711,9b,"Claremont ,  CA",-117.7197785,34.0966764
+60,Rancho Santa Ana Botanic Garden,NA,Claremont,CA,86,91711,9b,"Claremont ,  CA",-117.7197785,34.0966764
+61,Markham Regional Arboretum,NA,Concord,CA,16,94518,9b,"Concord ,  CA",-122.0310733,37.9779776
+62,University of California Davis Arboretum,University of California,Davis,CA,100,95616,9b,"Davis ,  CA",-121.7405167,38.5449065
+63,Humboldt Botanical Gardens,NA,Eureka,CA,44.5,95501,9b,"Eureka ,  CA",-124.1636729,40.8020712
+64,Mendocino Coast Botanical Gardens,NA,Fort Bragg,CA,47,95437,9b,"Fort Bragg ,  CA",-123.8052935,39.445723
+65,The Arboretum at Fresno State,California State University,Fresno,CA,NA,93650,9b,"Fresno ,  CA",-119.7871247,36.7377981
+66,Quarryhill Botanical Garden,NA,Glen Ellen,CA,61,95442,9b,"Glen Ellen ,  CA",-122.5241487,38.3640795
+67,California State University Northridge Botanic Garden,California State University,Northridge,CA,0.5,91324,9b,"Northridge ,  CA",-118.530123,34.2381251
+68,Moorten Botanical Garden and Cactarium,NA,Palm Springs,CA,1,92262,9b,"Palm Springs ,  CA",-116.5452921,33.8302961
+69,Stanford University Arboretum (includes Arizona Cactus Garden),Stanford University,Palo Alto,CA,NA,94301,9b,"Palo Alto ,  CA",-122.1430195,37.4418834
+70,McConnell Arboretum and Gardens,Turtle Bay Exploration Park,Redding,CA,300,96001,9b,"Redding ,  CA",-122.3916754,40.5865396
+71,University of California Riverside Botanic Gardens,University of California,Riverside,CA,40,92501,9b,"Riverside ,  CA",-117.3754942,33.9806005
+72,University Arboretum,California State University,Sacramento,CA,3,94203,9b,"Sacramento ,  CA",-121.4943996,38.5815719
+73,Japanese Friendship Garden,NA,San Jose,CA,6,95101,9b,"San Jose ,  CA",-121.8863286,37.3382082
+74,San Jose Municipal Rose Garden,NA,San Jose,CA,5.5,95101,9b,"San Jose ,  CA",-121.8863286,37.3382082
+75,Leaning Pine Arboretum,California Polytechnic State University,San Luis Obispo,CA,5,93401,9b,"San Luis Obispo ,  CA",-120.6596156,35.2827524
+76,San Luis Obispo Botanical Garden,NA,San Luis Obispo,CA,150,93401,9b,"San Luis Obispo ,  CA",-120.6596156,35.2827524
+77,University of California Santa Cruz Arboretum,University of California,Santa Cruz,CA,135,95060,9b,"Santa Cruz ,  CA",-122.0307963,36.9741171
+78,Luther Burbank Home and Gardens,NA,Santa Rosa,CA,0.5,95401,9b,"Santa Rosa ,  CA",-122.7140548,38.440429
+79,Hakone Gardens,NA,Saratoga,CA,18,95070,9b,"Saratoga ,  CA",-122.0230146,37.2638324
+80,Villa Montalvo,NA,Saratoga,CA,177,95070,9b,"Saratoga ,  CA",-122.0230146,37.2638324
+81,Gardens at Heather Farm,NA,Walnut Creek,CA,6,94595,9b,"Walnut Creek ,  CA",-122.0651819,37.9100783
+82,Ruth Bancroft Garden,NA,Walnut Creek,CA,2.5,94595,9b,"Walnut Creek ,  CA",-122.0651819,37.9100783
+83,Filoli,National Trust for Historic Preservation,Woodside,CA,16,94061,9b,"Woodside ,  CA",-122.2538557,37.4299388
+84,Yampa River Botanic Park,NA,Steamboat Springs,CO,6,80477,4b,"Steamboat Springs ,  CO",-106.8317158,40.4849769
+85,Betty Ford Alpine Gardens,NA,Vail,CO,5,81657,4b,"Vail ,  CO",-106.3741955,39.6402638
+86,Shambhala Botanic Gardens,NA,Red Feather Lakes,CO,600,80536,5a,"Red Feather Lakes ,  CO",-105.5916629,40.802481
+87,Andrews Arboretum,NA,Boulder,CO,1,80301,5b,"Boulder ,  CO",-105.2705456,40.0149856
+88,Chester M. Alter Arboretum,University of Denver,Denver,CO,125,80002,5b,"Denver ,  CO",-104.990251,39.7392358
+89,Denver Botanic Gardens,NA,Denver,CO,23,80002,5b,"Denver ,  CO",-104.990251,39.7392358
+90,The Gardens on Spring Creek,City of Fort Collins,Fort Collins,CO,18,80521,5b,"Fort Collins ,  CO",-105.084423,40.5852602
+91,Hudson Gardens,NA,Littleton,CO,30,80120,5b,"Littleton ,  CO",-105.0166498,39.613321
+92,Montrose Botanic Gardens,NA,Montrose,CO,3.5,81401,6b,"Montrose ,  CO",-107.8761738,38.4783198
+93,Western Colorado Botanical Gardens,NA,Grand Junction,CO,12,81501,7a,"Grand Junction ,  CO",-108.5506486,39.0638705
+94,Richard Haley Wildlife Gardens,NA,Hampton,CT,1.5,6247,6a,"Hampton ,  CT",-72.0547977,41.7839873
+95,EEB Biodiversity Education & Research Greenhouses,University of Connecticut,Storrs,CT,NA,6268,6a,"Storrs ,  CT",-72.2495231,41.8084314
+96,Hartford Botanical Garden,NA,Hartford,CT,18,6101,6b,"Hartford ,  CT",-72.6733723,41.7658043
+97,New Canaan Nature Center,NA,New Canaan,CT,40,6840,6b,"New Canaan ,  CT",-73.4948445,41.146763
+98,Connecticut College Arboretum,Connecticut College,New London,CT,750,6320,6b,"New London ,  CT",-72.0995209,41.3556539
+99,Highstead Arboretum,NA,Redding,CT,36,6896,6b,"Redding ,  CT",-73.392898,41.3045399
+100,Dinosaur State Park and Arboretum,NA,Rocky Hill,CT,80,6067,6b,"Rocky Hill ,  CT",-72.6655757,41.6572525
+101,Harkness Memorial State Park,NA,Waterford,CT,304,6385,6b,"Waterford ,  CT",-72.164816,41.3542395
+102,Edgerton Park Conservancy,NA,New Haven,CT,20,6501,7a,"New Haven ,  CT",-72.9278835,41.308274
+103,Marsh Botanical Garden,Yale University,New Haven,CT,8,6501,7a,"New Haven ,  CT",-72.9278835,41.308274
+104,Bartlett Arboretum and Gardens,NA,Stamford,CT,93,6901,7a,"Stamford ,  CT",-73.5387341,41.0534302
+105,Dumbarton Oaks,Harvard University,Washington,DC,54,20373,7b,"Washington ,  DC",-77.0368707,38.9071923
+106,Franciscan Monastery gardens,NA,Washington,DC,44,20373,7b,"Washington ,  DC",-77.0368707,38.9071923
+107,Hillwood Museum & Gardens,NA,Washington,DC,25,20373,7b,"Washington ,  DC",-77.0368707,38.9071923
+108,Kenilworth Park and Aquatic Gardens,National Park Service,Washington,DC,700,20373,7b,"Washington ,  DC",-77.0368707,38.9071923
+109,Smithsonian Gardens,Smithsonian Institution,Washington,DC,180,20373,7b,"Washington ,  DC",-77.0368707,38.9071923
+110,The American University Arboretum and Gardens,American University,Washington,DC,NA,20373,7b,"Washington ,  DC",-77.0368707,38.9071923
+111,Tudor Place,NA,Washington,DC,5.5,20373,7b,"Washington ,  DC",-77.0368707,38.9071923
+112,United States Botanic Garden,United States Capitol,Washington,DC,NA,20373,7b,"Washington ,  DC",-77.0368707,38.9071923
+113,United States National Arboretum,Agricultural Research Service,Washington,DC,446,20373,7b,"Washington ,  DC",-77.0368707,38.9071923
+114,Hagley Museum and Library,NA,Greenville,DE,235,19807,7a,"Greenville ,  DE",-75.5982599,39.7790012
+115,Mt. Cuba Center,NA,Hockessin,DE,7.4,19707,7a,"Hockessin ,  DE",-75.6966001,39.7876112
+116,University of Delaware Botanic Gardens,University of Delaware,Newark,DE,NA,19702,7a,"Newark ,  DE",-75.7496572,39.6837226
+117,Delaware Center for Horticulture,NA,Wilmington,DE,NA,19801,7a,"Wilmington ,  DE",-75.5483909,39.744655
+118,Nemours Mansion and Gardens,NA,Wilmington,DE,300,19801,7a,"Wilmington ,  DE",-75.5483909,39.744655
+119,Winterthur Museum and Grounds,NA,Winterthur,DE,979,19735,7a,"Winterthur ,  DE",-75.6037351,39.8088766
+120,Edison and Ford Winter Estates,NA,Fort Myers,FL,21,33901,10a,"Fort Myers ,  FL",-81.8723084,26.640628
+121,Heathcote Botanical Gardens,NA,Fort Pierce,FL,5,34945,10a,"Fort Pierce ,  FL",-80.3256056,27.4467056
+122,The Florida Botanical Gardens,NA,Largo,FL,30,33770,10a,"Largo ,  FL",-82.7873244,27.9094665
+123,Naples Botanical Garden,NA,Naples,FL,170,34101,10a,"Naples ,  FL",-81.7948103,26.1420358
+124,Sunken Gardens,NA,St. Petersburg,FL,4,33701,10a,"St. Petersburg ,  FL",-82.6402915,27.7676008
+125,Tropical Ranch Botanical Garden,NA,Stuart,FL,NA,34994,10a,"Stuart ,  FL",-80.2528257,27.197548
+126,McKee Botanical Garden,NA,Vero Beach,FL,80,32960,10a,"Vero Beach ,  FL",-80.3972736,27.6386434
+127,Fairchild Tropical Botanic Garden,NA,Coral Gables,FL,83,33114,10b,"Coral Gables ,  FL",-80.2635411,25.7491968
+128,John C. Gifford Arboretum,University of Miami,Coral Gables,FL,9,33114,10b,"Coral Gables ,  FL",-80.2635411,25.7491968
+129,Montgomery Botanical Center,NA,Coral Gables,FL,120,33114,10b,"Coral Gables ,  FL",-80.2635411,25.7491968
+130,Flamingo Gardens,NA,Davie,FL,60,33024,10b,"Davie ,  FL",-80.2521157,26.0764783
+131,Deerfield Beach Arboretum,NA,Deerfield Beach,FL,9,33064,10b,"Deerfield Beach ,  FL",-80.0997657,26.3184123
+132,American Orchid Society Visitor Center and Botanical Garden,American Orchid Society,Delray Beach,FL,3.5,33444,10b,"Delray Beach ,  FL",-80.0728201,26.4614625
+133,Morikami Museum and Japanese Gardens,NA,Delray Beach,FL,188.5,33444,10b,"Delray Beach ,  FL",-80.0728201,26.4614625
+134,Roji-en Japanese Gardens,Morikami Museum and Japanese Gardens,Delray Beach,FL,16,33444,10b,"Delray Beach ,  FL",-80.0728201,26.4614625
+135,Fruit and Spice Park,NA,Homestead,FL,37,33030,10b,"Homestead ,  FL",-80.4775569,25.4687224
+136,The Kampong,National Tropical Botanical Garden,Miami,FL,9,33010,10b,"Miami ,  FL",-80.1917902,25.7616798
+137,Vizcaya Museum and Gardens,NA,Miami,FL,43,33010,10b,"Miami ,  FL",-80.1917902,25.7616798
+138,Four Arts Gardens,NA,Palm Beach,FL,NA,33480,10b,"Palm Beach ,  FL",-80.0364297,26.7056206
+139,Unbelievable Acres Botanic Gardens,NA,Palm Beach,FL,2.5,33480,10b,"Palm Beach ,  FL",-80.0364297,26.7056206
+140,Mounts Botanical Garden,NA,West Palm Beach,FL,14,33401,10b,"West Palm Beach ,  FL",-80.0533746,26.7153424
+141,Botanic Gardens at Kona Kai Resort,NA,Key Largo,FL,NA,33037,11a,"Key Largo ,  FL",-80.4472802,25.0865151
+142,Miami Beach Botanical Garden,NA,Miami Beach,FL,2.6,33109,11a,"Miami Beach ,  FL",-80.1300455,25.790654
+143,Key West Botanical Forest and Garden,NA,Key West,FL,11,33040,11b,"Key West ,  FL",-81.7799871,24.5550593
+144,Alfred B. Maclay State Gardens,NA,Tallahassee,FL,1176,32301,8b,"Tallahassee ,  FL",-84.2807329,30.4382559
+145,Kanapaha Botanical Gardens,NA,Gainesville,FL,33,32601,9a,"Gainesville ,  FL",-82.3248262,29.6516344
+146,Cummer Museum of Art and Gardens,NA,Jacksonville,FL,2.5,32099,9a,"Jacksonville ,  FL",-81.655651,30.3321838
+147,Jacksonville Arboretum & Gardens,NA,Jacksonville,FL,127,32099,9a,"Jacksonville ,  FL",-81.655651,30.3321838
+148,Jacksonville Zoo and Gardens,NA,Jacksonville,FL,117,32099,9a,"Jacksonville ,  FL",-81.655651,30.3321838
+149,Palm and Cycad Arboretum,Florida Community College,Jacksonville,FL,3,32099,9a,"Jacksonville ,  FL",-81.655651,30.3321838
+150,Tree Hill Nature Center,NA,Jacksonville,FL,31,32099,9a,"Jacksonville ,  FL",-81.655651,30.3321838
+151,Nature Coast Botanical Gardens,NA,Spring Hill,FL,3.5,34604,9a,"Spring Hill ,  FL",-82.5369872,28.4831682
+152,Palma Sola Botanical Park,NA,Bradenton,FL,10,34201,9b,"Bradenton ,  FL",-82.5748194,27.4989278
+153,Bok Tower Gardens,NA,Lake Wales,FL,250,33853,9b,"Lake Wales ,  FL",-81.5859099,27.9014133
+154,Florida Institute of Technology Botanical Garden,Florida Institute of Technology,Melbourne,FL,15,32901,9b,"Melbourne ,  FL",-80.6081089,28.0836269
+155,Arboretum of the University of Central Florida,University of Central Florida,Orlando,FL,80,32801,9b,"Orlando ,  FL",-81.3792365,28.5383355
+156,Harry P. Leu Gardens,NA,Orlando,FL,50,32801,9b,"Orlando ,  FL",-81.3792365,28.5383355
+157,Ormond Memorial Art Museum and Gardens,NA,Ormond Beach,FL,2.5,32173,9b,"Ormond Beach ,  FL",-81.0558894,29.2858129
+158,Marie Selby Botanical Gardens,NA,Sarasota,FL,15,34230,9b,"Sarasota ,  FL",-82.5306527,27.3364347
+159,Sarasota Jungle Gardens,NA,Sarasota,FL,10,34230,9b,"Sarasota ,  FL",-82.5306527,27.3364347
+160,University of South Florida Botanical Gardens,University of South Florida,Tampa,FL,15,33601,9b,"Tampa ,  FL",-82.4571776,27.950575
+161,Cypress Gardens,NA,Winter Haven,FL,NA,33880,9b,"Winter Haven ,  FL",-81.7328567,28.0222435
+162,Fred Hamilton Rhododendron Garden,NA,Hiawassee,GA,NA,30546,7a,"Hiawassee ,  GA",-83.7573948,34.9492586
+163,Georgia Perimeter College Botanical Garden,Georgia Perimeter College,Decatur,GA,4,30030,7b,"Decatur ,  GA",-84.2963123,33.7748275
+164,Woodlands Garden,NA,Decatur,GA,7,30030,7b,"Decatur ,  GA",-84.2963123,33.7748275
+165,The State Botanical Garden of Georgia,University of Georgia,Athens,GA,313,30601,8a,"Athens ,  GA",-83.357567,33.9519347
+166,University of Georgia Campus Arboretum,University of Georgia,Athens,GA,NA,30601,8a,"Athens ,  GA",-83.357567,33.9519347
+167,Atlanta Botanical Garden,NA,Atlanta,GA,30,30301,8a,"Atlanta ,  GA",-84.3879824,33.7489954
+168,Fernbank Science Center,NA,Atlanta,GA,NA,30301,8a,"Atlanta ,  GA",-84.3879824,33.7489954
+169,Georgia Golf Hall of Fames Botanical Garden,NA,Augusta,GA,17,30901,8a,"Augusta ,  GA",-82.0105148,33.4734978
+170,Thompson Mills Forest,NA,Braselton,GA,330,30517,8a,"Braselton ,  GA",-83.7626729,34.1092735
+171,Columbus Botanical Gardens,NA,Columbus,GA,NA,31829,8a,"Columbus ,  GA",-84.9877094,32.4609764
+172,Massee Lane Gardens,NA,Fort Valley,GA,9,31030,8a,"Fort Valley ,  GA",-83.8874084,32.5537585
+173,Vines Botanical Gardens,NA,Loganville,GA,25,30052,8a,"Loganville ,  GA",-83.9007382,33.8389977
+174,Waddell Barnes Botanical Gardens,Macon State College,Macon,GA,167,31201,8a,"Macon ,  GA",-83.6324022,32.8406946
+175,Lockerly Arboretum,NA,Milledgeville,GA,50,31059,8a,"Milledgeville ,  GA",-83.2320991,33.0801429
+176,Callaway Gardens,NA,Pine Mountain,GA,6500,31822,8a,"Pine Mountain ,  GA",-84.8540982,32.8648522
+177,Coastal Georgia Botanical Gardens,University of Georgia Cooperative Extension Service,Savannah,GA,51,31401,8b,"Savannah ,  GA",-81.091203,32.0808989
+178,Georgia Southern Botanical Garden,Georgia Southern University,Statesboro,GA,11,30458,8b,"Statesboro ,  GA",-81.7831674,32.4487876
+179,Coastal Plain Research Arboretum,NA,Tifton,GA,38,31793,8b,"Tifton ,  GA",-83.5084973,31.4504629
+180,Kaia Ranch Tropical Botanical Gardens,NA,Hana,HI,27,96713,10b,"Hana ,  HI",-155.988407,20.757508
+181,Kahanu Garden,National Tropical Botanical Garden,Maui,HI,3,96713,10b,"Hana, HI",-155.988407,20.757508
+182,Enchanting Floral Gardens of Kula Maui,NA,Kula,HI,8,96790,11b,"Kula ,  HI",-156.3269338,20.7909697
+183,Keanae Arboretum,NA,Maui,HI,6,96790,11b,"Kula ,  HI",-156.3269338,20.7909697
+184,Kula Botanical Garden,NA,Maui,HI,8,96790,11b,"Kula ,  HI",-156.3269338,20.7909697
+185,Hawaii Tropical Botanical Garden,NA,Papaikou,HI,17,96781,11b,"Papaikou ,  HI",-155.0928124,19.7953889
+186,Amy B. H. Greenwell Ethnobotanical Garden,Bishop Museum,Captain Cook,HI,15,96704,12a,"Captain Cook ,  HI",-155.9216667,19.4969444
+187,Waimea Valley,NA,Haleiwa,HI,1800,96712,12a,"Haleiwa ,  HI",-158.1034112,21.5927614
+188,Foster Botanical Garden,Honolulu Botanical Gardens,Honolulu,HI,13.5,96801,12a,"Honolulu ,  HI",-157.8583333,21.3069444
+189,Kapiolani Community College Cactus Garden,Kapiolani Community College,Honolulu,HI,NA,96801,12a,"Honolulu ,  HI",-157.8583333,21.3069444
+190,Liliuokalani Botanical Garden,Honolulu Botanical Gardens,Honolulu,HI,7.5,96801,12a,"Honolulu ,  HI",-157.8583333,21.3069444
+191,Lyon Arboretum,NA,Honolulu,HI,200,96801,12a,"Honolulu ,  HI",-157.801539,21.332971
+192,Allerton Garden,National Tropical Botanical Garden,Kauai,HI,80,96756,12a,"Lawai, HI",-159.502666,21.890388
+193,McBryde Garden,National Tropical Botanical Garden,Kauai,HI,200,96756,12a,"Lawai, HI",-159.502666,21.890388
+194,Moir Gardens,NA,Kauai,HI,35,96756,12a,"Koloa,HI",-159.460518,21.877488
+195,Na Aina Kai Botanical Gardens,NA,Kauai,HI,240,96756,12a,"Kilauea,HI",-159.381445,22.21116
+196,Olu Pua Botanical Garden and Plantation,NA,Kauai,HI,12.5,96756,12a,"Kalaheo,HI",-159.528605,21.925714
+197,Pua Mau Place Arboretum and Botanical Garden,NA,Kawaihae,HI,45,96743,12a,"Kawaihae ,  HI",-155.8281882,20.0352881
+198,Spirit of Aloha Oceanfront Botanical Garden,NA,Maui,HI,11,96708,12a,"Haiku,HI",-156.298079,20.7983626
+199,Wahiawa Botanical Garden,Honolulu Botanical Gardens,Wahiawa,HI,27,96786,12a,"Wahiawa ,  HI",-158.0209227,21.50105
+200,Kalopa State Recreation Area,NA,Hawaii (island),HI,600,96720,12b,"Honokaa,HI",-155.438426,20.037507
+201,Manuka State Wayside Park,NA,Hawaii (island),HI,13.4,96720,12b,"Ocean View,HI",-155.819193,19.104859
+202,Liliuokalani Park and Gardens,NA,Hilo,HI,24,96720,12b,"Hilo ,  HI",-155.0868193,19.7241106
+203,Nani Mau Gardens,NA,Hilo,HI,20,96720,12b,"Hilo ,  HI",-155.0868193,19.7241106
+204,University of Hawaii at Hilo Botanical Gardens,University of Hawaii at Hilo,Hilo,HI,NA,96720,12b,"Hilo ,  HI",-155.0868193,19.7241106
+205,World Botanical Gardens,NA,Hilo,HI,210,96720,12b,"Hilo ,  HI",-155.0868193,19.7241106
+206,Maui Nui Botanical Gardens,NA,Kahului,HI,7,96732,12b,"Kahului ,  HI",-156.4729469,20.8893351
+207,Sadie Seymour Botanical Gardens,NA,Kailua-Kona,HI,1.5,96739,12b,"Kailua-Kona ,  HI",-155.9969261,19.639994
+208,Hoomaluhia Botanical Garden,Honolulu Botanical Gardens,Kaneohe,HI,400,96744,12b,"Kaneohe ,  HI",-157.7973653,21.3996475
+209,Limahuli Garden and Preserve,National Tropical Botanical Garden,Kauai,HI,17,96722,12b,"Hanalei,HI",-159.575801,22.219946
+210,Hiiakas Healing Herb Garden,NA,Keaau,HI,1,96749,12b,"Keaau ,  HI",-155.0394139,19.6213287
+211,Koko Crater Botanical Garden,Honolulu Botanical Gardens,Oahu,HI,60,96825,12b,"Hawaii Kai,HI",-157.677362,21.29365
+212,Tropical Gardens of Maui,NA,Wailuku,HI,4,96793,12b,"Wailuku ,  HI",-156.5047222,20.8911111
+213,Reiman Gardens,Iowa State University,Ames,IA,17,50010,5a,"Ames ,  IA",-93.6319131,42.0307812
+214,University of Northern Iowa Teaching and Research Greenhouse,University of Northern Iowa,Cedar Falls,IA,NA,50613,5a,"Cedar Falls ,  IA",-92.4453161,42.5348993
+215,Brenton Arboretum,NA,Dallas Center,IA,141,50063,5a,"Dallas Center ,  IA",-93.9611859,41.6843456
+216,Dubuque Arboretum and Botanical Gardens,NA,Dubuque,IA,52,52001,5a,"Dubuque ,  IA",-90.6645718,42.5005583
+217,Buxton Park Arboretum,NA,Indianola,IA,5.4,50125,5a,"Indianola ,  IA",-93.5574376,41.3580484
+218,Iowa Arboretum,NA,Madrid,IA,415,50156,5a,"Madrid ,  IA",-93.8156689,41.8779511
+219,Frontier Organic Research Farm Botanical Garden,NA,Norway,IA,1,52318,5a,"Norway ,  IA",-91.9215691,41.9027805
+220,Forest Park Museum and Arboretum,NA,Perry,IA,17,50220,5a,"Perry ,  IA",-94.1071797,41.8385964
+221,Cedar Valley Arboretum and Botanic Gardens,NA,Waterloo,IA,35,50701,5a,"Waterloo ,  IA",-92.3425775,42.492786
+222,Crapo Park,NA,Burlington,IA,85,52601,5b,"Burlington ,  IA",-91.1128901,40.8076529
+223,Bickelhaupt Arboretum,NA,Clinton,IA,14,52732,5b,"Clinton ,  IA",-90.1887379,41.8444735
+224,Stampe Lilac Garden,NA,Davenport,IA,211,52801,5b,"Davenport ,  IA",-90.5776367,41.5236437
+225,Vander Veer Botanical Park,NA,Davenport,IA,33,52801,5b,"Davenport ,  IA",-90.5776367,41.5236437
+226,Arie den Boer Arboretum,NA,Des Moines,IA,1500,50301,5b,"Des Moines ,  IA",-93.6249593,41.5868353
+227,Greater Des Moines Botanical Garden,NA,Des Moines,IA,14,50301,5b,"Des Moines ,  IA",-93.6249593,41.5868353
+228,Lilac Arboretum and Childrens Forest,NA,Des Moines,IA,NA,50301,5b,"Des Moines ,  IA",-93.6249593,41.5868353
+229,Muscatine Arboretum,NA,Muscatine,IA,12,52761,5b,"Muscatine ,  IA",-91.0432051,41.424473
+230,Newton Arboretum and Botanical Gardens,NA,Newton,IA,3,50208,5b,"Newton ,  IA",-93.0573533,41.7033177
+231,Sawtooth Botanical Garden,NA,Ketchum,ID,5,83340,5a,"Ketchum ,  ID",-114.3636619,43.6807402
+232,University of Idaho Arboretum and Botanical Garden,University of Idaho,Moscow,ID,63,83843,6a,"Moscow ,  ID",-117.000165,46.7323875
+233,Idaho State Arboretum,Idaho State University,Pocatello,ID,NA,83201,6a,"Pocatello ,  ID",-112.4506191,42.8621042
+234,Idaho Botanical Garden,NA,Boise,ID,50,83701,7a,"Boise ,  ID",-116.2023137,43.6150186
+235,Arboretum Park,NA,Eagle,ID,85,83616,7a,"Eagle ,  ID",-116.3540138,43.6954424
+236,Don Opel Arboretum,Highland Community College,Freeport,IL,140,61032,5a,"Freeport ,  IL",-89.6212271,42.2966861
+237,Wilder Park Conservatory,NA,Elmhurst,IL,6,60126,5b,"Elmhurst ,  IL",-87.9403418,41.8994744
+238,Ladd Arboretum,NA,Evanston,IL,23,60201,5b,"Evanston ,  IL",-87.6876969,42.0450722
+239,Standish Park Arboretum,NA,Galesburg,IL,3.3,61401,5b,"Galesburg ,  IL",-90.3712395,40.9478158
+240,Chicago Botanic Garden,NA,Glencoe,IL,385,60022,5b,"Glencoe ,  IL",-87.7581188,42.1350268
+241,Morton Arboretum,NA,Lisle,IL,1700,60532,5b,"Lisle ,  IL",-88.0747875,41.801141
+242,Lilacia Park,NA,Lombard,IL,8.5,60148,5b,"Lombard ,  IL",-88.0078435,41.8800296
+243,Mabery Gelvin Botanical Garden,NA,Mahomet,IL,8,61853,5b,"Mahomet ,  IL",-88.4042234,40.1953106
+244,Fell Arboretum,Illinois State University,Normal,IL,490,61761,5b,"Normal ,  IL",-88.9906312,40.5142026
+245,George L. Luthy Memorial Botanical Garden,NA,Peoria,IL,4.5,61601,5b,"Peoria ,  IL",-89.5889864,40.6936488
+246,Starhill Forest Arboretum,NA,Petersburg,IL,50,62675,5b,"Petersburg ,  IL",-89.8481652,40.0117151
+247,Longview Park Conservatory and Gardens,NA,Rock Island,IL,39,61201,5b,"Rock Island ,  IL",-90.5787476,41.5094771
+248,Quad City Botanical Center,NA,Rock Island,IL,NA,61201,5b,"Rock Island ,  IL",-90.5787476,41.5094771
+249,Anderson Japanese Gardens,NA,Rockford,IL,12,61101,5b,"Rockford ,  IL",-89.0939952,42.2711311
+250,Heritage Gardens,Midway Village Museum,Rockford,IL,10,61101,5b,"Rockford ,  IL",-89.0939952,42.2711311
+251,Klehm Arboretum and Botanic Garden,NA,Rockford,IL,155,61101,5b,"Rockford ,  IL",-89.0939952,42.2711311
+252,La Paloma Gardens,NA,Rockford,IL,5,61101,5b,"Rockford ,  IL",-89.0939952,42.2711311
+253,Nicholas Conservatory and Gardens,NA,Rockford,IL,NA,61101,5b,"Rockford ,  IL",-89.0939952,42.2711311
+254,Sinnissippi Gardens,NA,Rockford,IL,NA,61101,5b,"Rockford ,  IL",-89.0939952,42.2711311
+255,Tinker Swiss Cottage and Gardens,NA,Rockford,IL,NA,61101,5b,"Rockford ,  IL",-89.0939952,42.2711311
+256,Lincoln Memorial Gardens,NA,Springfield,IL,100,62701,5b,"Springfield ,  IL",-89.6501481,39.7817213
+257,Washington Park (Springfield),NA,Springfield,IL,150.3,62701,5b,"Springfield ,  IL",-89.6501481,39.7817213
+258,University of Illinois Arboretum,University of Illinois,Urbana,IL,160,61801,5b,"Urbana ,  IL",-88.2072697,40.1105875
+259,University of Illinois Conservatory and Plant Collection,University of Illinois,Urbana,IL,NA,61801,5b,"Urbana ,  IL",-88.2072697,40.1105875
+260,Cantigny Park,NA,Wheaton,IL,500,60187,5b,"Wheaton ,  IL",-88.1070127,41.8661403
+261,Kaskaskia College Arboretum,Kaskaskia College,Centralia,IL,NA,62801,6a,"Centralia ,  IL",-89.1316944,38.5285169
+262,Garfield Park Conservatory,NA,Chicago,IL,12,60290,6a,"Chicago ,  IL",-87.6297982,41.8781136
+263,Lincoln Park Conservatory,NA,Chicago,IL,3,60290,6a,"Chicago ,  IL",-87.6297982,41.8781136
+264,University of Chicago Botanic Garden,University of Chicago,Chicago,IL,NA,60290,6a,"Chicago ,  IL",-87.6297982,41.8781136
+265,The Gardens at SIUE,Southern Illinois University,Edwardsville,IL,35,62025,6a,"Edwardsville ,  IL",-89.953157,38.8114364
+266,Oak Park Conservatory,NA,Oak Park,IL,2,60301,6a,"Oak Park ,  IL",-87.7845025,41.8850317
+267,Huntington University Arboretum and Botanical Garden,Huntington University,Huntington,IN,NA,46750,5b,"Huntington ,  IN",-85.497476,40.8831011
+268,Jerry E. Clegg Botanic Garden,NA,Lafayette,IN,16,47901,5b,"Lafayette ,  IN",-86.8752869,40.4167022
+269,Greenfield Herb Garden,NA,Shipshewana,IN,NA,46565,5b,"Shipshewana ,  IN",-85.5802634,41.6728282
+270,Taltree Arboretum and Gardens,NA,Valparaiso,IN,360,46383,5b,"Valparaiso ,  IN",-87.0611412,41.4730948
+271,Purdue University Horticulture Gardens,Purdue University,West Lafayette,IN,0.5,47906,5b,"West Lafayette ,  IN",-86.9080655,40.4258686
+272,Indiana University Arboretum,Indiana University,Bloomington,IN,NA,47401,6a,"Bloomington ,  IN",-86.5263857,39.165325
+273,Foellinger-Freimann Botanical Conservatory,City of Fort Wayne Parks and Recreation,Fort Wayne,IN,NA,46801,6a,"Fort Wayne ,  IN",-85.1393513,41.079273
+274,Garfield Park Conservatory and Sunken Gardens,City of Indianapolis Parks and Recreation,Indianapolis,IN,3,46201,6a,"Indianapolis ,  IN",-86.158068,39.768403
+275,Holcomb Gardens,Butler University,Indianapolis,IN,20,46201,6a,"Indianapolis ,  IN",-86.158068,39.768403
+276,Lilly House and Gardens,Indianapolis Museum of Art,Indianapolis,IN,26,46201,6a,"Indianapolis ,  IN",-86.158068,39.768403
+277,White River Gardens,Indianapolis Zoo,Indianapolis,IN,3.3,46201,6a,"Indianapolis ,  IN",-86.158068,39.768403
+278,Christy Woods,Ball State University,Muncie,IN,18,47302,6a,"Muncie ,  IN",-85.3863599,40.1933767
+279,Wheeler Orchid Collection and Species Bank,Ball State University,Muncie,IN,18,47302,6a,"Muncie ,  IN",-85.3863599,40.1933767
+280,Hayes Arboretum,Stanley W. Hayes Research Foundation,Richmond,IN,355,47374,6a,"Richmond ,  IN",-84.8902382,39.8289369
+281,Potawatomi Conservatories,NA,South Bend,IN,NA,46601,6a,"South Bend ,  IN",-86.2519898,41.6763545
+282,International Forest of Friendship,NA,Atchison,KS,NA,66002,6a,"Atchison ,  KS",-95.1216356,39.5630521
+283,Kansas State University Gardens,Kansas State University,Manhattan,KS,19,66502,6a,"Manhattan ,  KS",-96.5716694,39.1836082
+284,Overland Park Arboretum and Botanical Gardens,Overland Park Kansas,Overland Park,KS,300,66062,6a,"Overland Park ,  KS",-94.6707917,38.9822282
+285,Reinisch Rose Garden and Doran Rock Garden,NA,Topeka,KS,NA,66601,6a,"Topeka ,  KS",-95.6751576,39.0473451
+286,Ward-Meade Park Botanical Gardens,NA,Topeka,KS,2.5,66601,6a,"Topeka ,  KS",-95.6751576,39.0473451
+287,Kansas Landscape Arboretum,NA,Wakefield,KS,193,67487,6a,"Wakefield ,  KS",-97.0142427,39.2156788
+288,Bartlett Arboretum,NA,Belle Plaine,KS,20,67013,6b,"Belle Plaine ,  KS",-97.281155,37.3939098
+289,Dyck Arboretum of the Plains,NA,Hesston,KS,13,67062,6b,"Hesston ,  KS",-97.4314267,38.1383437
+290,Parsons Arboretum,NA,Parsons,KS,19,67357,6b,"Parsons ,  KS",-95.2610838,37.3403384
+291,Botanica The Wichita Gardens,NA,Wichita,KS,17.6,67147,6b,"Wichita ,  KS",-97.330053,37.6871761
+292,Sedgwick County Extension Arboretum,NA,Wichita,KS,NA,67205,6b,"Wichita ,  KS",-97.330053,37.6871761
+293,Boone County Arboretum,NA,Union,KY,121,41091,6a,"Union ,  KY",-84.680501,38.9458951
+294,Baker Arboretum,NA,Bowling Green,KY,NA,42101,6b,"Bowling Green ,  KY",-86.4808043,36.9685219
+295,Bernheim Arboretum and Research Forest,NA,Clermont,KY,15625,40110,6b,"Clermont ,  KY",-85.6527355,37.9297858
+296,Yew Dell Botanical Gardens,NA,Crestwood,KY,60,40014,6b,"Crestwood ,  KY",-85.4724593,38.3242355
+297,Kentucky Horse Park Arboretum,NA,Lexington,KY,NA,40502,6b,"Lexington ,  KY",-84.5037164,38.0405837
+298,Lexington Cemetery,NA,Lexington,KY,170,40502,6b,"Lexington ,  KY",-84.5037164,38.0405837
+299,University of Kentucky/Lexington-Fayette Urban County Government Arboretum,University of Kentucky,Lexington,KY,100,40502,6b,"Lexington ,  KY",-84.5037164,38.0405837
+300,Western Kentucky Botanical Garden,NA,Owensboro,KY,9.5,42301,6b,"Owensboro ,  KY",-87.1111676,37.7719074
+301,Nannine Clay Wallis Arboretum,NA,Paris,KY,4,40361,6b,"Paris ,  KY",-84.2529869,38.2097987
+302,University of Kentucky Research and Education Center Botanical Garden,University of Kentucky,Princeton,KY,1300,42445,6b,"Princeton ,  KY",-87.8819594,37.1092162
+303,Cave Hill Cemetery,NA,Louisville,KY,296,40201,7a,"Louisville ,  KY",-85.7584557,38.2526647
+304,Louisiana Tech University Arboretum,Louisiana Tech University,Ruston,LA,50,71270,8a,"Ruston ,  LA",-92.637927,32.5232053
+305,Independence Park Botanic Gardens,NA,Baton Rouge,LA,15,70801,8b,"Baton Rouge ,  LA",-91.1871466,30.4514677
+306,Laurens Henry Cohn Sr. Memorial Plant Arboretum,NA,Baton Rouge,LA,16,70801,8b,"Baton Rouge ,  LA",-91.1871466,30.4514677
+307,LSU AgCenter Botanic Gardens,Louisiana State University,Baton Rouge,LA,NA,70801,8b,"Baton Rouge ,  LA",-91.1871466,30.4514677
+308,LSU Hilltop Arboretum,Louisiana State University,Baton Rouge,LA,14,70801,8b,"Baton Rouge ,  LA",-91.1871466,30.4514677
+309,Hodges Gardens State Park,NA,Many,LA,4700,71449,8b,"Many ,  LA",-93.4840645,31.5687848
+310,Biedenharn Museum and Gardens,NA,Monroe,LA,1,71201,8b,"Monroe ,  LA",-92.1193012,32.5093109
+311,The Gardens of the American Rose Center,NA,Shreveport,LA,118,71101,8b,"Shreveport ,  LA",-93.7501789,32.5251516
+312,Jungle Gardens,NA,Avery Island,LA,170,70513,9a,"Avery Island ,  LA",-91.9050391,29.8967541
+313,Louisiana State Arboretum,NA,Ville Platte,LA,600,70586,9a,"Ville Platte ,  LA",-92.2715157,30.6879749
+314,Longue Vue House and Gardens,NA,New Orleans,LA,8,70112,9b,"New Orleans ,  LA",-90.0715323,29.9510658
+315,New Orleans Botanical Garden,NA,New Orleans,LA,12,70112,9b,"New Orleans ,  LA",-90.0715323,29.9510658
+316,Hebert Arboretum,NA,Pittsfield,MA,231,1201,5b,"Pittsfield ,  MA",-73.2453824,42.4500845
+317,Berkshire Botanical Garden,NA,Stockbridge,MA,15,1262,5b,"Stockbridge ,  MA",-73.3203862,42.2875874
+318,Hadwen Arboretum,NA,Worcester,MA,6.4,1601,5b,"Worcester ,  MA",-71.8022934,42.2625932
+319,Tower Hill Botanic Garden,Worcester County Horticultural Society,Boylston,MA,171,1505,6a,"Boylston ,  MA",-71.6908142,42.3889953
+320,Garden in the Woods,NA,Framingham,MA,45,1701,6a,"Framingham ,  MA",-71.4161565,42.279286
+321,Stevens-Coolidge Place,NA,North Andover,MA,91,1845,6a,"North Andover ,  MA",-71.1350575,42.6987024
+322,The Botanic Garden of Smith College,Smith College,Northampton,MA,127,1060,6a,"Northampton ,  MA",-72.6412013,42.3250896
+323,Mount Holyoke College Botanic Garden,Mount Holyoke College,South Hadley,MA,3,1075,6a,"South Hadley ,  MA",-72.5747934,42.2591729
+324,Stanley Park of Westfield,NA,Westfield,MA,1300,1085,6a,"Westfield ,  MA",-72.749538,42.1250929
+325,The Case Estates,NA,Weston,MA,65,2493,6a,"Weston ,  MA",-71.3031132,42.3667625
+326,Arnold Arboretum,Harvard University,Boston,MA,281,2108,6b,"Boston ,  MA",-71.0588801,42.3600825
+327,Boston Public Garden,NA,Boston,MA,24,2109,6b,"Boston ,  MA",-71.0588801,42.3600825
+328,Mount Auburn Cemetery,NA,Cambridge,MA,174,2138,6b,"Cambridge ,  MA",-71.1097335,42.3736158
+329,Babcock Arboretum,Eastern Nazarene College,Quincy,MA,21,2169,6b,"Quincy ,  MA",-71.0022705,42.2528772
+330,Heritage Museums and Gardens,NA,Sandwich,MA,100,2563,6b,"Sandwich ,  MA",-70.4939317,41.7589615
+331,Elm Bank Horticulture Center,NA,Wellesley,MA,36,2457,6b,"Wellesley ,  MA",-71.2923877,42.296797
+332,Hunnewell Arboretum,NA,Wellesley,MA,54,2458,6b,"Wellesley ,  MA",-71.2923877,42.296797
+333,Wellesley College Botanic Gardens,Wellesley College,Wellesley,MA,22,2459,6b,"Wellesley ,  MA",-71.2923877,42.296797
+334,Polly Hill Arboretum,NA,West Tisbury,MA,20,2568,7a,"West Tisbury ,  MA",-70.6744723,41.3812245
+335,Ladew Topiary Gardens,NA,Monkton,MD,22,21111,6b,"Monkton ,  MD",-76.6145058,39.5781625
+336,University of Maryland Arboretum & Botanical Garden,University of Maryland,College Park,MD,NA,20740,7a,"College Park ,  MD",-76.93776,38.9896967
+337,Adkins Arboretum,Tuckahoe State Park,Ridgely,MD,400,21660,7a,"Ridgely ,  MD",-75.8843805,38.9478912
+338,Brookside Gardens,Maryland-National Capital Park and Planning Commission,Wheaton,MD,50,20902,7a,"Wheaton ,  MD",-77.0517746,39.0414899
+339,Helen Avalynne Tawes Garden,Maryland Park Service,Annapolis,MD,5,21401,7b,"Annapolis ,  MD",-76.4921829,38.9784453
+340,Cylburn Arboretum,City of Baltimore Recreation and Parks Department,Baltimore,MD,207,21201,7b,"Baltimore ,  MD",-76.6121893,39.2903848
+341,Howard Peters Rawlings Conservatory and Botanic Gardens of Baltimore,City of Baltimore Recreation and Parks Department,Baltimore,MD,1.5,21201,7b,"Baltimore ,  MD",-76.6121893,39.2903848
+342,McCrillis Gardens,Maryland-National Capital Park and Planning Commission,Bethesda,MD,5,21201,7b,"Bethesda ,  MD",-77.0947092,38.984652
+343,Historic London Town and Gardens,NA,Edgewater,MD,NA,21037,7b,"Edgewater ,  MD",-76.5629398,38.940564
+344,Salisbury University Arboretum,Salisbury University,Salisbury,MD,125,21801,7b,"Salisbury ,  MD",-75.5993692,38.3606736
+345,Viles Arboretum,NA,Augusta,ME,224,4330,5a,"Augusta ,  ME",-69.7794897,44.3106241
+346,Ecotat Gardens and Arboretum,NA,Hermon,ME,91,4401,5a,"Hermon ,  ME",-68.9133724,44.81007
+347,Fay Hyland Botanical Plantation,University of Maine,Orono,ME,10,4469,5a,"Orono ,  ME",-68.6719411,44.8831125
+348,Lyle E. Littlefield Ornamentals Trial Garden,University of Maine,Orono,ME,6.5,4469,5a,"Orono ,  ME",-68.6719411,44.8831125
+349,Perkins Arboretum,Colby College,Waterville,ME,128,4901,5a,"Waterville ,  ME",-69.6317121,44.5520105
+350,Coastal Maine Botanical Gardens,NA,Boothbay,ME,270,4537,5b,"Boothbay ,  ME",-69.6337364,43.8762865
+351,Carnegie Science Arboretum,Bates College,Lewiston,ME,NA,4240,5b,"Lewiston ,  ME",-70.2147764,44.100351
+352,Longfellow Arboretum,NA,Portland,ME,47.5,4101,5b,"Portland ,  ME",-70.2568189,43.6590993
+353,Shoreway Arboretum,Southern Maine Community College,South Portland,ME,21,4106,5b,"South Portland ,  ME",-70.2408811,43.6414716
+354,Harvey Butler Memorial Rhododendron Sanctuary,NA,Springvale,ME,30,4083,5b,"Springvale ,  ME",-70.7936699,43.4667484
+355,Wild Gardens of Acadia,Acadia National Park,Mount Desert Island,ME,NA,4609,6a,"Mount Desert Island ,  ME",-68.3021373,44.3924341
+356,Michigan State University Horticulture Gardens,Michigan State University,East Lansing,MI,NA,48823,5b,"East Lansing ,  MI",-84.4838654,42.7369792
+357,W. J. Beal Botanical Garden,Michigan State University,East Lansing,MI,5,48823,5b,"East Lansing ,  MI",-84.4838654,42.7369792
+358,Hidden Lake Gardens,Michigan State University,Franklin Township/Tipton,MI,755,49287,5b,"Franklin Township/Tipton ,  MI",-84.0642395,42.0168804
+359,Slayton Arboretum,Hillsdale College,Hillsdale,MI,14,49242,5b,"Hillsdale ,  MI",-84.6305101,41.9200472
+360,Fernwood Botanical Garden and Nature Preserve,NA,Niles,MI,105,49120,5b,"Niles ,  MI",-86.2541768,41.8297694
+361,Matthaei Botanical Gardens,University of Michigan,Ann Arbor,MI,300,48103,6a,"Ann Arbor ,  MI",-83.7430378,42.2808256
+362,Nichols Arboretum,University of Michigan,Ann Arbor,MI,123,48103,6a,"Ann Arbor ,  MI",-83.7430378,42.2808256
+363,Leila Arboretum,NA,Battle Creek,MI,72,49014,6a,"Battle Creek ,  MI",-85.1797142,42.3211522
+364,Frederik Meijer Gardens & Sculpture Park,NA,Grand Rapids,MI,158,49501,6a,"Grand Rapids ,  MI",-85.6680863,42.9633599
+365,Dow Gardens,NA,Midland,MI,110,48640,6a,"Midland ,  MI",-84.2472116,43.6155825
+366,Anna Scripps Whitcomb Conservatory,City of Detroit,Detroit,MI,982,48201,6b,"Detroit ,  MI",-83.0457538,42.331427
+367,MacArthur Park Arboretum,NA,Mount Clemens,MI,NA,48043,6b,"Mount Clemens ,  MI",-82.8779754,42.5972563
+368,Northland Arboretum,Paul Bunyan Conservation Area,Brainerd,MN,583,56401,3b,"Brainerd ,  MN",-94.2020084,46.3526733
+369,Bergeson Gardens,Bergeson Nursery,Fertile,MN,4,56540,3b,"Fertile ,  MN",-96.2803328,47.5360765
+370,Olcott Park Greenhouse,NA,Virginia,MN,NA,55777,3b,"Virginia ,  MN",-92.5365713,47.5232596
+371,Munsinger Gardens and Clemens Gardens,NA,St. Cloud,MN,14,56301,4a,"St. Cloud ,  MN",-94.1632404,45.5579451
+372,Minnesota Landscape Arboretum,University of Minnesota,Chanhassen,MN,1137,55317,4b,"Chanhassen ,  MN",-93.5323103,44.8619645
+373,Abbey Arboretum,College of Saint Benedict and Saint Johns University,Collegeville,MN,2944,56321,4b,"Collegeville ,  MN",-94.3641026,45.5938815
+374,Leif Erickson Park & Rose Garden,NA,Duluth,MN,7,55701,4b,"Duluth ,  MN",-92.1004852,46.7866719
+375,Eloise Butler Wildflower Garden and Bird Sanctuary,Theodore Wirth Park,Minneapolis,MN,15,55401,4b,"Minneapolis ,  MN",-93.2650108,44.977753
+376,Lyndale Park Gardens,Lyndale Park,Minneapolis,MN,61,55401,4b,"Minneapolis ,  MN",-93.2650108,44.977753
+377,Carleton College Cowling Arboretum,Carleton College,Northfield,MN,880,55057,4b,"Northfield ,  MN",-93.161604,44.4582983
+378,Como Park Zoo and Conservatory,NA,Saint Paul,MN,759,55101,4b,"Saint Paul ,  MN",-93.0899578,44.9537029
+379,Linnaeus Arboretum,Gustavus Adolphus College,St. Peter,MN,155,56082,4b,"St. Peter ,  MN",-93.955691,44.3258932
+380,Missouri State Arboretum,Northwest Missouri State University,Maryville,MO,NA,64468,5b,"Maryville ,  MO",-94.8724706,40.3461017
+381,McAlester Arboretum,University of Missouri,Columbia,MO,4,65201,6a,"Columbia ,  MO",-92.3340724,38.9517053
+382,Mizzou Botanic Garden,University of Missouri,Columbia,MO,4,65201,6a,"Columbia ,  MO",-92.3340724,38.9517053
+383,Shaw Nature Reserve,NA,Gray Summit,MO,2400,63039,6a,"Gray Summit ,  MO",-90.8168008,38.489775
+384,Powell Gardens,NA,Kingsville,MO,970,64061,6a,"Kingsville ,  MO",-94.0699427,38.7430659
+385,Ewing and Muriel Kauffman Memorial Garden,Ewing Marion Kauffman Foundation,Kansas City,MO,2,64101,6b,"Kansas City ,  MO",-94.5785667,39.0997265
+386,Springfield-Greene County Botanical Center and Gardens,NA,Springfield,MO,NA,65801,6b,"Springfield ,  MO",-93.2922989,37.2089572
+387,Missouri Botanical Garden,NA,St. Louis,MO,79,63101,6b,"St. Louis ,  MO",-90.1994042,38.6270025
+388,Seiwa-en,NA,St. Louis,MO,14,63101,6b,"St. Louis ,  MO",-90.1994042,38.6270025
+389,Jackson State University Botanical Garden,NA,Jackson,MS,NA,39201,8a,"Jackson ,  MS",-90.1848103,32.2987573
+390,Simmons Arboretum,NA,Madison,MS,10,39110,8a,"Madison ,  MS",-90.1153638,32.4618086
+391,Forestry Sciences Laboratory Arboretum,NA,Starkville,MS,NA,39759,8a,"Starkville ,  MS",-88.8183872,33.4503998
+392,Crosby Arboretum,Mississippi State University,Picayune,MS,64,39466,8b,"Picayune ,  MS",-89.6795084,30.5254692
+393,Botanical Gardens of ZooMontana,NA,Billings,MT,NA,59101,4b,"Billings ,  MT",-108.5006904,45.7832856
+394,Yellowstone Arboretum of ZooMontana,NA,Billings,MT,NA,59101,4b,"Billings ,  MT",-108.5006904,45.7832856
+395,Montana Arboretum and Gardens,Montana State University,Bozeman,MT,NA,59715,4b,"Bozeman ,  MT",-111.0429339,45.6769979
+396,Tizer Botanic Gardens & Arboretum,NA,Jefferson City,MT,NA,59638,4b,"Jefferson City ,  MT",-112.0274956,46.3882636
+397,Gatiss Gardens,NA,Kalispell,MT,5,59901,5a,"Kalispell ,  MT",-114.316813,48.1919889
+398,International Larix Arboretum,NA,Hungry Horse,MT,1.2,59919,5b,"Hungry Horse ,  MT",-114.060953,48.3857979
+399,Official State Arboretum,University of Montana,Missoula,MT,3,59801,5b,"Missoula ,  MT",-113.9940314,46.8721284
+400,Daniel Boone Native Gardens,NA,Boone,NC,NA,28607,6b,"Boone ,  NC",-81.6745517,36.216795
+401,Cherokee Botanical Garden and Nature Trail,NA,Cherokee,NC,NA,28719,6b,"Cherokee ,  NC",-83.3205859,35.4770574
+402,Haywood Community College Arboretum,Haywood Community College,Clyde,NC,NA,28721,6b,"Clyde ,  NC",-82.910691,35.5334379
+403,Botanical Gardens at Asheville,University of North Carolina,Asheville,NC,10,28801,7a,"Asheville ,  NC",-82.5514869,35.5950581
+404,North Carolina Arboretum,NA,Asheville,NC,434,28801,7a,"Asheville ,  NC",-82.5514869,35.5950581
+405,Daniel Stowe Botanical Garden,NA,Belmont,NC,380,28012,7b,"Belmont ,  NC",-81.037297,35.2429175
+406,Coker Arboretum,University of North Carolina,Chapel Hill,NC,5.3,27514,7b,"Chapel Hill ,  NC",-79.0558445,35.9131996
+407,North Carolina Botanical Garden,University of North Carolina,Chapel Hill,NC,910,27514,7b,"Chapel Hill ,  NC",-79.0558445,35.9131996
+408,William Lanier Hunt Arboretum,University of North Carolina,Chapel Hill,NC,100,27514,7b,"Chapel Hill ,  NC",-79.0558445,35.9131996
+409,Tanglewood Park Arboretum and Rose Garden,NA,Clemmons,NC,NA,27012,7b,"Clemmons ,  NC",-80.3819984,36.0215258
+410,Davidson College Arboretum,Davidson College,Davidson,NC,100,28035,7b,"Davidson ,  NC",-80.8486846,35.4993031
+411,Sarah P. Duke Gardens,Duke University,Durham,NC,55,27701,7b,"Durham ,  NC",-78.898619,35.9940329
+412,Elon University Botanical Gardens,Elon University,Elon,NC,NA,27244,7b,"Elon ,  NC",-79.5115433,36.0982762
+413,Greensboro Arboretum,NA,Greensboro,NC,17,27401,7b,"Greensboro ,  NC",-79.7919754,36.0726354
+414,The Bog Garden,NA,Greensboro,NC,7,27401,7b,"Greensboro ,  NC",-79.7919754,36.0726354
+415,Mariana H. Qubein Arboretum & Botanical Gardens,High Point University,High Point,NC,NA,27260,7b,"High Point ,  NC",-80.0053176,35.9556923
+416,De Hart Botanical Gardens,NA,Louisburg,NC,172,27549,7b,"Louisburg ,  NC",-78.301106,36.0990393
+417,Barred Owl Bend,NA,Pittsboro,NC,5.4,27228,7b,"Pittsboro ,  NC",-79.1772371,35.7201463
+418,J. C. Raulston Arboretum,North Carolina State University,Raleigh,NC,10,27601,7b,"Raleigh ,  NC",-78.6381787,35.7795897
+419,Juniper Level Botanic Gardens,NA,Raleigh,NC,28,27601,7b,"Raleigh ,  NC",-78.6381787,35.7795897
+420,Reynolda Gardens,Wake Forest University,Winston-Salem,NC,129,27101,7b,"Winston-Salem ,  NC",-80.244216,36.0998596
+421,University of North Carolina at Charlotte Botanical Gardens,University of North Carolina,Charlotte,NC,NA,28201,8a,"Charlotte ,  NC",-80.8431267,35.2270869
+422,Wing Haven Gardens and Bird Sanctuary,NA,Charlotte,NC,3,28201,8a,"Charlotte ,  NC",-80.8431267,35.2270869
+423,Cape Fear Botanical Garden,NA,Fayetteville,NC,80,28301,8a,"Fayetteville ,  NC",-78.8783585,35.0526641
+424,Sandhills Horticultural Gardens,Sandhills Community College,Pinehurst,NC,27,28370,8a,"Pinehurst ,  NC",-79.4694767,35.1954345
+425,Airlie Gardens,NA,Wilmington,NC,67,28401,8a,"Wilmington ,  NC",-77.8868117,34.2103894
+426,New Hanover County Extension Service Arboretum,NA,Wilmington,NC,7,28401,8a,"Wilmington ,  NC",-77.8868117,34.2103894
+427,University of North Carolina at Wilmington Arboretum,University of North Carolina,Wilmington,NC,NA,28401,8a,"Wilmington ,  NC",-77.8868117,34.2103894
+428,Berthold Public School Arboretum,NA,Berthold,ND,NA,58718,3b,"Berthold ,  ND",-101.7371078,48.313069
+429,Gunlogson Arboretum Nature Preserve,NA,Cavalier,ND,912,58220,3b,"Cavalier ,  ND",-97.6223098,48.7938813
+430,International Peace Garden,NA,Rolette County,ND,2336,58366,3b,"Rolette County ,  ND",-99.8791166,48.6981517
+431,Denbigh Experimental Forest,NA,Towner,ND,636,58788,3b,"Towner ,  ND",-100.4054123,48.3458325
+432,Northern Plains Botanic Garden Society,NA,Fargo,ND,NA,58102,4a,"Fargo ,  ND",-96.7898034,46.8771863
+433,Fort Stevenson State Park Arboretum,NA,Garrison,ND,438,58540,4a,"Garrison ,  ND",-101.4157165,47.6522225
+434,Myra Arboretum,NA,Larimore,ND,26,58251,4a,"Larimore ,  ND",-97.6267539,47.9066569
+435,Northfield Park Arboretum,NA,Gering,NE,15,69341,5a,"Gering ,  NE",-103.6577616,41.8263619
+436,Gilman Park Arboretum,NA,Pierce,NE,14,68767,5a,"Pierce ,  NE",-97.5267247,42.19917
+437,D. A. Murphy Panhandle Arboretum,NA,Scottsbluff,NE,40,69361,5a,"Scottsbluff ,  NE",-103.6671662,41.8666341
+438,Wayne State College Arboretum,Wayne State College,Wayne,NE,127,68787,5a,"Wayne ,  NE",-97.0178236,42.2305588
+439,Governor Furnas Arboretum,NA,Brownville,NE,NA,68321,5b,"Brownville ,  NE",-95.6580455,40.3977793
+440,Doane College Osterhout Arboretum,Doane College,Crete,NE,300,68333,5b,"Crete ,  NE",-96.9615141,40.6252173
+441,Itha T. Krumme Memorial Arboretum,NA,Falls City,NE,2,68355,5b,"Falls City ,  NE",-95.6019294,40.0608352
+442,Norris Forest School Arboretum,NA,Hickman,NE,160,68372,5b,"Hickman ,  NE",-96.633629,40.6191676
+443,Alice Abel Arboretum,Nebraska Wesleyan University,Lincoln,NE,25,68501,5b,"Lincoln ,  NE",-96.7025955,40.813616
+444,Joshua C. Turner Arboretum,Union College,Lincoln,NE,30,68501,5b,"Lincoln ,  NE",-96.7025955,40.813616
+445,Maxwell Arboretum,University of Nebraska,Lincoln,NE,5,68501,5b,"Lincoln ,  NE",-96.7025955,40.813616
+446,State Fair Park Arboretum,NA,Lincoln,NE,NA,68501,5b,"Lincoln ,  NE",-96.7025955,40.813616
+447,Arbor Lodge State Historical Park and Arboretum,NA,Nebraska City,NE,74,68410,5b,"Nebraska City ,  NE",-95.8593616,40.6765745
+448,Lauritzen Gardens Omaha Botanical Center,NA,Omaha,NE,100,68046,5b,"Omaha ,  NE",-95.9345034,41.2565369
+449,Nathans Garden,NA,Hanover,NH,1,3755,5a,"Hanover ,  NH",-72.2895526,43.7022451
+450,Rhododendron State Park,NA,Fitzwilliam,NH,2723,3447,5b,"Fitzwilliam ,  NH",-72.141749,42.7806396
+451,Bedrock Gardens,NA,Lee,NH,20,3824,5b,"Lee ,  NH",-71.0120127,43.122244
+452,Rockingham County Botanical Garden,NA,Brentwood,NH,10,3833,6a,"Brentwood ,  NH",-71.0735503,42.9780248
+453,Fuller Gardens,NA,North Hampton,NH,2.8,3862,6a,"North Hampton ,  NH",-70.8351792,42.9737623
+454,Willowwood Arboretum,NA,Chester,NJ,130,7930,6a,"Chester ,  NJ",-74.6968284,40.7842667
+455,Bamboo Brook Outdoor Education Center,Morris County Park Commission,Chester Township,NJ,670,7931,6b,"Chester Township ,  NJ",-74.6985891,40.7652883
+456,Colonial Park Arboretum and Gardens,NA,East Millstone,NJ,144,8873,6b,"East Millstone ,  NJ",-74.580712,40.5014929
+457,Leonard J. Buck Garden,NA,Far Hills,NJ,33,7931,6b,"Far Hills ,  NJ",-74.6357148,40.684268
+458,Hunterdon County Arboretum,NA,Lebanon,NJ,73,8833,6b,"Lebanon ,  NJ",-74.8359987,40.6417683
+459,Florence and Robert Zuck Arboretum,Drew University,Madison,NJ,186,7940,6b,"Madison ,  NJ",-74.417097,40.7598227
+460,Frelinghuysen Arboretum,NA,Morristown,NJ,127,7960,6b,"Morristown ,  NJ",-74.4815438,40.7967667
+461,Stony Brook Millstone Watershed Arboretum,NA,Pennington,NJ,860,8534,6b,"Pennington ,  NJ",-74.790718,40.3284402
+462,Herrontown Woods Arboretum,NA,Princeton,NJ,142,8540,6b,"Princeton ,  NJ",-74.6672226,40.3572976
+463,Skylands,Ringwood State Park,Ringwood,NJ,1119,7456,6b,"Ringwood ,  NJ",-74.2454254,41.1134289
+464,Cora Hartshorn Arboretum and Bird Sanctuary,NA,Short Hills,NJ,16.5,7078,6b,"Short Hills ,  NJ",-74.3232194,40.7483499
+465,Duke Gardens,NA,Somerville,NJ,2740,8876,6b,"Somerville ,  NJ",-74.60988,40.5742696
+466,Reeves-Reed Arboretum,NA,Summit,NJ,13.5,7901,6b,"Summit ,  NJ",-74.3646122,40.7146376
+467,Wagner Farm Arboretum,NA,Warren,NJ,3.5,7059,6b,"Warren ,  NJ",-74.5004796,40.6342489
+468,Pohatcong Native Arboretum,NA,Washington,NJ,NA,7882,6b,"Washington ,  NJ",-74.9793378,40.7584326
+469,Sayen Park Botanical Garden,NA,Hamilton Township,NJ,30,8609,7a,"Hamilton Township ,  NJ",-74.6796651,40.2115109
+470,Holmdel Arboretum,NA,Holmdel,NJ,22,7733,7a,"Holmdel ,  NJ",-74.1840322,40.3451095
+471,Sister Mary Grace Burns Arboretum,Georgian Court University,Lakewood,NJ,155,8701,7a,"Lakewood ,  NJ",-74.2097014,40.082129
+472,Lewis W. Barton Arboretum,NA,Medford,NJ,168,8055,7a,"Medford ,  NJ",-74.8390162,39.8661826
+473,Howard Van Vleck Arboretum,NA,Montclair,NJ,3.5,7042,7a,"Montclair ,  NJ",-74.2090053,40.8259007
+474,Presby Memorial Iris Gardens,NA,Montclair,NJ,6.5,7043,7a,"Montclair ,  NJ",-74.2090053,40.8259007
+475,Rutgers Gardens,Rutgers University,New Brunswick,NJ,60,8901,7a,"New Brunswick ,  NJ",-74.4518188,40.4862157
+476,Leamings Run Gardens,NA,Swainton,NJ,30,8210,7a,"Swainton ,  NJ",-74.7779297,39.1313934
+477,Santa Fe Botanical Garden,NA,Santa Fe,NM,11,87501,6b,"Santa Fe ,  NM",-105.937799,35.6869752
+478,Albuquerque Biological Park,NA,Albuquerque,NM,36,87101,7b,"Albuquerque ,  NM",-106.650422,35.0843859
+479,Rio Grande Botanic Garden,NA,Albuquerque,NM,36,87101,7b,"Albuquerque ,  NM",-106.650422,35.0843859
+480,University of New Mexico Arboretum,University of New Mexico,Albuquerque,NM,NA,87101,7b,"Albuquerque ,  NM",-106.650422,35.0843859
+481,Living Desert Zoo and Gardens State Park,NA,Carlsbad,NM,1500,88220,8a,"Carlsbad ,  NM",-104.2288375,32.4206736
+482,Fabian Garcia Science Center,New Mexico State University,Las Cruces,NM,49,88001,8a,"Las Cruces ,  NM",-106.7636538,32.3199396
+483,University of Nevada Reno Arboretum,University of Nevada,Reno,NV,NA,89501,7a,"Reno ,  NV",-119.8138027,39.5296329
+484,Wilbur D. May Arboretum and Botanical Garden,NA,Reno,NV,13,89501,7a,"Reno ,  NV",-119.8138027,39.5296329
+485,Ethel M Botanical Cactus Garden,NA,Henderson,NV,3,89002,9a,"Henderson ,  NV",-114.9817213,36.0395247
+486,Southern Nevada Zoological-Botanical Park,NA,Las Vegas,NV,3,89044,9a,"Las Vegas ,  NV",-115.1398296,36.1699412
+487,The Gardens at the Las Vegas Springs Preserve,NA,Las Vegas,NV,8,89044,9a,"Las Vegas ,  NV",-115.1398296,36.1699412
+488,UNLV Arboretum,University of Nevada,Paradise,NV,80,89044,9a,"Paradise ,  NV",-115.1466648,36.0971945
+489,Alan Bible Botanical Garden,NA,Boulder City,NV,NA,89005,9b,"Boulder City ,  NV",-114.8345117,35.9782216
+490,Nannen Arboretum,NA,Ellicottville,NY,8,14731,5a,"Ellicottville ,  NY",-78.6728071,42.2750639
+491,Mountain Top Arboretum,NA,Tannersville,NY,183,12424,5a,"Tannersville ,  NY",-74.1337508,42.1956438
+492,Bard College Arboretum,Bard College,Annandale-on-Hudson,NY,NA,12504,5b,"Annandale-on-Hudson ,  NY",-73.9095279,42.0218762
+493,Cutler Botanic Garden,NA,Binghamton,NY,3.5,13901,5b,"Binghamton ,  NY",-75.9179738,42.0986867
+494,George Landis Arboretum,NA,Esperance,NY,548,12066,5b,"Esperance ,  NY",-74.3235539,42.7546987
+495,Innisfree Garden,NA,Millbrook,NY,150,12545,5b,"Millbrook ,  NY",-73.6940175,41.7850937
+496,Mary Flagler Cary Arboretum,NA,Millbrook,NY,1924,12545,5b,"Millbrook ,  NY",-73.6940175,41.7850937
+497,Buffalo and Erie County Botanical Gardens,NA,Buffalo,NY,11.6,14201,6a,"Buffalo ,  NY",-78.8783689,42.8864468
+498,Maud Gordon Holmes Arboretum,Buffalo State College,Buffalo,NY,NA,14201,6a,"Buffalo ,  NY",-78.8783689,42.8864468
+499,Sonnenberg Mansion and Gardens,NA,Canandaigua,NY,50,14424,6a,"Canandaigua ,  NY",-77.2816984,42.887535
+500,Cornell Botanic Gardens,Cornell University,Ithaca,NY,175,14850,6a,"Ithaca ,  NY",-76.5018807,42.4439614
+501,F.R. Newman Arboretum,Cornell University,Ithaca,NY,25,14850,6a,"Ithaca ,  NY",-76.5018807,42.4439614
+502,Genesee Country Village and Museum,NA,Mumford,NY,600,14511,6a,"Mumford ,  NY",-77.8602856,42.9928396
+503,Vassar College Arboretum,Vassar College,Poughkeepsie,NY,NA,12601,6a,"Poughkeepsie ,  NY",-73.9209701,41.7003713
+504,Ellwanger Garden,NA,Rochester,NY,0.5,14602,6a,"Rochester ,  NY",-77.6088465,43.1565779
+505,Highland Botanical Park,NA,Rochester,NY,150,14602,6a,"Rochester ,  NY",-77.6088465,43.1565779
+506,University of Rochester Arboretum,University of Rochester,Rochester,NY,NA,14602,6a,"Rochester ,  NY",-77.6088465,43.1565779
+507,New York Botanical Garden,NA,The Bronx,NY,250,10541,6a,"The Bronx ,  NY",-73.8648268,40.8447819
+508,Wave Hill,NA,The Bronx,NY,28,10541,6a,"The Bronx ,  NY",-73.8648268,40.8447819
+509,Lasdon Park and Arboretum,NA,Somers,NY,234,10589,6b,"Somers ,  NY",-73.7360175,41.2996305
+510,Clark Botanic Garden,NA,Albertson,NY,12,11507,7a,"Albertson ,  NY",-73.6431844,40.7734341
+511,Bayard Cutting Arboretum State Park,NA,Great River,NY,691,11739,7a,"Great River ,  NY",-73.1576139,40.7212097
+512,Bailey Arboretum,NA,Locust Valley,NY,42,11560,7a,"Locust Valley ,  NY",-73.5970707,40.8759324
+513,John P. Humes Japanese Stroll Garden,NA,Mill Neck,NY,7,11765,7a,"Mill Neck ,  NY",-73.5551246,40.8870431
+514,Planting Fields Arboretum,NA,Oyster Bay,NY,400,11771,7a,"Oyster Bay ,  NY",-73.5320685,40.8656543
+515,Staten Island Botanical Garden,NA,Staten Island,NY,83,10301,7a,"Staten Island ,  NY",-74.1502007,40.5795317
+516,Brooklyn Botanic Garden,NA,Brooklyn,NY,52,11201,7b,"Brooklyn ,  NY",-73.9441579,40.6781784
+517,Queens Botanical Garden,NA,Flushing,NY,39,11351,7b,"Flushing ,  NY",-73.833079,40.7674987
+518,Hofstra University Arboretum,Hofstra University,Hempstead,NY,240,11549,7b,"Hempstead ,  NY",-73.6187397,40.7062128
+519,Ramser Arboretum,NA,Danville,OH,680,43014,5b,"Danville ,  OH",-82.2601584,40.4475643
+520,Holden Arboretum,NA,Kirtland,OH,3600,44024,5b,"Kirtland ,  OH",-81.3614985,41.6289365
+521,Kingwood Center,NA,Mansfield,OH,47,44901,5b,"Mansfield ,  OH",-82.5154471,40.75839
+522,Schoepfle Garden,NA,Birmingham,OH,70,44816,6a,"Birmingham ,  OH",-82.3607193,41.3300486
+523,Chadwick Arboretum,Ohio State University,Columbus,OH,62,43085,6a,"Columbus ,  OH",-82.9987942,39.9611755
+524,Franklin Park Conservatory,NA,Columbus,OH,90,43085,6a,"Columbus ,  OH",-82.9987942,39.9611755
+525,Cox Arboretum and Gardens MetroPark,NA,Dayton,OH,189,45401,6a,"Dayton ,  OH",-84.1916069,39.7589478
+526,Woodland Cemetery and Arboretum,NA,Dayton,OH,200,45401,6a,"Dayton ,  OH",-84.1916069,39.7589478
+527,Kraus Preserve,Ohio Wesleyan University,Delaware,OH,200,43015,6a,"Delaware ,  OH",-83.067965,40.2986724
+528,Schedel Arboretum and Gardens,NA,Elmore,OH,17,43416,6a,"Elmore ,  OH",-83.2957584,41.4761621
+529,Stanley M. Rowe Arboretum,NA,Indian Hill,OH,8.9,45243,6a,"Indian Hill ,  OH",-84.344964,39.1806172
+530,Dawes Arboretum,NA,Newark,OH,2000,43055,6a,"Newark ,  OH",-82.4012642,40.0581205
+531,Gardenview Horticultural Park,NA,Strongsville,OH,16,44136,6a,"Strongsville ,  OH",-81.83569,41.3144966
+532,Inniswood Botanical Garden and Nature Preserve,NA,Westerville,OH,123,43081,6a,"Westerville ,  OH",-82.9318807,40.1266689
+533,Secrest Arboretum,NA,Wooster,OH,115,44691,6a,"Wooster ,  OH",-81.935143,40.8050565
+534,Fellows Riverside Gardens,Mill Creek Metro Parks,Youngstown,OH,11,44501,6a,"Youngstown ,  OH",-80.6495194,41.0997803
+535,Stan Hywet Hall and Gardens,NA,Akron,OH,70,44301,6b,"Akron ,  OH",-81.5190053,41.0814447
+536,Cincinnati Zoo and Botanical Garden,NA,Cincinnati,OH,75,45201,6b,"Cincinnati ,  OH",-84.5120196,39.1031182
+537,Krohn Conservatory,NA,Cincinnati,OH,NA,45201,6b,"Cincinnati ,  OH",-84.5120196,39.1031182
+538,Mt. Airy Arboretum,NA,Cincinnati,OH,120,45201,6b,"Cincinnati ,  OH",-84.5120196,39.1031182
+539,Spring Grove Cemetery,NA,Cincinnati,OH,733,45201,6b,"Cincinnati ,  OH",-84.5120196,39.1031182
+540,Cleveland Botanical Garden,NA,Cleveland,OH,10,44101,6b,"Cleveland ,  OH",-81.6943605,41.49932
+541,R. A. Stranahan Arboretum,University of Toledo,Toledo,OH,47,43601,6b,"Toledo ,  OH",-83.5378674,41.6528052
+542,Toledo Botanical Garden,NA,Toledo,OH,50,43601,6b,"Toledo ,  OH",-83.5378674,41.6528052
+543,Jo Allyn Lowe Park,NA,Bartlesville,OK,32,74003,6b,"Bartlesville ,  OK",-95.9808179,36.7473114
+544,Lendonwood Gardens,NA,Grove,OK,3,74344,6b,"Grove ,  OK",-94.7691186,36.5936863
+545,Washington Irving Memorial Park and Arboretum,NA,Bixby,OK,32.5,74008,7a,"Bixby ,  OK",-95.8833235,35.9420431
+546,North Central Oklahoma Cactus Botanical Garden,NA,Covington,OK,NA,73730,7a,"Covington ,  OK",-97.5864376,36.3075359
+547,Midwest City Hall Arboretum,NA,Midwest City,OK,5,73110,7a,"Midwest City ,  OK",-97.3967019,35.4495065
+548,Morrison Arboretum,NA,Morrison,OK,NA,73061,7a,"Morrison ,  OK",-97.0080934,36.2972705
+549,Honor Heights Park,NA,Muskogee,OK,122,74401,7a,"Muskogee ,  OK",-95.3696909,35.7478769
+550,Hambrick Botanical Gardens,NA,Oklahoma City,OK,NA,73101,7a,"Oklahoma City ,  OK",-97.5164276,35.4675602
+551,Myriad Botanical Gardens,NA,Oklahoma City,OK,17,73101,7a,"Oklahoma City ,  OK",-97.5164276,35.4675602
+552,Oklahoma City Zoological Park and Botanical Garden,NA,Oklahoma City,OK,119,73101,7a,"Oklahoma City ,  OK",-97.5164276,35.4675602
+553,Will Rogers Gardens,NA,Oklahoma City,OK,30,73101,7a,"Oklahoma City ,  OK",-97.5164276,35.4675602
+554,Cann Memorial Botanical Gardens,NA,Ponca City,OK,10,74601,7a,"Ponca City ,  OK",-97.0855948,36.706981
+555,Oklahoma Botanical Garden and Arboretum,Oklahoma State University,Stillwater,OK,100,74074,7a,"Stillwater ,  OK",-97.0583681,36.1156071
+556,North Oklahoma Botanical Garden and Arboretum,Northern Oklahoma College,Tonkawa,OK,100,74653,7a,"Tonkawa ,  OK",-97.3100441,36.6783679
+557,Tulsa Botanic Garden (formerly Oklahoma Centennial Botanical Garden),NA,Tulsa,OK,170,74101,7a,"Tulsa ,  OK",-95.992775,36.1539816
+558,Woodward Park,NA,Tulsa,OK,45,74101,7a,"Tulsa ,  OK",-95.992775,36.1539816
+559,Garrard Ardeneum,NA,McAlester,OK,NA,74501,7b,"McAlester ,  OK",-95.7697131,34.9334298
+560,Kerr Arboretum and Botanical Area,NA,Talihina,OK,8026,74571,7b,"Talihina ,  OK",-95.0480162,34.7514893
+561,Oregon Trail Arboretum,NA,Echo,OR,NA,97826,7a,"Echo ,  OR",-119.195567,45.7423537
+562,Lithia Park,NA,Ashland,OR,93,97520,8a,"Ashland ,  OR",-122.7094767,42.1945758
+563,Beekman Native Plant Arboretum,NA,Jacksonville,OR,3,97530,8a,"Jacksonville ,  OR",-122.9669865,42.3134584
+564,Oregon Garden,NA,Silverton,OR,80,97381,8a,"Silverton ,  OR",-122.7831455,45.0051213
+565,Peavy Arboretum,Oregon State University,Corvallis,OR,40,97330,8b,"Corvallis ,  OR",-123.2620435,44.5645659
+566,Delbert Hunter Arboretum,NA,Dallas,OR,5,97338,8b,"Dallas ,  OR",-123.3170472,44.9192844
+567,Elk Rock Gardens of the Bishops Close,NA,Dunthorpe,OR,13,97219,8b,"Dunthorpe ,  OR",-122.6550941,45.4356748
+568,Mount Pisgah Arboretum,NA,Eugene,OR,209,97401,8b,"Eugene ,  OR",-123.0867536,44.0520691
+569,Claire Hanley Arboretum,NA,Medford,OR,NA,97501,8b,"Medford ,  OR",-122.8755949,42.3265152
+570,Berry Botanic Garden,NA,Portland,OR,6.5,97201,8b,"Portland ,  OR",-122.6793461,45.5154586
+571,Crystal Springs Rhododendron Garden,NA,Portland,OR,9.5,97201,8b,"Portland ,  OR",-122.6793461,45.5154586
+572,Hoyt Arboretum,NA,Portland,OR,189,97201,8b,"Portland ,  OR",-122.6793461,45.5154586
+573,International Rose Test Garden,NA,Portland,OR,4.5,97201,8b,"Portland ,  OR",-122.6793461,45.5154586
+574,Lan Su Chinese Garden,NA,Portland,OR,0.9,97201,8b,"Portland ,  OR",-122.6793461,45.5154586
+575,Leach Botanical Garden,NA,Portland,OR,16,97201,8b,"Portland ,  OR",-122.6793461,45.5154586
+576,Portland Japanese Garden,NA,Portland,OR,12,97201,8b,"Portland ,  OR",-122.6793461,45.5154586
+577,Palmerton Arboretum,NA,Rogue River,OR,5,97537,8b,"Rogue River ,  OR",-123.1719976,42.435954
+578,Bushs Pasture Park,NA,Salem,OR,90.5,97301,8b,"Salem ,  OR",-123.0350963,44.9428975
+579,Martha Springer Botanical Garden,Willamette University,Salem,OR,1,97301,8b,"Salem ,  OR",-123.0350963,44.9428975
+580,Western Deer Park and Arboretum,NA,Sheridan,OR,NA,97378,8b,"Sheridan ,  OR",-123.3948291,45.0992814
+581,Shore Acres State Park,NA,Coos Bay,OR,745,97420,9a,"Coos Bay ,  OR",-124.2178903,43.3665007
+582,Marywood University Arboretum,Marywood University,Scranton,PA,115,18447,6a,"Scranton ,  PA",-75.6624122,41.408969
+583,William F. Curtis Arboretum,Cedar Crest College,Allentown,PA,84,18101,6b,"Allentown ,  PA",-75.4714098,40.6022939
+584,Lee and Virginia Graver Arboretum,Muhlenberg College,Bath,PA,63,18014,6b,"Bath ,  PA",-75.3940699,40.7256524
+585,Henry Schmieder Arboretum,Delaware Valley College,Doylestown,PA,60,18901,6b,"Doylestown ,  PA",-75.1298939,40.3101063
+586,Arboretum at Penn State Behrend,Penn State ErieThe Behrend College,Erie,PA,25,16501,6b,"Erie ,  PA",-80.085059,42.1292241
+587,Lake Erie Arboretum,NA,Erie,PA,NA,16501,6b,"Erie ,  PA",-80.085059,42.1292241
+588,Hershey Gardens,M.S. Hershey Foundation,Hershey,PA,23,17033,6b,"Hershey ,  PA",-76.6502468,40.2859239
+589,Holtwood Arboretum,NA,Holtwood,PA,5000,17532,6b,"Holtwood ,  PA",-76.3274593,39.8320468
+590,Louise Arnold Tanger Arboretum,NA,Lancaster,PA,5,17573,6b,"Lancaster ,  PA",-76.3055144,40.0378755
+591,Swiss Pines,NA,Malvern,PA,19,19355,6b,"Malvern ,  PA",-75.5138118,40.0362184
+592,Renziehausen Park Rose Garden and Arboretum,NA,McKeesport,PA,258,15131,6b,"McKeesport ,  PA",-79.8641232,40.3470671
+593,Mont Alto Arboretum,Penn State Mont Alto,Mont Alto,PA,106,17237,6b,"Mont Alto ,  PA",-77.5583232,39.8442593
+594,Bowmans Hill Wildflower Preserve,NA,New Hope,PA,134,18938,6b,"New Hope ,  PA",-74.9512785,40.3642728
+595,Chatham University Arboretum,Chatham University,Pittsburgh,PA,32,15122,6b,"Pittsburgh ,  PA",-79.9958864,40.4406248
+596,National Aviary,NA,Pittsburgh,PA,NA,15122,6b,"Pittsburgh ,  PA",-79.9958864,40.4406248
+597,Phipps Conservatory & Botanical Gardens,NA,Pittsburgh,PA,15,15122,6b,"Pittsburgh ,  PA",-79.9958864,40.4406248
+598,Pittsburgh Botanic Garden,NA,Pittsburgh,PA,452,15122,6b,"Pittsburgh ,  PA",-79.9958864,40.4406248
+599,Rodef Shalom Biblical Botanical Garden,Rodef Shalom Temple,Pittsburgh,PA,0.3,15122,6b,"Pittsburgh ,  PA",-79.9958864,40.4406248
+600,Welkinweir,NA,Pottstown,PA,197,19464,6b,"Pottstown ,  PA",-75.6496302,40.2453741
+601,Arboretum at the Reading Public Museum,Reading Public Museum,Reading,PA,725,19601,6b,"Reading ,  PA",-75.9268747,40.3356483
+602,Arboretum at Penn State,Pennsylvania State University,State College,PA,395,16801,6b,"State College ,  PA",-77.8600012,40.7933949
+603,Ambler Arboretum,Temple University,Ambler,PA,187,19002,7a,"Ambler ,  PA",-75.2215651,40.1545535
+604,American College Arboretum,The American College,Bryn Mawr,PA,35,19010,7a,"Bryn Mawr ,  PA",-75.3151772,40.0230237
+605,Bryn Mawr Campus Arboretum,Bryn Mawr College,Bryn Mawr,PA,135,19010,7a,"Bryn Mawr ,  PA",-75.3151772,40.0230237
+606,Brandywine Wildflower and Native Plant Gardens,Brandywine River Museum,Chadds Ford,PA,15,19317,7a,"Chadds Ford ,  PA",-75.5684254,39.8653481
+607,Jenkins Arboretum,NA,Devon,PA,48,19333,7a,"Devon ,  PA",-75.4258399,40.0499216
+608,Henry Foundation for Botanical Research,NA,Gladwyne,PA,50,19035,7a,"Gladwyne ,  PA",-75.2770721,40.0493121
+609,Haverford College Arboretum,Haverford College,Haverford,PA,216,19041,7a,"Haverford ,  PA",-75.3208107,40.0022406
+610,Longwood Gardens,NA,Kennett Square,PA,1077,19348,7a,"Kennett Square ,  PA",-75.7116032,39.8467767
+611,Liberty Forge Arboretum,NA,Mechanicsburg,PA,100,17050,7a,"Mechanicsburg ,  PA",-77.0080309,40.2132692
+612,John J. Tyler Arboretum,NA,Media,PA,650,19037,7a,"Media ,  PA",-75.387693,39.9167783
+613,Arboretum of the Barnes Foundation,Barnes Foundation,Merion,PA,12,19066,7a,"Merion ,  PA",-75.2508229,39.9982136
+614,Merion Botanical Park,NA,Merion,PA,13.5,19066,7a,"Merion ,  PA",-75.2508229,39.9982136
+615,Morris Arboretum,University of Pennsylvania,Philadelphia,PA,92,19019,7a,"Philadelphia ,  PA",-75.1652215,39.9525839
+616,Awbury Arboretum,NA,Philadelphia (East Germantown),PA,55,19019,7a,"Philadelphia (East Germantown) ,  PA",-75.1691305,40.0428157
+617,Bartrams Garden,NA,Philadelphia(Fairmount Park),PA,46,19019,7a,"Philadelphia(Fairmount Park) ,  PA",-75.1971204,39.9881142
+618,Centennial Arboretum,NA,Philadelphia(Fairmount Park),PA,27,19019,7a,"Philadelphia(Fairmount Park) ,  PA",-75.1971204,39.9881142
+619,The Horticulture Center,NA,Philadelphia(Fairmount Park),PA,27,19019,7a,"Philadelphia(Fairmount Park) ,  PA",-75.1971204,39.9881142
+620,Scott Arboretum,Swarthmore College,Swarthmore,PA,357,19081,7a,"Swarthmore ,  PA",-75.3499123,39.9020565
+621,Appleford/Parsons-Banks Arboretum,NA,Villanova,PA,24,19085,7a,"Villanova ,  PA",-75.3491813,40.0375832
+622,Arboretum Villanova,Villanova University,Villanova,PA,222,19085,7a,"Villanova ,  PA",-75.3491813,40.0375832
+623,Taylor Memorial Arboretum,NA,Wallingford,PA,30,19086,7a,"Wallingford ,  PA",-75.3630796,39.8932884
+624,Chanticleer Garden,NA,Wayne,PA,48,19080,7a,"Wayne ,  PA",-75.3698895,40.0415996
+625,Curtis Hall Arboretum,NA,Wyncote,PA,45,19095,7a,"Wyncote ,  PA",-75.1487863,40.0945549
+626,Crozer Arboretum,NA,Upland,PA,12,19013,7b,"Upland ,  PA",-75.3826921,39.8526124
+627,Blithewold Mansion Gardens and Arboretum,NA,Bristol,RI,13,2809,6b,"Bristol ,  RI",-71.2662025,41.6771101
+628,University of Rhode Island Botanical Gardens and Everett P. Christopher Arboretum,University of Rhode Island,Kingston,RI,4.5,2881,6b,"Kingston ,  RI",-71.5225598,41.4803791
+629,Wilcox Park,NA,Westerly,RI,14,2808,6b,"Westerly ,  RI",-71.8272871,41.3775987
+630,South Carolina Botanical Garden,Clemson University,Clemson,SC,295,29631,8a,"Clemson ,  SC",-82.8373654,34.6834382
+631,Riverbanks Zoo and Garden,NA,Columbia,SC,170,29201,8a,"Columbia ,  SC",-81.0348144,34.0007104
+632,W. Gordon Belser Arboretum,University of South Carolina,Columbia,SC,10,29201,8a,"Columbia ,  SC",-81.0348144,34.0007104
+633,Furman University Japanese Garden,Furman University,Greenville,SC,2,29601,8a,"Greenville ,  SC",-82.3940104,34.8526176
+634,Park Seed Company Gardens,NA,Greenwood,SC,9,29646,8a,"Greenwood ,  SC",-82.1617883,34.1954001
+635,Kalmia Gardens,Coker College,Hartsville,SC,30,29550,8a,"Hartsville ,  SC",-80.0734005,34.3740431
+636,Moore Farms Botanical Garden,NA,Lake City,SC,65,29560,8a,"Lake City ,  SC",-79.7553451,33.8709958
+637,Wells Japanese Garden,NA,Newberry,SC,0.5,29108,8a,"Newberry ,  SC",-81.6187178,34.2745833
+638,Swan Lake/Iris Gardens,NA,Sumter,SC,120,29150,8a,"Sumter ,  SC",-80.3414693,33.9204354
+639,Cypress Gardens,NA,Moncks Corner,SC,170,29430,8b,"Moncks Corner ,  SC",-80.0131374,33.1960027
+640,Mepkin Abbey Botanical Garden,NA,Moncks Corner,SC,3200,29430,8b,"Moncks Corner ,  SC",-80.0131374,33.1960027
+641,Brookgreen Gardens,NA,Pawleys Island,SC,9100,29585,8b,"Pawleys Island ,  SC",-79.1214313,33.4332236
+642,Summerville Azalea Park,NA,Summerville,SC,16,29483,8b,"Summerville ,  SC",-80.1756481,33.0185039
+643,Magnolia Plantation and Gardens,NA,Charleston,SC,464,29401,9a,"Charleston ,  SC",-79.9310512,32.7764749
+644,Medical University of South Carolina Arboretum,Medical University of South Carolina,Charleston,SC,NA,29401,9a,"Charleston ,  SC",-79.9310512,32.7764749
+645,Middleton Place,NA,Charleston,SC,110,29401,9a,"Charleston ,  SC",-79.9310512,32.7764749
+646,Kuhnert Arboretum,NA,Aberdeen,SD,19,57401,4b,"Aberdeen ,  SD",-98.4864829,45.4646985
+647,McCrory Gardens and South Dakota Arboretum,South Dakota State University,Brookings,SD,70,57006,4b,"Brookings ,  SD",-96.7983877,44.3113573
+648,Mary Jo Wegner Arboretum,NA,Sioux Falls,SD,NA,57101,4b,"Sioux Falls ,  SD",-96.728333,43.5473028
+649,Reptile Gardens,NA,Rapid City,SD,NA,57701,5a,"Rapid City ,  SD",-103.2310149,44.0805434
+650,Daniel Boone Arboretum,NA,Harrogate,TN,NA,37707,6b,"Harrogate ,  TN",-83.6568579,36.5823046
+651,Deerwood Arboretum and Nature Area,NA,Brentwood,TN,27,37024,7a,"Brentwood ,  TN",-86.7827772,36.0331164
+652,Clarksville City Arboretum,NA,Clarksville,TN,NA,37040,7a,"Clarksville ,  TN",-87.3594528,36.5297706
+653,Gerald D. Coorts Memorial Arboretum,Tennessee Technological University,Cookeville,TN,NA,38501,7a,"Cookeville ,  TN",-85.5016423,36.162839
+654,East Tennessee State University Arboretum,East Tennessee State University,Johnson City,TN,NA,37601,7a,"Johnson City ,  TN",-82.3534727,36.3134397
+655,Knoxville Botanical Garden and Arboretum,NA,Knoxville,TN,47,37901,7a,"Knoxville ,  TN",-83.9207392,35.9606384
+656,University of Tennessee Botanical Gardens,University of Tennessee,Martin,TN,NA,38237,7a,"Martin ,  TN",-88.8503379,36.3433965
+657,Stones River Greenway Arboretum,NA,Murfreesboro,TN,NA,37127,7a,"Murfreesboro ,  TN",-86.39027,35.8456213
+658,Belle Meade Plantation,NA,Nashville,TN,30,37201,7a,"Nashville ,  TN",-86.7816016,36.1626638
+659,Cheekwood Botanical Garden and Museum of Art,NA,Nashville,TN,55,37201,7a,"Nashville ,  TN",-86.7816016,36.1626638
+660,Hermitage Arboretum,NA,Nashville,TN,12,37201,7a,"Nashville ,  TN",-86.7816016,36.1626638
+661,University of Tennessee Arboretum,University of Tennessee,Oak Ridge,TN,250,37830,7a,"Oak Ridge ,  TN",-84.2696449,36.0103561
+662,Old Hickory Lake Arboretum,NA,Old Hickory,TN,23,37138,7a,"Old Hickory ,  TN",-86.6477748,36.2574941
+663,Burchfiel Grove and Arboretum,NA,Sevierville,TN,16,37862,7a,"Sevierville ,  TN",-83.561835,35.8681455
+664,Interstate Packaging Arboretum,NA,White Bluff,TN,NA,37187,7a,"White Bluff ,  TN",-87.2208409,36.1075593
+665,Louise Pearson Memorial Arboretum,NA,Alamo,TN,35,38001,7b,"Alamo ,  TN",-89.1172883,35.7847949
+666,Bonny Oaks Arboretum,NA,Chattanooga,TN,NA,37401,7b,"Chattanooga ,  TN",-85.3096801,35.0456297
+667,Cherokee Arboretum at Audubon Acres,NA,Chattanooga,TN,130,37401,7b,"Chattanooga ,  TN",-85.3096801,35.0456297
+668,Cherokee Trail Arboretum,NA,Chattanooga,TN,NA,37401,7b,"Chattanooga ,  TN",-85.3096801,35.0456297
+669,Reflection Riding Arboretum and Botanical Garden,NA,Chattanooga,TN,317,37401,7b,"Chattanooga ,  TN",-85.3096801,35.0456297
+670,University of Tennessee at Chattanooga campus,University of Tennessee,Chattanooga,TN,NA,37401,7b,"Chattanooga ,  TN",-85.3096801,35.0456297
+671,Oaklawn Garden,NA,Germantown,TN,20,38138,7b,"Germantown ,  TN",-89.8100858,35.0867577
+672,Carlisle S. Page Arboretum,NA,Memphis,TN,80,37501,7b,"Memphis ,  TN",-90.0489801,35.1495343
+673,Dixon Gallery and Gardens,NA,Memphis,TN,17,37501,7b,"Memphis ,  TN",-90.0489801,35.1495343
+674,Memphis Botanic Garden,NA,Memphis,TN,96,37501,7b,"Memphis ,  TN",-90.0489801,35.1495343
+675,Old Forest Arboretum of Overton Park,NA,Memphis,TN,172,37501,7b,"Memphis ,  TN",-90.0489801,35.1495343
+676,Amarillo Botanical Garden,NA,Amarillo,TX,4,79101,7a,"Amarillo ,  TX",-101.8312969,35.2219971
+677,Chihuahuan Desert Nature Center and Botanical Gardens,NA,Fort Davis,TX,507,79734,7b,"Fort Davis ,  TX",-103.8946253,30.5882111
+678,East Texas Arboretum and Botanical Society,NA,Athens,TX,100,75751,8a,"Athens ,  TX",-95.8555207,32.2048735
+679,Fort Worth Botanic Garden,NA,Fort Worth,TX,109,76101,8a,"Fort Worth ,  TX",-97.3307658,32.7554883
+680,Riverside Nature Center,NA,Kerrville,TX,NA,78028,8a,"Kerrville ,  TX",-99.1403189,30.0474332
+681,Lady Bird Johnson Wildflower Center,NA,Austin,TX,284,73301,8b,"Austin ,  TX",-97.7430608,30.267153
+682,Umlauf Sculpture Garden and Museum,NA,Austin,TX,NA,73301,8b,"Austin ,  TX",-97.7430608,30.267153
+683,Zilker Botanical Garden,NA,Austin,TX,31,73301,8b,"Austin ,  TX",-97.7430608,30.267153
+684,D. A. Andy Anderson Arboretum (formerly Brazos County Arboretum),NA,College Station,TX,17,77840,8b,"College Station ,  TX",-96.3344068,30.627977
+685,Dallas Arboretum and Botanical Garden,NA,Dallas,TX,66,75201,8b,"Dallas ,  TX",-96.7969879,32.7766642
+686,Ruth Bowling Nichols Arboretum,NA,Jacksonville,TX,3.5,75766,8b,"Jacksonville ,  TX",-95.2705042,31.963778
+687,Mast Arboretum,Stephen F. Austin State University,Nacogdoches,TX,10,75961,8b,"Nacogdoches ,  TX",-94.6554874,31.6035129
+688,John Henry Kirby State Forest,NA,Tyler County,TX,626,77664,8b,"Tyler County ,  TX",-94.315422,30.7324447
+689,Carleen Bright Arboretum,NA,Woodway,TX,6,76712,8b,"Woodway ,  TX",-97.2050055,31.5059998
+690,Beaumont Botanical Gardens,NA,Beaumont,TX,23.5,77657,9a,"Beaumont ,  TX",-94.1265562,30.080174
+691,Olive Scott Petty Arboretum,NA,Hardin County,TX,NA,77561,9a,"Hardin County ,  TX",-94.315422,30.364764
+692,Houston Arboretum and Nature Center,NA,Houston,TX,105,77001,9a,"Houston ,  TX",-95.3698028,29.7604267
+693,Lynn R. Lowrey Arboretum,Rice University,Houston,TX,NA,77001,9a,"Houston ,  TX",-95.3698028,29.7604267
+694,Mercer Arboretum and Botanic Gardens,NA,Humble,TX,250,77205,9a,"Humble ,  TX",-95.2621553,29.9988312
+695,Shangri La Botanical Gardens and Nature Center,NA,Orange,TX,252,77630,9a,"Orange ,  TX",-93.7365549,30.0929879
+696,San Antonio Botanical Garden,NA,San Antonio,TX,33,78210,9a,"San Antonio ,  TX",-98.4936282,29.4241219
+697,South Texas Botanical Gardens & Nature Center,NA,Corpus Christi,TX,180,78401,9b,"Corpus Christi ,  TX",-97.396381,27.8005828
+698,McAllen Botanical Gardens,NA,McAllen,TX,20,78501,9b,"McAllen ,  TX",-98.2300124,26.2034071
+699,Stein Eriksen Lodge Botanical Garden,NA,Park City,UT,NA,84060,5a,"Park City ,  UT",-111.4979729,40.6460622
+700,Petersen Arboretum,NA,Alpine,UT,NA,84004,6b,"Alpine ,  UT",-111.7779865,40.4532833
+701,Utah Botanical Center,Utah State University,Kaysville,UT,95,84037,7a,"Kaysville ,  UT",-111.9385521,41.0352216
+702,Brigham Young University Arboretum (Harrison Arboretum),Brigham Young University,Provo,UT,NA,84601,7a,"Provo ,  UT",-111.6585337,40.2338438
+703,Conservation Garden Park,Jordan Valley Water Conservancy District,West Jordan,UT,6,84081,7a,"West Jordan ,  UT",-111.9391031,40.6096698
+704,International Peace Gardens,NA,Salt Lake City,UT,11,84101,7b,"Salt Lake City ,  UT",-111.8910474,40.7607793
+705,Red Butte Garden and Arboretum,University of Utah,Salt Lake City,UT,100,84101,7b,"Salt Lake City ,  UT",-111.8910474,40.7607793
+706,State Arboretum of Utah,University of Utah,Salt Lake City,UT,1500,84101,7b,"Salt Lake City ,  UT",-111.8910474,40.7607793
+707,Robert L. Shepherd Desert Arboretum,NA,Santa Clara,UT,40,84765,8a,"Santa Clara ,  UT",-113.6541266,37.1330355
+708,Hahn Horticulture Garden,Virginia Polytechnic Institute and State University,Blacksburg,VA,7,24060,6b,"Blacksburg ,  VA",-80.4139393,37.2295733
+709,Orland E. White Research Arboretum,University of Virginia,Boyce,VA,172,22620,6b,"Boyce ,  VA",-78.0594426,39.0931617
+710,Edith J. Carrier Arboretum,James Madison University,Harrisonburg,VA,125,22801,6b,"Harrisonburg ,  VA",-78.8689155,38.4495688
+711,Museum of the Shenandoah Valley,NA,Winchester,VA,7,22601,6b,"Winchester ,  VA",-78.1633341,39.1856597
+712,Green Spring Gardens,NA,Alexandria,VA,31,22312,7a,"Alexandria ,  VA",-77.0469214,38.8048355
+713,Ticonderoga Botanical Gardens,NA,Chantilly,VA,400,20151,7a,"Chantilly ,  VA",-77.4310992,38.8942786
+714,Oatlands Plantation,NA,Leesburg,VA,415,20175,7a,"Leesburg ,  VA",-77.5636015,39.1156615
+715,Boxerwood Gardens,NA,Lexington,VA,15,24450,7a,"Lexington ,  VA",-79.4428157,37.7840208
+716,Old City Cemetery,NA,Lynchburg,VA,26,24501,7a,"Lynchburg ,  VA",-79.1422464,37.4137536
+717,Forest Lawn Cemetery,NA,Richmond,VA,NA,23173,7a,"Richmond ,  VA",-77.4360481,37.5407246
+718,Joseph Bryan Park Azalea Garden,NA,Richmond,VA,262,23173,7a,"Richmond ,  VA",-77.4360481,37.5407246
+719,Lewis Ginter Botanical Garden,NA,Richmond,VA,50,23173,7a,"Richmond ,  VA",-77.4360481,37.5407246
+720,Maymont,NA,Richmond,VA,100,23173,7a,"Richmond ,  VA",-77.4360481,37.5407246
+721,Meadowlark Botanical Gardens,NA,Vienna,VA,100,22027,7a,"Vienna ,  VA",-77.2652604,38.9012225
+722,River Farm,American Horticultural Society,Alexandria,VA,25,22308,7b,"Alexandria ,  VA",-77.0469214,38.8048355
+723,Williamsburg Botanical Garden,NA,Williamsburg,VA,2,23081,7b,"Williamsburg ,  VA",-76.7074571,37.2707022
+724,Chesapeake Arboretum,NA,Chesapeake,VA,47,23320,8a,"Chesapeake ,  VA",-76.2874927,36.7682088
+725,Norfolk Botanical Garden,NA,Norfolk,VA,155,23501,8a,"Norfolk ,  VA",-76.2858726,36.8507689
+726,Tidewater Arboretum,NA,Virginia Beach,VA,5,23450,8a,"Virginia Beach ,  VA",-75.977985,36.8529263
+727,John A. Finch Arboretum,NA,Spokane,WA,56.65,99201,6b,"Spokane ,  WA",-117.4260465,47.6587802
+728,Manito Park and Botanical Gardens,NA,Spokane,WA,90,99201,6b,"Spokane ,  WA",-117.4260465,47.6587802
+729,Yakima Area Arboretum,NA,Yakima,WA,46,98901,6b,"Yakima ,  WA",-120.5058987,46.6020711
+730,Sehome Hill Arboretum,NA,Bellingham,WA,180,98225,8a,"Bellingham ,  WA",-122.4786854,48.7519112
+731,Wind River Arboretum,Gifford Pinchot National Forest,Carson,WA,2757,98610,8a,"Carson ,  WA",-121.8188307,45.7255968
+732,Washington State Capitol Conservatory,Washington State Capitol campus,Olympia,WA,NA,98501,8a,"Olympia ,  WA",-122.9006951,47.0378741
+733,Bloedel Reserve,NA,Bainbridge Island,WA,150,98110,8b,"Bainbridge Island ,  WA",-122.5210007,47.6248791
+734,Bellevue Botanical Garden,NA,Bellevue,WA,53,98004,8b,"Bellevue ,  WA",-122.2015159,47.6101497
+735,Evergreen Arboretum and Gardens,NA,Everett,WA,2.4,98275,8b,"Everett ,  WA",-122.2020795,47.9789848
+736,Rhododendron Species Foundation and Botanical Garden,NA,Federal Way,WA,22,98001,8b,"Federal Way ,  WA",-122.3126222,47.3223221
+737,Meerkerk Rhododendron Gardens,NA,Greenbank,WA,10,98253,8b,"Greenbank ,  WA",-122.5731977,48.0982722
+738,Heronswood,NA,Kingston,WA,15,98346,8b,"Kingston ,  WA",-122.4981921,47.7987072
+739,Lakewold Gardens,NA,Lakewood,WA,10,98409,8b,"Lakewood ,  WA",-122.518458,47.1717649
+740,Lake Wilderness Arboretum,NA,Maple Valley,WA,40,98038,8b,"Maple Valley ,  WA",-122.0369239,47.3733483
+741,Highline Botanical Garden,NA,SeaTac,WA,10.5,98148,8b,"SeaTac ,  WA",-122.2960726,47.4435903
+742,Carl S. English Jr. Botanical Gardens,NA,Seattle,WA,7,98101,8b,"Seattle ,  WA",-122.3320708,47.6062095
+743,Seattle Chinese Garden,NA,Seattle,WA,4.6,98101,8b,"Seattle ,  WA",-122.3320708,47.6062095
+744,South Seattle Community College Arboretum,South Seattle Community College,Seattle,WA,6,98101,8b,"Seattle ,  WA",-122.3320708,47.6062095
+745,Washington Park Arboretum,University of Washington,Seattle,WA,230,98101,8b,"Seattle ,  WA",-122.3320708,47.6062095
+746,Kruckeberg Botanic Garden,NA,Shoreline,WA,4,98133,8b,"Shoreline ,  WA",-122.3456972,47.7559659
+747,Bonhoeffer Botanical Gardens,NA,Stanwood,WA,20,98292,8b,"Stanwood ,  WA",-122.3706837,48.2410895
+748,Wright Park Arboretum,NA,Tacoma,WA,27,98401,8b,"Tacoma ,  WA",-122.4442906,47.2528768
+749,Hulda Klager Lilac Gardens,NA,Woodland,WA,7,98674,8b,"Woodland ,  WA",-122.7439912,45.9045591
+750,Norskedalen,NA,Coon Valley,WI,440,54623,4b,"Coon Valley ,  WI",-91.0131863,43.7021922
+751,Foxfire Botanical Gardens,NA,Marshfield,WI,15,54404,4b,"Marshfield ,  WI",-90.1717987,44.6688524
+752,Schmeekle Reserve,NA,Stevens Point,WI,280,54481,4b,"Stevens Point ,  WI",-89.574563,44.5235792
+753,Gardens of the Fox Cities,NA,Appleton,WI,35,54911,5a,"Appleton ,  WI",-88.4153847,44.2619309
+754,Ledge View Nature Center,NA,Chilton,WI,105,53014,5a,"Chilton ,  WI",-88.1628785,44.0288803
+755,Cofrin Memorial Arboretum,University of Wisconsin,Green Bay,WI,290,54173,5a,"Green Bay ,  WI",-88.0132958,44.5133188
+756,Rotary Gardens,NA,Janesville,WI,20,53545,5a,"Janesville ,  WI",-89.0187222,42.6827885
+757,Olbrich Botanical Gardens,NA,Madison,WI,16,53701,5a,"Madison ,  WI",-89.4012302,43.0730517
+758,University of Wisconsin–Madison Arboretum,University of Wisconsin,Madison,WI,1260,53701,5a,"Madison ,  WI",-89.4012302,43.0730517
+759,University of Wisconsin-Madison Botany Garden and Greenhouse,University of Wisconsin,Madison,WI,1.3,53701,5a,"Madison ,  WI",-89.4012302,43.0730517
+760,Paine Art Center and Gardens,NA,Oshkosh,WI,3,54901,5a,"Oshkosh ,  WI",-88.5426136,44.0247062
+761,Boerner Botanical Gardens,NA,Hales Corners,WI,606,53103,5b,"Hales Corners ,  WI",-88.0486982,42.937515
+762,Mitchell Park Horticultural Conservatory,NA,Milwaukee,WI,1,53201,5b,"Milwaukee ,  WI",-87.9064736,43.0389025
+763,Green Bay Botanical Garden,NA,Green Bay,WI,47,54173,6a,"Green Bay ,  WI",-88.0132958,44.5133188
+764,Brooks Memorial Arboretum,NA,Hillsboro,WV,10100,24946,5b,"Hillsboro ,  WV",-80.2131261,38.1353972
+765,Cranberry Glades Botanical Area,Monongahela National Forest,Mill Point,WV,750,24946,5b,"Mill Point ,  WV",-80.1809025,38.1581751
+766,Sunshine Farm and Gardens,NA,Renick,WV,60,24966,6a,"Renick ,  WV",-80.3539643,37.9917868
+767,Earl L. Core Arboretum,West Virginia University,Morgantown,WV,91,26501,6b,"Morgantown ,  WV",-79.9558968,39.629526
+768,West Virginia Botanic Garden,NA,Morgantown,WV,85,26501,6b,"Morgantown ,  WV",-79.9558968,39.629526
+769,Cheyenne Botanic Gardens,NA,Cheyenne,WY,9,82001,5b,"Cheyenne ,  WY",-104.8202462,41.1399814

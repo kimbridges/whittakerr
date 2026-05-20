@@ -1,0 +1,77 @@
+# What Is a Biome?
+
+Ecology studies organisms in relation to their environment. Ecologists use time and space as their working dimensions, and the biome concept compresses both. A biome label captures what climate has done to vegetation across a region, over eons of evolutionary selection. It's a place name in the present tense for a process that runs in deep time.
+
+The Whittaker diagram renders ecology as a two-dimensional plot. Temperature and precipitation axes are the environment; biome labels are the organism response. The diagram is, in this sense, ecology's foundational claim rendered visual.
+
+This is the move worth pausing on. A claim that organisms respond systematically to climate is theoretical. Drawing the response surface, putting biomes in the right places on a temperature-precipitation grid, is empirical. Whittaker did both. The diagram is the bridge that takes us from a definition of ecology to a landscape that has evolved over eons. Everything that follows in this document depends on that bridge holding.
+
+## What a category does
+
+A category does the work of the bridge. Tell someone you visited a tropical rain forest. They immediately picture tall trees, dense canopy, leaves year-round, vines, the drip of water. None of those were in your description. They came from the category.
+
+This is what it means for a category to license inference. The biome label compresses a great deal of joint structure into a single name, and the name then licenses claims about what we haven't directly observed. Knowing the biome tells you a lot of things you didn't ask about. And the things it tells you reach back into deep time, not just across correlated variables: tropical rain forests have the species and architecture they do because climate has been selecting for those things for millions of years. The category carries the evolutionary record.
+
+That's the technical claim, and it's the first thing a biome label does.
+
+This is how `name_biome()` in this document earns its keep. A geographic location's coordinates become a climate pair via `get_climate()`. The pair of climate values becomes a biome label via `name_biome()`. The biome label is the interpretable ecological unit, and it's what the reader can actually think with. The pipeline ends in inference, not just classification.
+
+A category that fails to license inference fails as a category. Many proposed classifications in the history of ecology had this problem. They divided observations into bins that didn't do work past their own boundaries; the bins didn't carry expectations forward. Whittaker's biomes pass this test, and it's a stronger test than it sounds.
+
+## Why nine biomes?
+
+Whittaker's diagram has roughly nine biomes. The number is a choice, and it's worth asking why nine and not five, or thirty.
+
+Imagine the diagram with only two biomes: warm-wet and cold-dry, say. Every point on Earth would fall into one of those bins. The category would carry almost no information beyond what the climate measurements already say. A warm-wet label tells you it's warm and wet, which you already knew. Categories at this coarseness do no inferential work.
+
+Now imagine the diagram with thirty biomes, each occupying a small wedge of temperature-precipitation space. Each label would carry sharper expectations, but the carving would track tiny climate differences that don't correspond to real vegetation differences. Two adjacent thirty-biome categories would look almost identical on the ground, and the boundaries between them would be statistical artifacts rather than ecological discoveries. Categories at this fineness fragment the structure they were meant to organize.
+
+The right number sits somewhere in between, and Whittaker found it through ecological judgment rather than through any single optimization. He drew polygons where the vegetation actually differed, and stopped where finer subdivisions would have tracked noise. Nine is what fell out when he did that work.
+
+This is the bias-variance tradeoff applied to classification. Too few categories and the scheme is biased; the labels can't discriminate the patterns in the data. Too many and the scheme is overfit; the labels track noise. The right grain is the count at which the categories pay for themselves in inferential work. Cognitive scientists know the same idea as the basic level of categorization: there's a level at which categories are most useful for the inferences we typically want to make.
+
+There's also a practical constraint that reinforces the cognitive one. The biome map at the front of the previous chapter uses color to distinguish biomes across the world. A world map at standard page size can support roughly ten distinguishable colors, not thirty. If Whittaker had drawn thirty biomes, no map could display them legibly, and the map is half the point of the scheme. The diagram and the map co-constrain each other. Nine is what survives both the statistical filter and the visual one.
+
+The number isn't sacred. Climate scientists working with finer-grained vegetation models use more categories; specialists in particular regions use fewer. But for a single diagram intended to organize Earth's vegetation at the broadest level, nine is what the data and the eye agree on.
+
+## Why two axes?
+
+The previous section asked why nine biomes. There's a hidden assumption in that question: nine relative to what? The answer is, relative to the choice of two axes. Change the axes, and the number that earns its keep changes too.
+
+Consider what happens if you add a third axis. Soil type is a candidate. Seasonality is another. Fire return interval is a third. Each of these explains variation in real vegetation that temperature and precipitation can't. With three useful axes instead of two, the descriptor space is much larger. The same coarse-vs-fine tradeoff still applies, but the right grain in a three-axis scheme is finer than the right grain in a two-axis scheme. A three-axis scheme could distinguish two ecosystems that share T and P values but differ in fire regime, such as chaparral and oak savanna. The two-axis scheme can't tell them apart.
+
+Whittaker's diagram works at the resolution it does because the axes carry as much of the variation as they do. Annual mean temperature and annual precipitation, taken together, explain a remarkable amount of what determines global vegetation patterns. The two-axis scheme buys you nine biomes that mean something. A one-axis scheme would buy you fewer real distinctions; temperature alone, or precipitation alone, can't carry as much. A three- or four-axis scheme would buy you more, at the cost of a more complex diagram that may not fit on a page.
+
+This is why later chapters in this document reach beyond the diagram for specific questions. When we look at why a particular tropical seasonal forest in one place burns regularly and another doesn't, the diagram has nothing to say; both sites occupy the same T and P. Fire history is the next axis, and we need a way to add it. When we look at biome shifts under climate change, the seasonality of warming matters; a place that warms 3°C uniformly is different from a place where winters warm 5°C and summers warm 1°C. The Whittaker diagram averages both into one number for T, and the difference disappears.
+
+The diagram is a starting point, not an ending one. Its categories are tied to its axes, and the limits of what the categories can tell you are the limits of what two axes can encode. That's a strength as much as a weakness: the diagram does as much as two axes can do, and it makes the case for when to add more.
+
+## Function, not identity
+
+The Amazon, the Congo, and Borneo are three of the world's great tropical rain forests. They span three continents. They share almost no species. The trees in Brazil are not the trees in Africa, and the trees in Africa are not the trees in Southeast Asia. Their flora diverged tens of millions of years ago.
+
+But anyone walking into one of them recognizes it as the same kind of place. The trees are tall. There's a closed canopy overhead. Vines climb everything. Leaves are present year-round. The light at the forest floor is filtered through several layers of foliage. The air is thick with moisture. A field biologist transported blindfolded from one continent to another would, on opening her eyes, know she had landed in a tropical rain forest, without knowing which one.
+
+This is what it means to classify by life form rather than by identity. Whittaker drew his polygons around what plants do and look like, not around which species they are. A tropical rain forest is defined by tall trees, dense canopy, year-round leaves, vines, and high productivity. Any forest with these properties counts, regardless of its species composition. The category captures convergent response to climate. It says: here is what plants do when they have a lot of water and a lot of warmth.
+
+A taxonomic classifier would treat Amazon, Congo, and Borneo as three different places. The European phytosociological tradition, descended from Braun-Blanquet, did exactly this: it classified vegetation by species composition, producing fine-grained units that tracked floristic differences. That tradition has its uses for local mapping. But it can't see the deeper pattern. Convergent evolution is invisible to a classifier that demands the same species in every example of the same category.
+
+Whittaker's choice rests on a deeper one made earlier. Christen Raunkiaer's 1934 life-form scheme classified plants by where their perennating buds sit. The buds can be at the soil surface, above ground on woody stems, below ground in storage organs, or carried over in seeds. The scheme was abstract enough to apply globally and structural enough to predict response to climate. Phanerophytes (trees and tall shrubs) dominate where freezing is rare; therophytes (annuals) dominate where the growing season is short and stressful. Whittaker's biome categories are aggregated Raunkiaer types, and the global biome map is a Raunkiaer map drawn at the resolution of climate zones.
+
+The same logic now drives modern global vegetation modeling. Dynamic global vegetation models use plant functional types to represent plants in earth-system simulations. A plant functional type is a combination of life-form traits and physiological parameters. The world's tens of thousands of plant species are reduced to roughly a dozen functional types.
+
+This is the deeper shift in ecology that the Whittaker diagram foreshadows. Identity is what a thing is; function is what it does. Both are real. But for the questions ecology cares about (productivity, water use, response to climate change, biogeochemical cycling), function does more inferential work than identity. The Whittaker diagram is one of the discipline's clearest illustrations of this preference. Two axes of climate produce a small number of life-form categories, and those categories describe what plants do in those climates anywhere on Earth.
+
+## The axes everyone knows
+
+The Whittaker diagram has lasted for half a century in textbooks, lecture halls, and field guides. The reason isn't only that it captures the science. It's that the science is encoded in terms anyone can feel.
+
+Temperature and precipitation are the two environmental variables every human has direct sensory experience of. We have no intuition for net primary productivity or leaf area index. We have no built-in sense for soil carbon or evapotranspiration. But everyone knows cold and warm. Everyone knows wet and dry. A person who has lived through a Pacific Northwest winter and a New Mexico summer has, without knowing it, sampled a substantial portion of the Whittaker diagram.
+
+This is why the diagram works as a teaching tool. A non-ecologist can place themselves on the diagram. A resident of Seattle who describes their climate as 'wet, with nice seasons' is locating themselves at around 11°C and 95 centimeters of annual precipitation. That puts them in temperate seasonal forest, which is what the surrounding landscape actually is. A Phoenix resident saying 'hot and dry' is locating at 24°C and 20 centimeters: subtropical desert. The diagram tells the resident something they already know about their environment, but it does so in a language that connects to climate science. Once that connection is made, the diagram can show what would happen if their location's climate shifted, and they can read the answer in the same coordinates they started with.
+
+This pedagogical success isn't accidental. In the late 1940s and 1950s, ecology was consolidating itself as a discipline against older traditions of plant geography and natural history. Producing a unified diagram that made the climate-vegetation relationship legible at a glance was a major act of disciplinary self-definition. The choice of intuitive axes wasn't just good teaching; it was good positioning. A science that could be read by a non-specialist could claim broader relevance.
+
+There's an irony in this. Whittaker's earlier work championed continuous gradients against Clements's discrete community types. He spent a substantial part of his career arguing that vegetation varies along environmental axes continuously, with no sharp boundaries between communities. The biome diagram is in tension with that earlier work: it imposes categorical boundaries on what is in fact a continuous response surface. The polygons are pragmatic compressions, drawn by someone who knew exactly what he was simplifying.
+
+That self-awareness matters. The diagram works because it earns its categories. The categories pay for themselves in what they let us infer. They aren't claims that nature comes pre-cut into nine kinds; they're claims that nine cuts are useful for the questions we typically want to ask. Whittaker drew the polygons, but he never forgot they were drawn.
