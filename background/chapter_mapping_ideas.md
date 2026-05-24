@@ -1,7 +1,8 @@
-# Chapter: Mapping Biomes — Ideation Notes
-_Captured 2026-05-15. Working title; final title to be set
-when drafting begins. Likely candidates: "Mapping Biomes,"
-"From Classification to Map," "Biome Maps."_
+# Chapters: Build a Map and Beyond a Map — Ideation Notes
+_Captured 2026-05-15 as a single "Mapping Biomes" chapter.
+Split into two chapters on 2026-05-22 (see "Split into two
+chapters" below): "Build a Map" and "Beyond a Map." This
+file is the shared ideation scaffold for both._
 
 ## Status
 Active ideation. Substantial design space remains open and
@@ -20,18 +21,66 @@ into a single chapter-level scaffold.
 
 ## Placement
 
-Likely the final substantive chapter before any Appendix.
-Earlier chapters build the conceptual ground (History, What
-Is a Biome?, Scale) and the diagram-side tools (Climate
-Data, Whittaker Diagrams, Colors, Biome Information). The
-Mapping chapter is the geographic-space synthesis that uses
-everything from earlier chapters. It is also the
-classification-to-mapping arc's destination — design file
-Thread 4 makes this argument explicitly.
+Two adjacent chapters, late in the document. Earlier
+chapters build the conceptual ground (History, What Is a
+Biome?, Scale) and the diagram-side tools (Climate Data,
+Whittaker Diagrams, Color, Biome Information, Roles Not
+Rosters, Transitions). The map chapters are the
+geographic-space synthesis that uses everything before them,
+and they are the classification-to-mapping arc's
+destination.
 
-Position in the provisional sequence: after Biome
-Characteristics and Transitions, as Ch 10 or Ch 11
-depending on how those resolve.
+Position in the provisional sequence: after Transitions, as
+"Build a Map" then "Beyond a Map," followed by Biomes on the
+Earth and then the concluding chapter.
+
+## Split into two chapters (2026-05-22)
+
+The material was first scoped as a single "Mapping Biomes"
+chapter. While a six-section structure for it was being
+proposed, the top-heaviness concern from the scope-discipline
+note below came to a head: one chapter carrying the whole
+map story would run 2,500 to 4,000 words and four or five
+figures, out of proportion with every other chapter. Kim's
+resolution: split it in two, on the seam between making a
+map and working with one.
+
+**"Build a Map"** — sections 1 to 3. Producing a map.
+Carries Thread 1 (mapping as the destination of the
+classification-to-mapping arc, the opening), Thread 2 (the
+pre-digital cartography setting and Kim's UHM witness, kept
+compact, as the stage-setting opening), Thread 3 (the
+tessellation pipeline via `map_biomes()`, with Oahu at 30
+arcseconds as the canonical worked example), and the
+"Outside Whittaker range" honesty point from Thread 8, which
+surfaces naturally with the first basic maps.
+
+**"Beyond a Map"** — sections 4 to 6. Working with a map you
+already have, framed as both a tool (a surface for anchors)
+and a data product (biome areas to analyze). Carries Thread
+9 (points and labels as anchors), the composition half of
+Thread 8 (`biome_composition()` as a region-oriented
+product), Thread 4 (smoothing, with the Oahu-artifact and
+Oregon-natural contrast pair), Thread 5 (boundary
+representation, briefly), and Thread 7 (the hypothesis-test
+framing and maps-as-arguments, the methodological close that
+hands off to Biomes on the Earth).
+
+The split falls on a real conceptual seam, make versus
+interpret, and it matches the document's habit of many
+focused chapters rather than a few sprawling ones. The
+escalation across the three map-related chapters is then
+clean: Build a Map, then Beyond a Map, then Biomes on the
+Earth — build, work with, verify.
+
+Titles: "Build a Map" and "Beyond a Map" are Kim's, set
+2026-05-22. Both are treated as settled working titles and
+could still be revised before drafting.
+
+Threads 6 and 10 are unaffected by the split. Thread 6 (3D
+overlay) was already promoted to the Biomes on the Earth
+chapter; Thread 10 (the Solomon Islands inversion) has moved
+to the concluding chapter (`chapter_concluding_ideas.md`).
 
 ## The Threads
 
@@ -323,6 +372,116 @@ closes on the recognition that the maps it produces are
 arguments, not facts — and that this is the strength of
 the approach, not a weakness.
 
+### 8. Cells outside the Whittaker envelope; composition as a product (2026-05-22)
+
+Two points emerged while building `plot_biome_map()`'s color
+support and surfaced as chapter material.
+
+**The "Outside Whittaker range" category.** The Whittaker
+scheme is a bounded envelope in temperature-precipitation
+space, not an exhaustive partition. Real climates can fall
+outside every biome polygon. The Oregon map made this
+concrete: the very wet, mild cells of the Coast Range and the
+western Cascades exceed the precipitation ceiling of the
+temperate rain forest polygon, so `name_biome()` cannot place
+them. They are off the top of the diagram. `map_biomes()` now
+records such cells as a distinct tenth category, "Outside
+Whittaker range," rendered in a fixed neutral gray and listed
+in the legend, kept separate from out-of-region area (which
+stays the white background). This is a real result, not an
+error, and it belongs in the chapter as an honesty point. It
+is the spatial face of the maps-as-arguments-not-facts
+closing (Thread 7): the Pacific Northwest temperate rain
+forest is wetter than the classic diagram's envelope, and the
+map should say so rather than force a misclassification.
+
+**Composition as a product.** `biome_composition()` returns
+the area and percentage share of each biome on a map, sorted
+by abundance, including the "Outside Whittaker range" share.
+For biome-focused regional studies the percentage breakdown
+is often a primary product in its own right, independent of
+the map image. The chapter should present it as a worked
+example: a horizontal bar chart with bars ordered by
+percentage and each bar filled with its own biome color from
+the active palette, the gray bar for the outside category.
+The bar chart ties the Mapping chapter back to the Color
+chapter, since the palette choice carries directly into the
+bar fills.
+
+Both are queued as worked examples for the chapter. Oregon is
+the natural region to carry them, since it already shows the
+off-the-diagram cells.
+
+**Placement (settled while drafting Retrieving Biome
+Information).** The composition bar chart's first worked
+appearance is in the Retrieving Biome Information chapter,
+not here. There it is place-oriented: it gives a retrieved
+point its regional context, answering whether a point's
+biome is typical of its region or a rare pocket within it.
+In the Mapping chapter `biome_composition()` is
+region-oriented, describing a region in its own right. It is
+a shared capability with two framings; the Mapping chapter
+uses it without re-introducing it.
+
+### 9. Points and labels as anchors (2026-05-22)
+
+Looking ahead to the chapter, Kim reframed the `points` and
+`biome_labels` overlays on `plot_biome_map()`. They do more
+than mark and identify; they give the map anchors. A biome map
+is an abstraction, a classification draped over geography, and
+a reader meets it more readily when it carries a few known
+places. In Kim's words, these anchors, "often places that are
+intrinsic to our understanding of the region, are vital as
+they tie our experiences in the region to the abstractness of
+the biome map."
+
+This makes the point overlay a teaching device, not a
+convenience. The worked examples should choose anchor points
+deliberately, places the intended reader is likely to know, so
+the biome map is read against something familiar. It also
+pairs with the verification theme (Threads 5 and 7): an anchor
+the reader knows is a spot where they can check the
+classification against their own experience.
+
+### 10. The Solomon Islands inversion — ecotones as the named categories (2026-05-22)
+
+Kim's story, surfaced while reviewing the Transitions chapter
+draft. A Pacific Island society, Kim believes from the Solomon
+Islands, organizes its land classification around the
+ecotones: the transition zones are the named categories, and
+the areas in between, the biome interiors, are treated as the
+unnamed "lines." It is the exact inverse of the Whittaker
+scheme. The diagram draws polygons and treats the boundary as
+a thin line with no width; this classification names the
+boundary zone and treats the interior as the residual.
+
+Why it matters here. The whole document spends six chapters
+drawing clean lines and then one chapter (Transitions)
+showing the lines were always a convenience, ending on the
+move to read the picture as a field of gradients rather than
+a set of boxes. The Solomon Islands classification made the
+gradient primary from the start. For a society to whom
+diversity is what matters, naming the diversity-rich edge and
+leaving the interiors unnamed is the natural ordering. Our
+diagram has to draw polygons because the data structure
+needs an edge; their classification never paid that tax.
+
+Status and placement. Kim: "not for use here" — it does not
+belong in the Transitions chapter. But "there might be a role
+for this in some wrap-up words." This is the candidate home:
+the document's closing, where a brief account of an inverse
+way of carving up the world would land well as a final
+loosening of the classification's grip. The story is not
+well known; the Solomon Islands attribution is Kim's best
+recollection and should be verified before it appears in
+print.
+
+Update (2026-05-22): the home is now settled. The story
+belongs in the document's concluding chapter, and the full
+ideation for that chapter has moved to its own file,
+`chapter_concluding_ideas.md`, where the Solomon Islands
+inversion is Thread 2. The live ideation continues there.
+
 ## First worked result — Oahu at 30 arcsec (2026-05-16)
 
 The basic `map_biomes()` pipeline ran end-to-end against
@@ -463,29 +622,46 @@ Kim's framing of the historical constraint
 
 ## Provisional structure
 
-- **Opening (Thread 1)** — Mapping as destination. The
-  classification-to-mapping arc made explicit.
-- **Historical setting (Thread 2)** — The pre-digital
-  constraints; what computing changed. Kim's witness
-  paragraph or sidebar.
-- **The basic move (Thread 3)** — Tessellation maps via
-  `map_biomes()`. Oahu and Hawaii Island as first
-  examples.
-- **Refinements**
-  - **Smoothing (Thread 4)** — Three approaches,
-    tradeoffs, the make-the-choice-conscious move.
-  - **Boundary representation (Thread 5)** — Parallel
-    to the diagram-side options. Orthogonal to
-    smoothing.
-- **Methodological closing (Thread 7)** — The
-  hypothesis-test frame. Maps as arguments, not facts.
+Two chapters (see "Split into two chapters" above).
 
-The 3D overlay (formerly Thread 6) has been promoted to its
-own chapter following this one. See
-`chapter_3d_overlay_ideas.md`. The Mapping chapter's
-closing on maps-as-arguments now hands off to that next
-chapter, which takes up the arguments and tests them
-against physical reality.
+### "Build a Map"
+
+- **Opening (Thread 1)** — Mapping as the destination of the
+  classification-to-mapping arc, made explicit.
+- **Historical setting (Thread 2)** — The pre-digital
+  cartography constraints and what computing changed; Kim's
+  UHM witness. Compact, the stage-setting opening.
+- **The basic move (Thread 3)** — Tessellation maps via
+  `map_biomes()`. Oahu at 30 arcseconds as the canonical
+  worked example, carrying the subtropical-desert finding.
+- **Off the diagram (Thread 8, first half)** — The "Outside
+  Whittaker range" category as an honesty point, surfacing
+  with the first basic maps.
+- **Close** — hands off to "Beyond a Map": the map is built;
+  what remains is to read, refine, and use it.
+
+### "Beyond a Map"
+
+- **On-ramp** — a brief re-entry: a map in hand, now treated
+  as both a tool and a data product.
+- **Anchors (Thread 9)** — points and labels as anchors that
+  tie the abstract map to known places.
+- **Composition as a product (Thread 8, second half)** —
+  `biome_composition()`, region-oriented; used, not
+  re-introduced (Retrieving Biome Information introduced it).
+- **Refinements** — Smoothing (Thread 4): the three
+  approaches and the Oahu-artifact / Oregon-natural contrast
+  pair. Boundary representation (Thread 5): parallel to the
+  diagram-side options, orthogonal to smoothing, briefly.
+- **Methodological close (Thread 7)** — The hypothesis-test
+  frame, kept light; maps as arguments, not facts. Hands off
+  to Biomes on the Earth.
+
+The 3D overlay (formerly Thread 6) is its own chapter after
+these two. See `chapter_3d_overlay_ideas.md`. "Beyond a
+Map"'s closing on maps-as-arguments hands off to it, and it
+takes up the arguments and tests them against physical
+reality.
 
 ## Chapter scope discipline (2026-05-16)
 
@@ -529,6 +705,16 @@ Proposed example budget for the chapter (revised 2026-05-16):
 This keeps the chapter from accumulating figures
 proportionate to the toolkit's flexibility. The toolkit is
 extensible; the chapter is selective.
+
+**Update (2026-05-22).** The top-heaviness this section
+guards against is now addressed structurally as well: the
+material is two chapters, not one (see "Split into two
+chapters" above). The example budget still holds, now
+distributed across the pair — Oahu as the canonical example
+in "Build a Map," the Oahu and Oregon smoothing contrast
+pair in "Beyond a Map," Hawaii Island still in reserve,
+the rest reference-only. Two chapters of ordinary length
+replace one oversized one.
 
 ## Open questions
 

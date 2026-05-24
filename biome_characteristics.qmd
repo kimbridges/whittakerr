@@ -1,0 +1,119 @@
+# Roles, Not Rosters
+
+Much of this document has been an exercise in naming. Place a climate point in temperature-precipitation space, find the biome region that contains it, return the name. The Retrieving Biome Information chapter did exactly this, and did it well. But a name is a label, a pointer. It says "subtropical desert" and stops. It does not say what the thing it points to is actually made of.
+
+That is this chapter's question. Not which biome a place belongs to, but what a biome consists of. The answer is not a list of species. What a biome is made of is a set of roles, an arrangement of ecological functions, and the species present at any moment are the actors who happen to be filling them. This chapter makes that case through a story from desert research, draws out what follows from it, and ends by asking why a classification like Whittaker's is possible at all.
+
+## Setup
+
+```{r}
+#| label: setup-characteristics
+#| message: false
+## the whittakerr toolkit: get_climate(), name_biome()
+library(whittakerr)
+## read_csv() for the inline site table
+library(readr)
+## formatted tables
+library(gt)
+## suppress read_csv() column-type messages
+options(readr.show_col_types = FALSE)
+```
+
+## Reading a fauna by its functions
+
+In the years of the International Biological Program, the US/IBP Desert Biome program ran a network of field sites across the North American deserts. One of its researchers, James MacMahon, was studying the small mammals. The field sites sent him their inventory results, lists of the species each site had captured.
+
+MacMahon studied the lists and did something with them that the lists themselves did not invite. Instead of reading them as rosters of species, he sorted the small mammals by what they did for a living. They fell into about a dozen functional groups: seed eaters sorted by the size of seed they could handle, omnivores, and others, each group a way of making a living in a desert. A dozen groups is more than a handful, but still few enough to hold in mind at once.
+
+Then he looked across the sites, and the striking thing appeared. At site after site, the functional groups filled in. Each desert had a small mammal for each way of life. The species differed from site to site, but the set of roles did not. Almost. There were two gaps.
+
+One functional group was missing from a site in Arizona. MacMahon telephoned the site director and asked about it. The answer was offhand: they did catch that animal sometimes, they just had not thought it important enough to feature in the inventory. The gap was in the reporting, not in the desert. One hole closed.
+
+The other gap was at a site in New Mexico. MacMahon telephoned again. This time there was a long pause on the line, and then a question came back: "We found it last night for the first time. How did you know?"
+
+The two gaps are worth separating, because they are not the same kind of gap, and the difference is the whole point. The Arizona gap was the functional view auditing the observation. The role was filled all along; a species-focused inventory had simply passed over its occupant as unremarkable. The functional reading caught what the species list had downplayed. The New Mexico gap was the functional view predicting. There the role was genuinely unrecorded, and the functional pattern said an occupant should exist anyway. It did, and the field crew had it in hand for the first time the night before the call. That is a falsifiable prediction, made and confirmed.
+
+This was, for me, one of the lasting lessons of those years. It takes real effort to see the living world by function, because nearly everything pushes the other way. The species are what you catch, key out, and write down. The functions are not given; they have to be reconstructed. MacMahon reconstructed them, and the reconstruction was complete and accurate enough to call an animal before the people in the field had seen it.
+
+## The roster of roles
+
+What MacMahon had found is the thing this chapter is about. A biome has a characteristic functional structure: a roster of ecological roles that its climate and physical form support. The roster is short enough to describe and, MacMahon's two phone calls showed, stable enough to predict from. An empty slot in it is not a quiet fact. It is a question, with two possible answers: the observation is incomplete, or something is present that has not yet been found.
+
+The number matters here. MacMahon's desert small mammals sorted into about a dozen functional groups. That dozen is a choice of grain, and it is worth dwelling on. Sort the fauna into two or three groups and distinct ways of making a living get lumped into one bin; the structure coarsens into uselessness. Sort it into fifty and the result is a species list again, with the structure buried. A dozen sits in between, fine enough to capture real differences and coarse enough to stay legible.
+
+This is the same judgment, made one level down, that the Whittaker diagram itself makes in settling on nine biomes. The What Is a Biome? chapter put it as a tradeoff: too few categories and real variety vanishes, too many and the scheme stops being a scheme. MacMahon's dozen functional groups and Whittaker's nine biomes are that one decision, how finely to divide before dividing stops helping, taken at two levels of a single hierarchy. A biome is a functional grouping of climate-and-vegetation; a guild is a functional grouping of animals within it. Both are acts of choosing a grain.
+
+## The same roster, different actors
+
+If a biome is a roster of roles, then to say two places are the same biome is to say they present the same roster. It is not to say they share species. This is the operational form of a claim the What Is a Biome? chapter made in principle: a biome is defined by function, not by identity.
+
+Two different processes keep a roster filled. Within a single region, over ecological time, it is community assembly. An unfilled role is an opening, and openings tend to be taken; the local species sort themselves into the available functions. Across regions, across whole continents, something deeper is responsible. The deserts of North America, Australia, the Sahara, and central Asia present recognizably the same roster of roles, and they did not inherit it from a shared ancestral fauna. They arrived at it independently. That is convergent evolution: unrelated lineages, pressed by the same conditions, converging on the same body forms and the same ways of life.
+
+The toolkit can show the climate half of this directly. Here are two desert sites on opposite sides of the planet, one in the Sonoran Desert of North America and one in the Simpson Desert of central Australia.
+
+```{r}
+#| label: characteristics-desert-sites
+## two desert sites on different continents
+desert_sites <- read_csv(
+  "site,            lon,      lat
+   Sonoran Desert,  -114.40,   32.50
+   Simpson Desert,   137.00,  -25.50")
+
+## show the sites
+gt(desert_sites)
+```
+
+`get_climate()` retrieves the climate at both points in one call, exactly as the earlier chapters showed:
+
+```{r}
+#| label: characteristics-desert-climate
+## retrieve the climate for both desert sites
+desert_climate <- get_climate(lon = desert_sites$lon,
+                              lat = desert_sites$lat)
+
+## show what get_climate() returned
+gt(desert_climate)
+```
+
+The two columns to carry forward are `mat_c`, the annual mean temperature, and `map_cm`, the annual precipitation. `name_biome()` classifies each site from those two values:
+
+```{r}
+#| label: characteristics-desert-biomes
+## name_biome() takes one point; mapply() applies it to each
+## site's temperature (mat_c) and precipitation (map_cm)
+desert_sites$biome <- mapply(name_biome,
+                             mean_temp_c  = desert_climate$mat_c,
+                             total_ppt_cm = desert_climate$map_cm)
+
+## the biome shared by the two sites
+desert_biome <- desert_sites$biome[1]
+
+## collect each site with its retrieved biome
+desert_table <- data.frame(Site  = desert_sites$site,
+                           Biome = desert_sites$biome)
+
+## show the table
+gt(desert_table)
+```
+
+Both sites return `r desert_biome`. The classification has done its job and stopped there. Temperature and precipitation are all it knows, so what lives in these two deserts is past the reach of the tool. But the biome name, once retrieved, carries the roster with it. `r desert_biome` is not only a label. It is a prediction: the roster of roles, MacMahon's dozen, that a place of this climate should support.
+
+And here the convergence becomes concrete. One role on that roster is the seed-eating, bipedal, burrowing rodent, the small mammal built to bound across open ground and live on the desert's scattered seeds. In the Sonoran Desert that role is filled by the kangaroo rats. In the Simpson Desert it is filled by the hopping mice. The two are not close relatives; they belong to separate rodent families that evolved the same body and the same way of life independently, because the same desert asked the same question of each. The deserts of the Old World give the role to the jerboas, a third independent answer. The toolkit places the Sonoran and the Simpson at the same point in climate space. Convergent evolution is the reason the same point means the same way of life.
+
+So the toolkit does not measure functional structure, and this chapter does not pretend that it could. What it does is deliver the biome, and the biome is the doorway to the functional question. That is the worth of a classification well made. It does not end an inquiry; it hands you a prediction worth testing.
+
+## Inhabitants, not observers
+
+There is one role on the roster that this document has so far left unspoken, and it is the reader's own. We are biome organisms too.
+
+For most of these chapters the human stance has been the observer's: a person at the diagram, placing a point, reading off a name. But people are not standing outside the classification. We evolved within biomes, we live in them now, and we carry a climate niche like any other animal. It is widely felt, if not often examined, that people are most at ease in the kind of country they were raised in. Someone raised in a wet temperate forest can find a desert magnificent and still feel, somewhere below argument, that it is not home. Someone raised in open, dry country can feel shut in beneath a closed canopy. The biome of childhood sets a quiet baseline for what ordinary weather, ordinary light, and ordinary distance are supposed to feel like.
+
+This is worth saying plainly, because it changes how to read the rest of the document. The temperature and precipitation axes are not abstract coordinates borrowed for the occasion. They are the axes of lived human experience, the same two variables every reader has felt every day of their life. The What Is a Biome? chapter made that point about experience. The point here is stronger: a reader does not merely know the axes, the reader occupies a region of the diagram, a preferred patch of climate, and acquired it the way every organism acquires its niche, by growing up inside it.
+
+## Why the diagram works
+
+Step back to the largest claim the document rests on. The Whittaker diagram works. The same annual temperature and the same annual precipitation, anywhere on Earth, return the same biome. That is not a small or an obvious thing, and it is worth asking why it is possible at all.
+
+It is possible because of everything this chapter has described. If a biome were a set of species, a classification in climate space could not exist. Species are accidents of history, of which lineage happened to arise on which continent and how far it could spread. The Sonoran and the Simpson share almost no species; a scheme built on species would be forced to call them different things, and the diagram would fall apart into a separate map for every continent. But a biome is not a set of species. It is a roster of functions, and functions, through convergent evolution, track climate rather than ancestry. The diagram can be drawn because the thing it classifies is the thing convergence makes universal. In a real sense the Whittaker diagram is an instrument for reading convergent evolution off a map of climate.
+
+This chapter has described the roster as a biome holds it in its interior, full and stable. But a roster has edges, places where one biome's set of roles gives way to another's, and it has a future, because the climate that fixes the roster does not hold still. The next chapter follows the biome to its edges and forward in time. A reader who has just located a comfortable region of the diagram has a personal stake in that journey: the biome you were raised in is not promised to stay where you left it.

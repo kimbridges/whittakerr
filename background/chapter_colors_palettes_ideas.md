@@ -48,6 +48,125 @@ Connects to design file Thread 1 (display constraints):
 palette is a display variable that, like polygon count,
 constrains how many categories can be communicated.
 
+**Sharpened 2026-05-21 (framework confirmed with Kim).** The
+principle has a sharper form, and it is the chapter's spine:
+a tension between two jobs a palette must do. Informative —
+the colors carry meaning; an iconic palette (green for
+forest, tan for desert) recruits the reader's landscape
+knowledge, so the color works before the legend. Useful —
+every category is distinguishable for every reader in every
+medium (color-vision deficiency, grayscale, dim projector).
+The tension is genuine, not two goods to balance: the
+features that make a palette informative (convention clusters
+colors by resemblance, so the several forest biomes all get
+greens) are exactly the features that make it fail at useful
+(clustered greens are what CVD and grayscale cannot
+separate). Arc: open with the tension; the Ricklefs palette
+as the informative pole; CVD and print as the useful pole,
+the Ricklefs greens the concrete failure; the variants as
+positions on the trade-off; then the resolution. The
+resolution (Kim's): you do not find a perfect palette, you
+stop making one channel do both jobs. The centroid label
+(Thread 5) is that resolution — color stays informative, the
+label carries robust discrimination, a separation of
+concerns. This promotes Thread 5 from accessibility add-on to
+the chapter's conceptual landing. The tension recurs
+elsewhere (nine biomes; map resolution); Color is the
+cleanest instance, so it is where the document names it.
+Title locked: "Color: more than decoration." Drafting staged
+— conceptual half (opening, informative pole, useful pole)
+drafted first as pure prose in `color.qmd`; demonstrative
+half (variants, resolution, `plot_biomes(palette = ...)`)
+after the function work.
+
+**Further sharpened 2026-05-22 (designing the custom palette, with Kim).**
+Building the custom palette surfaced three ideas that deepen
+the framework, especially its "useful" pole.
+
+**Separation is a finite budget.** Nine biomes, and a color
+space — particularly a constrained one, CVD-safe or
+grayscale — holds only so much distinctness. You cannot make
+all nine maximally distinct from all eight others. A palette
+is always an allocation; the real question is where to spend
+the budget.
+
+**The palette is tied to the purpose.** What decides the
+allocation is the map. An Oregon biome map is mostly forest
+types, so the forest greens must be sharply separated and the
+dry biomes can sit closer; a Great Basin map inverts it. Same
+nine biomes, different best palettes. This makes "useful"
+purpose-relative: not "all nine maximally distinct" (a
+fiction the budget will not fund) but "the distinctions this
+map needs are clear."
+
+**The diagram and the map are different design problems.**
+For many years the Whittaker diagram was the endpoint, and
+the Ricklefs palette meets that goal: the diagram is a
+fixed-geometry problem, nine polygons of fixed shape, size,
+and adjacency. A map is variable-geometry — a biome becomes a
+geographic area, large or tiny, compact or meandering. That
+imposes constraints the diagram never did: a color must not
+get lost on a thin sliver, and must not over-dominate as a
+large field. The color chapter re-derives, for color, the
+diagram-to-map shift the whole document is built on.
+
+**Category reduction is design freedom.** A regional map
+rarely needs all nine biomes; Oregon has five. Fewer biomes
+means more budget per biome, and the design effort
+concentrates on the biomes actually present. This is part of
+why the user-supplied-palette capability matters: a user
+tunes a palette for their own map and its biome subset.
+
+These ideas land mainly in the custom-palette section and
+sharpen the "useful" pole throughout. The redundant-encoding
+resolution (the centroid label) still stands beyond them all:
+purpose-tuning is the best the palette itself can do.
+
+**Further sharpened 2026-05-22 (what the label does beyond identifying).**
+A note from Kim once the abbreviated labels were running on
+the diagram: the abbreviations are not just compact, they are
+"reinforced by the color they sit on." "Fst" sits on green
+panels, "Dsrt" on tans; the abbreviation's word-stem echoes
+what the palette's convention already says.
+
+This sharpens the resolution. The separation of concerns
+(color informative, label robust) still holds, but the two
+channels are not neutral toward each other. On a
+convention-following palette the label reinforces the color,
+and the reader gets one coherent doubled signal. On the
+useful-pole palettes (cvd, grayscale, colors distinct but
+carrying no landscape meaning) that reinforcement is gone and
+the label carries identification more on its own. The label
+is universal insurance; on the iconic palette it is also a
+duet with the color. A quiet argument for abbreviation stems
+that track the palette's semantics, which the project set
+does (Fst, Dsrt, Rain, Seas, Gras).
+
+There is more, and it does not depend on color at all. With
+the abbreviations in place, Kim saw the systematic stems line
+up into a pattern: the Trop labels on the warm right of the
+diagram, the Tmp labels in the temperate middle, SubTropDsrt
+in line with TmpGrasDsrt along the dry edge. Because the
+stems are consistent, the repeated prefixes and suffixes,
+sitting where their biomes fall, trace the diagram's own two
+axes. The shared "Trop" marks the warm zone, the shared
+"Dsrt" the dry end. The label set makes the
+temperature-precipitation structure of the classification
+visible at a glance.
+
+This lifts the label from convenience to teaching device. It
+is not only a robust identification channel and not only a
+reinforcement of the color; the systematic label set carries
+the diagram's structure, with no color involved, so it still
+teaches on a cvd or grayscale palette. Kim's framing: "Having
+labels is more than a convenience. They help teach the
+pattern, even in the absence of corresponding colors." The
+consistency he required of the abbreviations is what makes
+this work; an ad hoc set would identify the biomes but would
+not line up into a pattern. The label resolution is not a
+consolation for when color fails; it adds something the color
+channel alone never gave.
+
 ### 2. The Ricklefs palette (origins and conventions)
 The colors in the vendored data — and in plotbiomes and
 the original Ricklefs textbook figure — are not arbitrary.

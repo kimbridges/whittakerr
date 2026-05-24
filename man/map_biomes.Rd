@@ -7,6 +7,10 @@
 map_biomes(
   region_polygon,
   resolution = 2.5,
+  scenario = c("historical", "future"),
+  gcm = "MPI-ESM1-2-HR",
+  ssp = "245",
+  period = "2041-2060",
   cache_path = "cache/worldclim_cache"
 )
 }
@@ -17,7 +21,27 @@ geographic extent of the map.}
 
 \item{resolution}{Numeric. WorldClim resolution in
 arc-minutes. Valid values: 10, 5, 2.5, or 0.5 (30
-arc-seconds). Default 2.5, the document's standard.}
+arc-seconds). Default 2.5, the document's standard. The
+0.5 (30-arcsecond) option is available for historical
+climate only.}
+
+\item{scenario}{One of \code{"historical"} (default,
+1970-2000 WorldClim baseline) or \code{"future"} (a
+CMIP6 projection parameterized by \code{gcm},
+\code{ssp}, and \code{period}). A future scenario lets
+the same region be mapped under a projected climate, so
+a historical and a future biome map can be compared.}
+
+\item{gcm}{Character. Global Climate Model identifier for
+future scenarios. Default \code{"MPI-ESM1-2-HR"}. See
+\code{\link[geodata]{cmip6_world}} for the supported set.}
+
+\item{ssp}{Character. Shared Socioeconomic Pathway code
+for future scenarios. Default \code{"245"} (SSP2-4.5,
+middle-of-the-road emissions).}
+
+\item{period}{Character. Time window for future scenarios.
+Default \code{"2041-2060"} (mid-century).}
 
 \item{cache_path}{Character. Directory for cached
 WorldClim downloads. Default
@@ -29,17 +53,24 @@ persistent user-level cache.}
 \value{
 A list with class \code{"biome_map"} containing:
   \describe{
-    \item{biome_raster}{A \code{SpatRaster} of biome IDs
-      (1-9; NA for ocean or out-of-extent cells).}
+    \item{biome_raster}{A \code{SpatRaster} of biome IDs.
+      IDs 1-9 match the \code{Ricklefs_colors} order; id 10
+      marks in-region cells whose climate falls outside the
+      Whittaker scheme. NA marks ocean and out-of-region
+      cells.}
     \item{region}{The input region as a \code{SpatVector}.}
     \item{biome_names}{The ordered names from
       \code{Ricklefs_colors}.}
     \item{biome_colors}{The named character vector of
       biome colors (Ricklefs palette).}
     \item{resolution}{The resolution used.}
+    \item{scenario}{The climate scenario,
+      \code{"historical"} or \code{"future"}.}
     \item{centroid_lon}{Region centroid longitude.}
     \item{centroid_lat}{Region centroid latitude.}
   }
+  A future scenario also carries \code{gcm}, \code{ssp},
+  and \code{period}.
 }
 \description{
 Fetches WorldClim climate data at the chosen resolution,
@@ -49,14 +80,33 @@ classified raster, the region polygon, and the biome
 lookup, suitable for downstream rendering and KML export.
 }
 \details{
-Pipeline: fetch the WorldClim bioclim raster
-  (\code{worldclim_global} for res >= 2.5'; \code{worldclim_tile}
-  for 30 arc-seconds via region centroid), subset to BIO1
-  (annual mean temperature, °C) and BIO12 (annual
-  precipitation, mm), crop and mask to the region polygon,
-  apply \code{\link{name_biome}} to each cell with the
+Pipeline: fetch the bioclim raster (for a
+  historical scenario, \code{worldclim_global} for
+  res >= 2.5' or \code{worldclim_tile} for 30 arc-seconds
+  via the region centroid; for a future scenario,
+  \code{cmip6_world}), subset to BIO1 (annual mean
+  temperature, °C) and BIO12 (annual precipitation, mm),
+  crop and mask to the region polygon, apply
+  \code{\link{name_biome}} to each cell with the
   appropriate mm-to-cm conversion, and return the bundled
   result.
+
+  A future scenario draws on the same CMIP6 projections
+  \code{\link{get_climate}} uses, set by \code{gcm},
+  \code{ssp}, and \code{period}. It is available at 2.5
+  arc-minutes and coarser, not at 30 arc-seconds.
+
+  Cells outside the Whittaker scheme: the Whittaker
+  classification is a bounded envelope in
+  temperature-precipitation space, not an exhaustive
+  partition. A cell whose climate falls outside every
+  biome polygon, for example the very wet, mild cells of
+  the Pacific Northwest coastal mountains, cannot be
+  classified. \code{name_biome} reports these as
+  "unknown", and \code{map_biomes} records them under id
+  10 as a distinct "Outside Whittaker range" category
+  rather than discarding them. This is a real result, not
+  an error.
 
   Scale-choice context: at 2.5' resolution (~5 km cells),
   the climate raster averages substantial within-cell
@@ -69,10 +119,14 @@ Pipeline: fetch the WorldClim bioclim raster
 \dontrun{
 # Oregon at 2.5-minute resolution
 us_states <- geodata::gadm(country = "USA", level = 1,
-                           path = "data/gadm_cache")
+                           path = "cache/gadm_cache")
 oregon <- us_states[us_states$NAME_1 == "Oregon", ]
 oregon_map <- map_biomes(region_polygon = oregon,
                          resolution     = 2.5)
 plot_biome_map(oregon_map)
+
+# The same region under a CMIP6 future projection
+oregon_future <- map_biomes(region_polygon = oregon,
+                            scenario       = "future")
 }
 }

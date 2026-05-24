@@ -83,7 +83,8 @@ name_biome <- function(mean_temp_c, total_ppt_cm){
 #' Renders the Whittaker biome polygons in temperature-precipitation
 #' space, with optional data points and labels overlaid. The base
 #' diagram comes from the bundled \code{Whittaker_biomes} polygon
-#' data; colors come from the bundled \code{Ricklefs_colors} palette.
+#' data; the biome colors come from \code{biome_palettes},
+#' selectable through the \code{palette} argument.
 #'
 #' @param mean_temp_c Numeric vector of annual mean temperature
 #'   values (degrees Celsius), one per point. Optional.
@@ -94,6 +95,20 @@ name_biome <- function(mean_temp_c, total_ppt_cm){
 #'   plot. Optional.
 #' @param label Character vector of point labels, one per point.
 #'   Same length as \code{mean_temp_c}. Optional.
+#' @param palette The biome color palette. Either a string
+#'   naming a built-in palette (a color column of
+#'   \code{\link{biome_palettes}}): \code{"ricklefs"}
+#'   (default), the iconic, convention-following palette;
+#'   \code{"cvd"}, color-vision-deficiency-safe; or
+#'   \code{"grayscale"}, engineered to survive
+#'   black-and-white reproduction; or \code{"custom"}, a
+#'   palette tuned for a specific map. Or a user-supplied
+#'   named color vector, one hex entry per biome, for a
+#'   palette tuned to a particular map.
+#' @param biome_labels Logical. When \code{TRUE}, the short
+#'   abbreviation for each biome (from
+#'   \code{\link{biome_abbrev}}) is drawn at the centroid of
+#'   that biome's polygon. Default \code{FALSE}.
 #'
 #' @return A ggplot2 plot object. Print to render; pass to
 #'   \code{ggsave()} to save to file.
@@ -101,7 +116,9 @@ name_biome <- function(mean_temp_c, total_ppt_cm){
 #' @details Calling \code{plot_biomes()} with no arguments returns
 #'   just the biome diagram. Supplying \code{mean_temp_c} and
 #'   \code{total_ppt_cm} adds points; supplying \code{label}
-#'   additionally adds labels.
+#'   additionally adds labels. Setting \code{biome_labels = TRUE}
+#'   writes each biome's short abbreviation at its centroid in
+#'   the diagram.
 #'
 #'   The points and labels are passed via an explicit \code{data =}
 #'   argument with \code{inherit.aes = FALSE} to avoid a ggplot2
@@ -131,10 +148,39 @@ name_biome <- function(mean_temp_c, total_ppt_cm){
 #'   source       = "Three Pacific-coast cities",
 #'   label        = c("Honolulu", "Los Angeles", "Seattle")
 #' )
+#'
+#' # The color-vision-deficiency-safe palette
+#' plot_biomes(palette = "cvd")
+#'
+#' # Biomes labeled with their short abbreviations
+#' plot_biomes(biome_labels = TRUE)
 plot_biomes <- function(mean_temp_c  = NULL,
                         total_ppt_cm = NULL,
                         source       = NULL,
-                        label        = NULL){
+                        label        = NULL,
+                        palette      = "ricklefs",
+                        biome_labels = FALSE){
+
+  ## Select the biome color palette. `palette` is either the
+  ## name of a built-in palette (a color column of
+  ## biome_palettes) or a user-supplied named color vector
+  ## (biome name -> hex), one entry per biome.
+  builtin_palettes <- setdiff(names(biome_palettes), "biome")
+  if(is.character(palette) && length(palette) == 1L &&
+     palette %in% builtin_palettes){
+    ## a built-in palette: take the named column
+    pal_colors <- biome_palettes[[palette]]
+    names(pal_colors) <- biome_palettes$biome
+  } else {
+    ## a user-supplied palette, tuned for a particular map
+    pal_colors <- palette
+    if(is.null(names(pal_colors)) ||
+       !all(biome_palettes$biome %in% names(pal_colors))){
+      stop("'palette' must name a built-in palette (",
+           paste(builtin_palettes, collapse = ", "),
+           ") or be a named color vector with one entry per biome.")
+    }
+  }
 
   ## Create the base plot.
   W_plot <- ggplot2::ggplot() +
@@ -149,13 +195,55 @@ plot_biomes <- function(mean_temp_c  = NULL,
     ## Add axis labels.
     ggplot2::labs(x = "Annual Mean Temperature (C)",
                   y = "Total Annual Precipitation (cm)") +
-    ## Use the Ricklefs categorical palette.
+    ## Use the selected categorical palette.
     ggplot2::scale_fill_manual(
       name   = "Whittaker biomes",
-      breaks = names(Ricklefs_colors),
-      labels = names(Ricklefs_colors),
-      values = Ricklefs_colors) +
+      breaks = names(pal_colors),
+      labels = names(pal_colors),
+      values = pal_colors) +
     ggplot2::theme_bw()
+
+  ## Add biome-name labels at biome centroids if requested.
+  ## Each label is the short abbreviation from biome_abbrev,
+  ## placed at the centroid (the mean vertex) of the biome's
+  ## polygon in temperature-precipitation space. geom_label
+  ## gives each label a white backing so it stays readable on
+  ## any palette.
+  if(isTRUE(biome_labels)){
+    ## Centroid of each biome polygon: the mean of its vertices.
+    cx <- tapply(Whittaker_biomes$temp_c,
+                 Whittaker_biomes$biome, mean)
+    cy <- tapply(Whittaker_biomes$precp_cm,
+                 Whittaker_biomes$biome, mean)
+    centroids_df <- data.frame(
+      biome    = names(cx),
+      temp_c   = as.numeric(cx),
+      precp_cm = as.numeric(cy),
+      stringsAsFactors = FALSE)
+    ## Match each biome to its row in biome_abbrev.
+    idx <- match(centroids_df$biome, biome_abbrev$biome)
+    ## Attach each biome's abbreviation.
+    centroids_df$abbrev <- biome_abbrev$abbrev[idx]
+    ## Where biome_abbrev carries an explicit label position,
+    ## use it in place of the computed centroid. The mean of a
+    ## polygon's vertices sits poorly for some biomes; NA in
+    ## label_temp/label_precp means "keep the centroid".
+    over_t <- biome_abbrev$label_temp[idx]
+    over_p <- biome_abbrev$label_precp[idx]
+    centroids_df$temp_c[!is.na(over_t)]   <- over_t[!is.na(over_t)]
+    centroids_df$precp_cm[!is.na(over_p)] <- over_p[!is.na(over_p)]
+    W_plot <- W_plot +
+      ggplot2::geom_label(data = centroids_df,
+                          ggplot2::aes(x     = .data$temp_c,
+                                       y     = .data$precp_cm,
+                                       label = .data$abbrev),
+                          inherit.aes = FALSE,
+                          size        = 3,
+                          fontface    = "bold",
+                          colour      = "gray15",
+                          fill        = "white",
+                          label.size  = 0)
+  } ## End biome-label addition
 
   ## Add data points if climate data are supplied.
   ##

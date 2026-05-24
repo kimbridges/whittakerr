@@ -124,12 +124,57 @@ cat("Writing package data via usethis::use_data() ...\n")
 usethis::use_data(Whittaker_biomes, overwrite = TRUE)
 usethis::use_data(Ricklefs_colors,  overwrite = TRUE)
 
+## --- Build the multi-palette dataset -------------------------
+##
+## biome_palettes holds one color palette per column, keyed by
+## biome: ricklefs (the iconic palette, identical to
+## Ricklefs_colors) and cvd (Paul Tol's muted qualitative
+## scheme, for color-vision-deficiency safety). Grayscale and
+## custom palette columns will be added later. The
+## source-of-truth is data-raw/biome_palettes.csv.
+
+pal_csv        <- "data-raw/biome_palettes.csv"
+biome_palettes <- utils::read.csv(pal_csv, stringsAsFactors = FALSE)
+
+## Sanity check: the ricklefs column must match Ricklefs_colors.
+rick_expected <- Ricklefs_colors[biome_palettes$biome]
+if (any(is.na(rick_expected)) ||
+    !all(biome_palettes$ricklefs == rick_expected)) {
+  stop("biome_palettes.csv biome/ricklefs columns do not match Ricklefs_colors.")
+}
+
+cat("Writing biome_palettes via usethis::use_data() ...\n")
+usethis::use_data(biome_palettes, overwrite = TRUE)
+
+## --- Build the biome abbreviation table ----------------------
+##
+## biome_abbrev maps each biome's full name to a short
+## CamelCase abbreviation that fits as a label inside a
+## Whittaker diagram or a biome map, where the full names are
+## too long. It also carries optional hand-set label
+## coordinates (label_temp, label_precp) for biomes whose
+## diagram centroid sits poorly. Source-of-truth:
+## data-raw/biome_abbrev.csv.
+
+abbrev_csv   <- "data-raw/biome_abbrev.csv"
+biome_abbrev <- utils::read.csv(abbrev_csv, stringsAsFactors = FALSE)
+
+## Sanity check: the biome column must list exactly the nine
+## biomes in Ricklefs_colors.
+if (!setequal(biome_abbrev$biome, names(Ricklefs_colors))) {
+  stop("biome_abbrev.csv biome column does not match the nine biomes in Ricklefs_colors.")
+}
+
+cat("Writing biome_abbrev via usethis::use_data() ...\n")
+usethis::use_data(biome_abbrev, overwrite = TRUE)
+
 ## Clean up.
 unlink(c(rda_bio, rda_col))
 rm(env_bio, env_col, rda_bio, rda_col,
-   url_bio, url_col,
-   Whittaker_biomes, Ricklefs_colors)
+   url_bio, url_col, pal_csv, rick_expected, abbrev_csv,
+   Whittaker_biomes, Ricklefs_colors, biome_palettes,
+   biome_abbrev)
 
 cat("\nDone. Package data is now current.\n")
 cat("CSVs are at: ", bio_csv, ", ", col_csv, "\n", sep = "")
-cat("Package data (.rda) is at: data/Whittaker_biomes.rda, data/Ricklefs_colors.rda\n")
+cat("Package data (.rda) is at: data/Whittaker_biomes.rda, data/Ricklefs_colors.rda, data/biome_palettes.rda, data/biome_abbrev.rda\n")

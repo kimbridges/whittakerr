@@ -33,7 +33,10 @@
 ^\.gitignore$
 ^\.DS_Store$
 ^\.Rhistory$
+^\.RData$
 
 # README-style files we may add later
 ^README\.Rmd$
 ^cran-comments\.md$
+^\.positai$
+^\.claude$

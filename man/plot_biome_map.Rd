@@ -7,9 +7,20 @@
 plot_biome_map(
   biome_map,
   render = c("grid", "vector"),
+  palette = NULL,
   border_color = "black",
   border_width = 0.6,
-  legend = TRUE
+  legend = TRUE,
+  biome_labels = FALSE,
+  points = NULL,
+  point_color = "black",
+  point_fill = "white",
+  point_size = 1.2,
+  point_shape = 21,
+  file = NULL,
+  width = 9,
+  height = 7,
+  res = 200
 )
 }
 \arguments{
@@ -20,6 +31,14 @@ plot_biome_map(
 \item{render}{One of \code{"grid"} (default) or
 \code{"vector"}.}
 
+\item{palette}{Color palette for the biomes. \code{NULL}
+(default) keeps the Ricklefs colors stored in the
+\code{biome_map}. Otherwise either the name of a
+built-in palette column in \code{\link{biome_palettes}}
+(for example \code{"cvd"}, \code{"grayscale"}, or
+\code{"custom"}) or a user-supplied named character
+vector of colors with one entry per biome.}
+
 \item{border_color}{Color for the region-boundary line.
 Default \code{"black"}.}
 
@@ -28,17 +47,58 @@ Default 0.6.}
 
 \item{legend}{Logical. Whether to display the biome-color
 legend. Default \code{TRUE}.}
+
+\item{biome_labels}{Logical. Whether to draw each biome's
+short abbreviation (from \code{\link{biome_abbrev}}) at
+the centroid of its mapped area. Only biomes actually
+present on the map are labeled. Default \code{FALSE}.}
+
+\item{points}{Optional data frame of location points to
+overlay. Must contain \code{lon} and \code{lat}
+columns. May also carry optional \code{color},
+\code{size}, and \code{label} columns; when present
+these override the function-level point defaults for
+individual points. Default \code{NULL} (no points).}
+
+\item{point_color}{Default border color for overlaid
+points. Default \code{"black"}.}
+
+\item{point_fill}{Default fill color for overlaid points
+(used by the bordered plotting symbols, pch 21 to 25).
+Default \code{"white"}.}
+
+\item{point_size}{Default size (cex) for overlaid points.
+Default 1.2.}
+
+\item{point_shape}{Default plotting symbol (pch) for
+overlaid points. Default 21, a bordered circle whose
+separate fill and border read clearly against any
+biome color.}
+
+\item{file}{Optional output path for a PNG file. When
+supplied, the function opens a PNG graphics device,
+draws the map, and closes the device automatically (via
+\code{on.exit}) so the file is finalized even if
+plotting stops with an error. Default \code{NULL}
+(draw to the active device).}
+
+\item{width, height, res}{PNG width, height, and
+resolution, used only when \code{file} is supplied.
+Width and height are in inches. Defaults: 9, 7, 200.}
 }
 \value{
 Invisibly returns the input \code{biome_map}.
-  Called for its side effect (the plot).
+  Called for its side effect (the plot, or the PNG file
+  when \code{file} is supplied).
 }
 \description{
 Plots a \code{biome_map} object using terra's native
 plotting. Two render modes: \code{"grid"} (the raw
 classified raster, cell-level fidelity, pixelated
 appearance) or \code{"vector"} (the smoothed polygons,
-aesthetic continuity).
+aesthetic continuity). Supports alternate color palettes,
+per-biome labels, location-point overlays, and direct
+PNG export.
 }
 \details{
 Vector mode rasterizes the smoothed polygons back
@@ -47,12 +107,49 @@ Vector mode rasterizes the smoothed polygons back
   identical color application and legend formatting
   between the two renderings; the only visual difference
   becomes smooth vs jagged biome boundaries.
+
+  Palette resolution happens at plot time, so a single
+  computed \code{biome_map} can be re-rendered under
+  several palettes without recomputing the classified
+  raster.
+
+  Cells outside the Whittaker scheme are drawn in a fixed
+  light gray and labeled "Outside Whittaker range" in the
+  legend, distinct from out-of-region area, which stays
+  the plot background. This gray is never affected by the
+  \code{palette} argument.
+
+  PNG export wraps the plot in an explicitly sized
+  graphics device. On Windows the cairo device type is
+  requested for consistent text rendering. Owning the
+  device inside the function, rather than leaving
+  \code{png()} and \code{dev.off()} to the caller, makes
+  the output reproducible and avoids a device left open
+  by a mid-plot error.
+
+  Location points and biome labels are drawn in plain
+  longitude and latitude, matching the WorldClim
+  coordinate reference system of the biome raster, so no
+  reprojection is needed.
 }
 \examples{
 \dontrun{
 oregon_map <- map_biomes(oregon, resolution = 2.5)
 plot_biome_map(oregon_map)                     # grid mode
-oregon_map <- smooth_biome_map(oregon_map)
-plot_biome_map(oregon_map, render = "vector")  # smoothed
+
+# Color-vision-deficient palette with biome labels
+plot_biome_map(oregon_map,
+               palette      = "cvd",
+               biome_labels = TRUE)
+
+# Overlay location points and export a PNG
+gardens <- data.frame(
+  lon   = c(-123.29, -122.57),
+  lat   = c(44.57, 45.52),
+  label = c("Corvallis", "Portland")
+)
+plot_biome_map(oregon_map,
+               points = gardens,
+               file   = "oregon_biomes.png")
 }
 }

@@ -54,10 +54,12 @@ A quick check that the package is working. The `name_biome()` function classifie
 name_biome(mean_temp_c = 25, total_ppt_cm = 250)
 ```
 
-If that returns a biome name, the package is installed and running. One more check, this time a plot. The `plot_biomes()` function called with no arguments draws the Whittaker biome diagram itself:
+If that returns a biome name, the package is installed and running. One more check, this time a plot. The diagram is a ggplot2 plot, so load ggplot2 as well, then call `plot_biomes()` with no arguments to draw the Whittaker biome diagram itself:
 
 ```{r}
 #| label: check-diagram
+## the diagram is a ggplot2 plot, so load ggplot2
+library(ggplot2)
 ## draw the Whittaker biome diagram with no data points
 plot_biomes()
 ```

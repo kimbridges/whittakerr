@@ -68,6 +68,8 @@ Diagram and map rendering:
     polygons to a biome_map.
   \item \code{\link{plot_biome_map}}: render in geographic
     space (grid or vector mode).
+  \item \code{\link{biome_composition}}: area and
+    percentage breakdown of a biome_map.
   \item \code{\link{export_biome_kml}}: write a KML file for
     Google Earth, with polygons clamped to terrain.
 }
@@ -78,8 +80,12 @@ Diagram and map rendering:
 
 \itemize{
   \item \code{\link{Whittaker_biomes}}: polygon vertices.
-  \item \code{\link{Ricklefs_colors}}: categorical color
+  \item \code{\link{Ricklefs_colors}}: the iconic color
     palette.
+  \item \code{\link{biome_palettes}}: selectable color
+    palettes (used by \code{plot_biomes}).
+  \item \code{\link{biome_abbrev}}: short biome-name
+    abbreviations for diagram and map labels.
 }
 }
 

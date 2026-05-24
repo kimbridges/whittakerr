@@ -8,7 +8,9 @@ plot_biomes(
   mean_temp_c = NULL,
   total_ppt_cm = NULL,
   source = NULL,
-  label = NULL
+  label = NULL,
+  palette = "ricklefs",
+  biome_labels = FALSE
 )
 }
 \arguments{
@@ -24,6 +26,22 @@ plot. Optional.}
 
 \item{label}{Character vector of point labels, one per point.
 Same length as \code{mean_temp_c}. Optional.}
+
+\item{palette}{The biome color palette. Either a string
+naming a built-in palette (a color column of
+\code{\link{biome_palettes}}): \code{"ricklefs"}
+(default), the iconic, convention-following palette;
+\code{"cvd"}, color-vision-deficiency-safe; or
+\code{"grayscale"}, engineered to survive
+black-and-white reproduction; or \code{"custom"}, a
+palette tuned for a specific map. Or a user-supplied
+named color vector, one hex entry per biome, for a
+palette tuned to a particular map.}
+
+\item{biome_labels}{Logical. When \code{TRUE}, the short
+abbreviation for each biome (from
+\code{\link{biome_abbrev}}) is drawn at the centroid of
+that biome's polygon. Default \code{FALSE}.}
 }
 \value{
 A ggplot2 plot object. Print to render; pass to
@@ -33,13 +51,16 @@ A ggplot2 plot object. Print to render; pass to
 Renders the Whittaker biome polygons in temperature-precipitation
 space, with optional data points and labels overlaid. The base
 diagram comes from the bundled \code{Whittaker_biomes} polygon
-data; colors come from the bundled \code{Ricklefs_colors} palette.
+data; the biome colors come from \code{biome_palettes},
+selectable through the \code{palette} argument.
 }
 \details{
 Calling \code{plot_biomes()} with no arguments returns
   just the biome diagram. Supplying \code{mean_temp_c} and
   \code{total_ppt_cm} adds points; supplying \code{label}
-  additionally adds labels.
+  additionally adds labels. Setting \code{biome_labels = TRUE}
+  writes each biome's short abbreviation at its centroid in
+  the diagram.
 
   The points and labels are passed via an explicit \code{data =}
   argument with \code{inherit.aes = FALSE} to avoid a ggplot2
@@ -64,4 +85,10 @@ plot_biomes(
   source       = "Three Pacific-coast cities",
   label        = c("Honolulu", "Los Angeles", "Seattle")
 )
+
+# The color-vision-deficiency-safe palette
+plot_biomes(palette = "cvd")
+
+# Biomes labeled with their short abbreviations
+plot_biomes(biome_labels = TRUE)
 }

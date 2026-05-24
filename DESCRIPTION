@@ -1,7 +1,7 @@
 Package: whittakerr
 Type: Package
 Title: Whittaker Biome Classification and Mapping
-Version: 0.1.0
+Version: 0.2.0
 Authors@R:
     person(given = "Kim",
            family = "Bridges",
@@ -30,7 +30,9 @@ Imports:
     geodata,
     terra,
     sf,
-    smoothr
+    smoothr,
+    grDevices,
+    graphics
 Suggests:
     devtools,
     usethis,

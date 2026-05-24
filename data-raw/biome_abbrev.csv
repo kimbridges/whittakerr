@@ -1,0 +1,10 @@
+"biome","abbrev","label_temp","label_precp"
+"Tundra","Tundra",,
+"Boreal forest","BorealFst",,
+"Temperate seasonal forest","TmpSeasFst",,
+"Temperate rain forest","TmpRainFst",,
+"Tropical rain forest","TropRainFst",,
+"Tropical seasonal forest/savanna","TropSeasFst",,
+"Subtropical desert","SubTropDsrt",25,18
+"Temperate grassland/desert","TmpGrasDsrt",,
+"Woodland/shrubland","WoodShrblnd",14,65

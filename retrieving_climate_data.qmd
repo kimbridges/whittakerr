@@ -101,3 +101,154 @@ cities_result |>
 ```
 
 The three cities span a wide climate range. Honolulu is warm and moderately wet. Los Angeles is mild and dry. Seattle is cool and wet. These differences are exactly what the Whittaker diagram organizes, and later chapters place these same cities on it.
+
+## A finer resolution
+
+Every example so far has used the document's standard resolution of 2.5 arc-minutes. The `resolution` argument changes that. Its finest setting, 30 arc-seconds, resolves local climate features that the coarser grid averages away. The Scale chapter makes this argument in general; here is the retrieval that shows it on a single point.
+
+The point is on Oahu's Waianae coast, the island's dry leeward side. At 2.5 arc-minutes a single grid cell is roughly four and a half kilometers across, large enough to blend the dry coastal lowland with the wetter slopes of the Waianae Range just inland. Here is the climate at that point, at the standard resolution:
+
+```{r}
+#| label: leeward-coarse
+## a point on Oahu's dry leeward (Waianae) coast, at the default 2.5 arc-minute resolution
+leeward_coarse <- get_climate(lon = -158.17, lat = 21.45)
+## show the result
+leeward_coarse
+```
+
+Now the same coordinate at 30 arc-seconds. As the earlier section described, the 30-arcsecond data is distributed as tiles rather than one global grid, so the first call downloads the tile covering Oahu. Like the global grid, the tile is cached after the first fetch.
+
+```{r}
+#| label: leeward-fine
+## the same point at 30-arcsecond resolution
+leeward_fine <- get_climate(lon = -158.17, lat = 21.45, resolution = 0.5)
+## show the result
+leeward_fine
+```
+
+The two results are easier to read side by side. Label each one by its resolution, then stack them into a single table:
+
+```{r}
+#| label: leeward-comparison
+## label each result by its resolution
+coarse_labeled <- mutate(leeward_coarse, resolution = "2.5 arc-minutes")
+fine_labeled   <- mutate(leeward_fine,   resolution = "30 arc-seconds")
+
+## stack the two into one table
+leeward_compare <- bind_rows(coarse_labeled, fine_labeled)
+
+## display temperature and precipitation at the two resolutions
+leeward_compare |>
+  select(resolution, mat_c, map_cm) |>
+  gt() |>
+  tab_source_note("Climate values: WorldClim 2.1, 1970–2000 baseline.")
+```
+
+The finer grid should report the drier value. Its smaller cell isolates the leeward lowland, while the larger cell blends that lowland with wetter ground nearby. Whether the difference matters depends on the question being asked. For placing a city on the Whittaker diagram at continental scale, 2.5 arc-minutes is enough. For telling a dry pocket apart from its surroundings, 30 arc-seconds is the resolution that makes the pocket visible. The `resolution` argument is the single control over that tradeoff.
+
+## Future climate
+
+Every retrieval so far has returned the historical baseline, the WorldClim 1970–2000 average. The `scenario` argument also reaches projected future climate. Setting `scenario = "future"` switches the source from the WorldClim historical surfaces to a projection from CMIP6, the Coupled Model Intercomparison Project.
+
+A future projection is defined by three choices, and `get_climate()` exposes each as an argument. The `gcm` is the global climate model: a physics-based simulation of the atmosphere, ocean, and land. The `ssp` is the Shared Socioeconomic Pathway: a scenario for how population, economy, and emissions develop through the century. The `period` is the time window the projection averages over. The defaults used here are one mid-sensitivity model (MPI-ESM1-2-HR), the middle-of-the-road SSP2-4.5 pathway, and the 2041–2060 mid-century window.
+
+How the models and the pathways differ from one another is a substantial subject, well beyond the scope of this chapter. The model-comparison framework is described by Eyring et al. (2016) in *Geoscientific Model Development*; the socioeconomic pathways are described by Riahi et al. (2017) in *Global Environmental Change*. The IPCC Sixth Assessment Report (Working Group I, 2021) synthesizes both for a general scientific readership. A careful analysis usually retrieves several models and pathways rather than one, and treats the spread among them as a measure of the projection's uncertainty. The single default projection used here is enough to show the mechanics.
+
+Retrieve the future climate for the same three cities:
+
+```{r}
+#| label: cities-future
+## retrieve a future projection for the three cities
+## (defaults: model MPI-ESM1-2-HR, pathway SSP2-4.5, period 2041-2060)
+cities_future <- get_climate(lon = cities$lon, lat = cities$lat,
+                             scenario = "future")
+## show the result
+cities_future
+```
+
+The returned table carries three columns the historical results did not: `gcm`, `ssp`, and `period`, recording which projection produced the values. As with the historical grid, the CMIP6 data downloads on the first call and is cached afterward.
+
+Set the future values next to the historical ones, one row per city:
+
+```{r}
+#| label: cities-future-comparison
+## historical and future climate side by side
+climate_change <- tibble(
+  city              = cities$name,
+  temp_historical   = cities_climate$mat_c,
+  temp_future       = cities_future$mat_c,
+  precip_historical = cities_climate$map_cm,
+  precip_future     = cities_future$map_cm
+)
+
+## display the comparison, with a unit footnote on each set of
+## columns whose units are not carried in the column name
+climate_change |>
+  gt() |>
+  tab_footnote(
+    footnote  = "Degrees Celsius.",
+    locations = cells_column_labels(columns = c(temp_historical, temp_future))
+  ) |>
+  tab_footnote(
+    footnote  = "Centimeters.",
+    locations = cells_column_labels(columns = c(precip_historical, precip_future))
+  ) |>
+  tab_source_note(
+    "Historical: WorldClim 2.1, 1970–2000. Future: CMIP6, MPI-ESM1-2-HR, SSP2-4.5, 2041–2060.")
+```
+
+Each city's projected mid-century temperature is warmer than its 1970–2000 baseline. The size of the increase varies with the location, and would vary again with a different model or pathway. Precipitation changes are smaller and less consistent in direction: precipitation is the harder of the two variables to project, and a warming climate does not move every place the same way. The Whittaker diagram makes a shift like this easy to see. A warming city moves to the right along the temperature axis, and a later chapter uses exactly that motion to show how a place can move toward the edge of its biome.
+
+## A larger example: the botanical gardens
+
+The examples so far have used a few locations typed in by hand. `get_climate()` works just as well on a large set of coordinates read from a file. The whittakerr package includes a table of botanical garden locations, and this section uses the California gardens from it to retrieve climate at scale.
+
+The table ships with the package. Find it with `system.file()` and read it:
+
+```{r}
+#| label: gardens-read
+#| message: false
+## locate the botanical-gardens file bundled with whittakerr
+gardens_file <- system.file("extdata", "Bot_Garden_Geocode_CSV.csv",
+                            package = "whittakerr")
+
+## the gardens CSV is in Windows-1252, a legacy Windows
+## encoding; read_csv() assumes UTF-8 unless told otherwise
+gardens <- read_csv(gardens_file,
+                    locale = locale(encoding = "Windows-1252"))
+```
+
+Each row is one garden, with its name, city, state, and coordinates. Keep just the California gardens:
+
+```{r}
+#| label: gardens-california
+## keep only the California gardens
+ca_gardens <- filter(gardens, State == "CA")
+```
+
+The California subset holds `r nrow(ca_gardens)` gardens, enough that entering them by hand would be slow and error-prone. Retrieving climate for all of them is still a single call:
+
+```{r}
+#| label: gardens-climate
+## retrieve climate for every California garden in one call
+ca_climate <- get_climate(lon = ca_gardens$lon, lat = ca_gardens$lat)
+```
+
+The 2.5 arc-minute historical grid is already cached from the earlier examples, so this call downloads nothing. It is a few dozen cell lookups and returns at once. Combine the climate values with the garden names, using the same two-step pattern as the cities example:
+
+```{r}
+#| label: gardens-result
+## step 1: take just the climate columns
+garden_values <- select(ca_climate, mat_c, map_cm)
+
+## step 2: attach them to the garden names and cities
+ca_result <- bind_cols(select(ca_gardens, Name, City), garden_values)
+
+## show the first eight gardens
+ca_result |>
+  slice_head(n = 8) |>
+  gt() |>
+  tab_source_note("Climate values: WorldClim 2.1, 1970–2000 baseline.")
+```
+
+The full California set spans a wide climate range, from the cool, wet gardens of the far north coast to the hot, dry gardens of the southern deserts. That spread is the point. One `get_climate()` call has placed every garden on the same two climate axes, ready for the Whittaker diagram. The Basic Whittaker Diagrams chapter takes this same California result and plots all of the gardens together, and a later chapter uses them to ask which gardens sit closest to a biome boundary, and so face the most change as the climate shifts.
